@@ -6,12 +6,12 @@ base_path = "/scitrace-studio"
 
 # One table per application. Update "version" when a new release is published.
 [apps.graphs]
-version = "0.17.0"
+version = "0.18.0"
 release_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/releases/latest"
 releases_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/releases"
 issues_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/issues"
 
 [guides]
 # order of the SciTrace-Graphs guide pages (content/graphs/<name>.md); "index" is the guide's first page
-graphs = ["index", "install", "first-graph", "sheet", "editing", "analysis", "origin-tools", "working-tools", "matrices", "scripts",
+graphs = ["index", "install", "first-graph", "sheet", "editing", "analysis", "origin-tools", "working-tools", "statistics-gadgets", "matrices", "scripts",
           "migration", "export", "command-line", "faq"]
