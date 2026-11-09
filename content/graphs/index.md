@@ -16,6 +16,7 @@ matrices, Python scripts and the migration of Origin, SciDAVis and QtiPlot proje
 | change anything on a figure | [Editing graphs](editing/) |
 | fit curves, analyse peaks, run tests | [Fitting and analysis](analysis/) |
 | PCA, clusters, ROC, wavelets, ODR, read data from a picture | [Multivariate, wavelets and the digitizer](origin-tools/) |
+| use the Origin Apps (Tafel, logistic regression, Taylor and Venn diagrams…) | [Origin Apps](origin-apps/) |
 | work with grids, images and surfaces | [Matrices and surfaces](matrices/) |
 | automate with Python | [Scripts](scripts/) |
 | bring your Origin, SciDAVis or QtiPlot projects | [Coming from Origin, SciDAVis and QtiPlot](migration/) |

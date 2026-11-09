@@ -3,7 +3,8 @@
 **Graph → Origin graph types** has one entry for each graph type of Origin's *Basic 2D*,
 *Bar, Column*, *Pie, Doughnut*, *Area*, *Multi-axis, multi-panel* and *Statistical* chapters, under Origin's own
 names, and since 0.20 also the *Specialized*, *Financial*, *3D XYY*, *3D surfaces*, *3D symbol, bar, vector*,
-*Contour*, *Waterfall, grouped, image* and *Map* chapters — 153 types in all.
+*Contour*, *Waterfall, grouped, image* and *Map* chapters, and since 0.21 the graphing *Apps* of Origin — 176 types
+in all.
 
 To make one:
 
@@ -240,6 +241,37 @@ edited, and the helper sheets can be inspected or exported.
 | Pie Map | x, y, then two or more values (one pie per row) |
 | Bar Map | x, y, then one or more values (one bar group per row) |
 
+## Apps (0.21)
+
+The graphing Apps of Origin that draw a new kind of graph. The other Apps (Graph Maker, Batch Plotting, Common Bar
+Width, Layer Stack Manager, Color Editor, LaTeX) are tools in **Graph → Apps**; see [Origin Apps](../origin-apps/).
+
+| Graph type | Columns to select |
+|---|---|
+| Nyquist Plot (with Bode) | frequency, Z′ (real) and Z″ (imaginary) |
+| Polar Contour Profile | angle (°), radius and value |
+| Means Plot | one column per group |
+| Paired Comparison Plot | the two paired columns (before, after) |
+| Volcano Plot | log2 fold change, p-value and optionally a label column |
+| Rectangle and Ellipse Profile | x, y and z (a grid or scattered) |
+| Plot Sub Matrix | x, y and z on a grid |
+| Color Spectrum Plot | wavelength (nm) and intensity |
+| Chromaticity Diagram (CIE 1931) | x and y chromaticity, or X, Y, Z tristimulus |
+| Hansen Solubility Parameter Plot | δD, δP, δH, good (1) or bad (0), optional solvent name |
+| Ternary Contour Profile | A, B, C (fractions) and value |
+| Kernel Density (Ternary) | A, B and C |
+| Kernel Density (Polar) | angle (°) and radius |
+| Soil Texture Triangle (USDA) | sand, silt and clay (%) |
+| Sediment Classification (Folk) | sand, silt and clay (%) |
+| Taylor Diagram | reference (observations), then one column per model |
+| 3D Polar Strain Map | angle (°), radius and strain (a polar grid) |
+| 3D Wind Rose | direction (°) and speed |
+| Isosurface | x, y, z (a 3D grid) and the value |
+| 3D Wall Profile | x, y and z on a grid |
+| Zoomed Inset | x and one or more y |
+| Zoomed Inset Plus (two or three zooms) | x and one or more y |
+| Venn Diagram | two or three columns of items (one item per cell) |
+
 ## New drawing tools behind them
 
 - **Filled polygons:** a curve kind whose polygons are separated by empty rows, each with its own colour or with
@@ -248,6 +280,8 @@ edited, and the helper sheets can be inspected or exported.
 - **Colour-mapped line:** a line coloured by a third column.
 - **3D polygons, 3D segments, 3D vectors and flat 3D heat maps** (0.20): 3D bars, walls, error bars, vectors
   with a *w* column, and heat maps stacked at different heights.
+- **Lit 3D polygons and new colour maps** (0.21): isosurfaces are shaded by a light; the *visible_spectrum*
+  colour map and your own colour maps (Graph → Apps → Color editor) appear in every colour-map list.
 - **Extra axes:** in the series properties, *Y axis* can be the 2nd to 4th right axis, the 2nd or 3rd left axis
   (offset and coloured like the curve), or the top X axis (Double X).
 
