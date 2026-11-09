@@ -10,6 +10,8 @@
 | GROMACS `.xvg`, LAMMPS log | **File → Open data** |
 | Sound (.wav) | **File → Open data**: one column per channel |
 | SQLite database | **File → SQLite database…**: a table or a `SELECT` query (read-only) |
+| HDF5, NetCDF, MATLAB (.mat) | **File → HDF5, NetCDF or MATLAB file…** (or open/drop the file): variables as columns or as a matrix — see [Multivariate, wavelets and the digitizer](../origin-tools/) |
+| A picture of a graph | **Analysis → Digitizer…** reads the points back |
 | Several files into one table | **File → Several files into one table…**: side by side or stacked, with the file name as a column |
 | GitHub | **File → GitHub** (Ctrl+G): a repository, folder or file URL; private repositories with a `GITHUB_TOKEN` |
 | A matrix (grid of numbers) | **File → Matrix** or **Sheet → Matrix** |

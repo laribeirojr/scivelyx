@@ -13,7 +13,7 @@ same panel, the right y axis, a new panel below or a new graph, and they are sto
 | Parameters | Initial value, **lower and upper bounds**, fixed or free; *Estimate initial values* fills them from the data. |
 | Range | Only part of the x axis (also from the range selector on the graph). |
 | Weighting | None, instrumental (1/σ² from an error column), statistical (1/y), arbitrary dataset, direct weights. |
-| Algorithm | Levenberg–Marquardt (trust region when there are bounds) or Simplex (Nelder–Mead); iterations and tolerance. |
+| Algorithm | Levenberg–Marquardt (trust region when there are bounds), Simplex (Nelder–Mead) or **orthogonal distance regression** (ODR: errors in x and y); iterations and tolerance. |
 | Output | Fitted curve (with N points or at the x of the data), box with the parameters and R², residuals panel, **confidence and prediction bands** at the level you choose, errors scaled with √(χ²/dof), significant digits, **covariance matrix**, report written to the notes. |
 
 The report gives each parameter with its standard error, R², adjusted R², reduced χ² and RMSE. Everything the
@@ -48,6 +48,9 @@ a to b, normalize, translate a curve, subtract a line or a reference curve.
 - **Hypothesis tests**: t (one sample, two samples, paired), ANOVA, Shapiro–Wilk, Kolmogorov–Smirnov, Mann–Whitney,
   Wilcoxon, Kruskal–Wallis, Levene, chi-square for independence and for the variance — with the decision at your
   level α. **Two-way ANOVA** with interaction.
+
+Principal components, cluster analysis, ROC curves, kernel density, the spectrogram, wavelets and the
+digitizer have their own page: [Multivariate, wavelets and the digitizer](../origin-tools/).
 
 ## Recalculation and batches
 
