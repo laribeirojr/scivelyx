@@ -2,7 +2,7 @@
 
 ## General
 
-**Is SciPlot-Graphs a fork of SciDAVis or QtiPlot?**
+**Is SciTrace-Graphs a fork of SciDAVis or QtiPlot?**
 No. It is written from scratch on PySide6, Matplotlib, NumPy, pandas and SciPy, and reads and writes their file
 formats. No code from QtiPlot, SciDAVis or LabPlot is used.
 

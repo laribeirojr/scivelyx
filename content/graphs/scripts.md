@@ -47,9 +47,9 @@ plot("centers", "sample", "xc", kind="scatter", new=True)
 The same API works from the command line, for batch jobs and clusters:
 
 ```bash
-sciplot script analysis.py                                  # data created by the script itself
-sciplot script analysis.py --project project.splot.json     # on an existing project
-sciplot script analysis.py --project p.splot.json --save p2.splot.json
+scitrace script analysis.py                                  # data created by the script itself
+scitrace script analysis.py --project project.scitrace.json     # on an existing project
+scitrace script analysis.py --project p.scitrace.json --save p2.scitrace.json
 ```
 
 Scripts run with your own permissions, like any Python program, so run only scripts you trust.

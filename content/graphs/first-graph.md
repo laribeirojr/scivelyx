@@ -45,7 +45,7 @@ graph and are recalculated whenever the data change.
 
 Choose the journal size in **Format → Journal** (e.g. *Nature — 1 column (89 mm)*, *APS — 1 column*), then
 **File → Export** (Ctrl+E). PDF, SVG and EPS keep the text editable at the exact physical size; PNG and TIFF use the
-resolution you set. **File → Save** keeps everything — data, graphs, notes and scripts — in one `.splot.json`
+resolution you set. **File → Save** keeps everything — data, graphs, notes and scripts — in one `.scitrace.json`
 project.
 
 ## Try the examples

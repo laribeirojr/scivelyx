@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble the SciPlot-Suite website into ``_site/`` and check it.
+"""Assemble the SciTrace-Suite website into ``_site/`` and check it.
 
 The pages are static HTML in ``site/`` with a few shared fragments in ``site/_partials/``; the user guides are
 Markdown in ``content/`` and become pages with the same header, navigation and footer.  The build fails on a
@@ -11,7 +11,7 @@ JSON-LD, a third-party resource, or a page above the size budget.
 
 Environment (optional outside CI):
     SITE_ORIGIN     https://ribeirojr-gh.github.io
-    SITE_BASE_PATH  /SciPlot-Studio   (empty for a custom domain)
+    SITE_BASE_PATH  /scitrace-studio   (empty for a custom domain)
 """
 from __future__ import annotations
 
@@ -85,7 +85,7 @@ def nav_links(items) -> str:
     return "\n".join(f'          <a href="{href}">{html.escape(label)}</a>' for label, href in items)
 
 
-NAV_SUITE = [("Applications", "#apps"), ("SciPlot-Graphs", "graphs/"), ("Principles", "#principles"),
+NAV_SUITE = [("Applications", "#apps"), ("SciTrace-Graphs", "graphs/"), ("Principles", "#principles"),
              ("FAQ", "#faq"), ("Guides", "graphs/docs/")]
 NAV_GRAPHS = [("Editing", "#editing"), ("Analysis", "#analysis"), ("Migration", "#migration"),
               ("Scripts", "#scripts"), ("Gallery", "#gallery"), ("Download", "#download"), ("Guides", "docs/")]
@@ -130,7 +130,7 @@ def render_guide(g: dict, items: list, k: int) -> tuple[str, str]:
         href = f"{rel}graphs/docs/" + ("" if it["slug"] == "index" else f"{it['slug']}/")
         return f'<a class="text-link" href="{href}">{label}: {html.escape(it["title"])}</a>'
     page = fill(partial("doc"), {
-        **common_values(rel, url, f"{g['title']} — SciPlot-Graphs guide", desc,
+        **common_values(rel, url, f"{g['title']} — SciTrace-Graphs guide", desc,
                         nav_links([(lbl, f"{rel}graphs/{h}") for lbl, h in NAV_GRAPHS])),
         "DOC_NAV": doc_nav(items, g["slug"], rel), "DOC_BODY": body,
         "DOC_PAGER": link(prev_, "Previous") + link(next_, "Next")})
@@ -249,14 +249,14 @@ def build() -> int:
     shutil.copy2(ROOT / "LICENSE-MDraft.txt", OUT / "assets" / "LICENSE-MDraft.txt")
     pages: dict[str, str] = {}
     specs = [
-        ("index.html", "index.html", "./", "", "SciPlot-Suite — scientific software from the measurement to the paper",
-         "SciPlot-Suite: SciPlot-Graphs for publication figures and data analysis, with SciPlot-Math, SciPlot-DFT "
-         "and SciPlot-MD to come. Free of telemetry, reproducible, built for research.", NAV_SUITE),
+        ("index.html", "index.html", "./", "", "SciTrace-Suite — scientific software from the measurement to the paper",
+         "SciTrace-Suite: SciTrace-Graphs for publication figures and data analysis, with SciTrace-Math, SciTrace-DFT "
+         "and SciTrace-MD to come. Free of telemetry, reproducible, built for research.", NAV_SUITE),
         ("graphs/index.html", "graphs/index.html", "../", "graphs/",
-         "SciPlot-Graphs — scientific graphs and data analysis",
+         "SciTrace-Graphs — scientific graphs and data analysis",
          "Publication figures, curve fitting, peak analysis, statistics, matrices and Python scripts, with project "
          "migration from Origin, SciDAVis and QtiPlot. Windows, macOS and Linux.", NAV_GRAPHS),
-        ("404.html", "404.html", "{{ABS}}", "404.html", "Page not found — SciPlot-Suite",
+        ("404.html", "404.html", "{{ABS}}", "404.html", "Page not found — SciTrace-Suite",
          "This page does not exist.", NAV_SUITE),
     ]
     for src, dst, rel, url, title, desc, nav in specs:

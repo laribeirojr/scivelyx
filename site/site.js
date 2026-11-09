@@ -3,7 +3,7 @@
 
 (() => {
   const root = document.documentElement;
-  const storageKey = "sciplot-theme";
+  const storageKey = "scitrace-theme";
   const toggle = document.querySelector("[data-theme-toggle]");
   const media = window.matchMedia("(prefers-color-scheme: dark)");
 

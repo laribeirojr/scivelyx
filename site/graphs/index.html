@@ -9,7 +9,7 @@
           {
             "@type": "SoftwareApplication",
             "@id": "{{SITE_URL}}graphs/#app",
-            "name": "SciPlot-Graphs",
+            "name": "SciTrace-Graphs",
             "applicationCategory": "ScientificApplication",
             "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
             "description": "Scientific graphs and data analysis: editable publication figures, curve and peak fitting, statistics, matrices, Python scripts and migration of Origin, SciDAVis and QtiPlot projects.",
@@ -31,8 +31,8 @@
             "@type": "FAQPage",
             "@id": "{{SITE_URL}}graphs/#faq",
             "mainEntity": [
-              {"@type": "Question", "name": "Can SciPlot-Graphs open my Origin projects?",
-               "acceptedAnswer": {"@type": "Answer", "text": "Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and writes a file that SciPlot-Graphs opens, with a report of what was converted."}},
+              {"@type": "Question", "name": "Can SciTrace-Graphs open my Origin projects?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and writes a file that SciTrace-Graphs opens, with a report of what was converted."}},
               {"@type": "Question", "name": "Does it replace SciDAVis and QtiPlot?",
                "acceptedAnswer": {"@type": "Answer", "text": "It covers their menus and, since version 0.12, the options inside their dialogs, and it opens and saves their project files."}},
               {"@type": "Question", "name": "Which systems are supported?",
@@ -51,7 +51,7 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">SciPlot-Graphs · v{{GRAPHS_VERSION}} · Windows, macOS &amp; Linux</p>
+            <p class="eyebrow">SciTrace-Graphs · v{{GRAPHS_VERSION}} · Windows, macOS &amp; Linux</p>
             <h1 id="hero-title">Publication figures, from the data <span class="mark">to the paper.</span></h1>
             <p class="lead">
               Load your measurements or simulations, plot them, fit them and export the figure at the exact
@@ -74,7 +74,7 @@
                data-caption="An exponential fit with confidence and prediction bands and a live result box; the Analysis tab of the ribbon above."
                data-gallery="hero">
               <img src="../assets/img/fit-result.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
-                   alt="SciPlot-Graphs window with an exponential fit, confidence and prediction bands and a box with the fitted parameters." />
+                   alt="SciTrace-Graphs window with an exponential fit, confidence and prediction bands and a box with the fitted parameters." />
             </a>
             <span class="zoom-hint">Click the image to enlarge</span>
           </div>
@@ -121,7 +121,7 @@
                   <a class="shot" href="../assets/img/dark-theme.webp" data-full="../assets/img/dark-theme.webp"
                      data-caption="Dark theme with a 2D map and a 3D surface of the same energy landscape." data-gallery="editing">
                     <img src="../assets/img/dark-theme.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                         alt="SciPlot-Graphs in the dark theme with a contour map and a 3D surface." />
+                         alt="SciTrace-Graphs in the dark theme with a contour map and a 3D surface." />
                   </a>
                 </div>
                 <figcaption>Light and dark themes. <span class="zoom-hint">Click to enlarge</span></figcaption>
@@ -193,20 +193,20 @@
             <article class="durability-card">
               <span class="marker">QtiPlot</span>
               <h3>.qti, both ways.</h3>
-              <p>Projects from QtiPlot 0.7 to 0.9.8, compressed ones included; SciPlot also hands QtiPlot projects
+              <p>Projects from QtiPlot 0.7 to 0.9.8, compressed ones included; SciTrace also hands QtiPlot projects
                 on to SciDAVis.</p>
             </article>
             <article class="durability-card">
               <span class="marker">Origin</span>
               <h3>.opj and .opju, through Origin.</h3>
-              <p>A script run inside Origin reads the project; another rebuilds a SciPlot project inside Origin
+              <p>A script run inside Origin reads the project; another rebuilds a SciTrace project inside Origin
                 and saves .opju.</p>
             </article>
             <article class="durability-card">
               <span class="marker">Folders</span>
               <h3>A whole archive at once.</h3>
               <p>Migrate a folder of projects in one go, from the menu or with
-                <code>sciplot migrate</code>, with one report per project.</p>
+                <code>scitrace migrate</code>, with one report per project.</p>
             </article>
           </div>
           <div class="gallery-pair" style="margin-top: 30px">
@@ -223,9 +223,9 @@
             <figure>
               <div class="shot-frame">
                 <a class="shot" href="../assets/img/scidavis-project.webp" data-full="../assets/img/scidavis-project.webp"
-                   data-caption="The SciDAVis project opened in SciPlot-Graphs, with its double-y graph." data-gallery="migration">
+                   data-caption="The SciDAVis project opened in SciTrace-Graphs, with its double-y graph." data-gallery="migration">
                   <img src="../assets/img/scidavis-project.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                       alt="SciPlot-Graphs showing a graph with two y axes imported from a SciDAVis project." />
+                       alt="SciTrace-Graphs showing a graph with two y axes imported from a SciDAVis project." />
                 </a>
               </div>
               <figcaption>The same project, ready to edit. <span class="zoom-hint">Click to enlarge</span></figcaption>
@@ -252,7 +252,7 @@
                   <code>recalculate()</code>.</li>
                 <li><strong>The same formulas as SciDAVis and QtiPlot</strong> in column values, including the
                   muParser functions and <code>c ? a : b</code>.</li>
-                <li><strong>Command line:</strong> <code>sciplot script analysis.py --project p.splot.json</code>
+                <li><strong>Command line:</strong> <code>scitrace script analysis.py --project p.scitrace.json</code>
                   in batch jobs and on clusters.</li>
               </ul>
             </div>
@@ -323,7 +323,7 @@
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Download</p>
-            <h2 id="download-title">Download SciPlot-Graphs.</h2>
+            <h2 id="download-title">Download SciTrace-Graphs.</h2>
             <p class="lead">
               Version {{GRAPHS_VERSION}} for Windows, macOS and Linux. The release page carries the notes, the
               checksums and every file. During the testing phase it is open to invited testers.
@@ -362,7 +362,7 @@
             <li><strong>Not code-signed yet.</strong> Windows SmartScreen may warn once (More info → Run anyway);
               on macOS, Control-click the app → Open the first time. <a href="docs/install/">Installation guide</a>.</li>
             <li><strong>Checksums.</strong> Every release publishes <code>SHA256SUMS.txt</code>.</li>
-            <li><strong>Command line included.</strong> Every package also contains <code>sciplot</code>
+            <li><strong>Command line included.</strong> Every package also contains <code>scitrace</code>
               (render, quick, migrate, export-project, script).</li>
           </ul>
         </div>
@@ -377,9 +377,9 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Can SciPlot-Graphs open my Origin projects?</summary>
+              <summary>Can SciTrace-Graphs open my Origin projects?</summary>
               <p>Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and
-                writes a file that SciPlot-Graphs opens, with a report of what was converted. Reading .opj files
+                writes a file that SciTrace-Graphs opens, with a report of what was converted. Reading .opj files
                 without Origin is not offered yet.</p>
             </details>
             <details>
@@ -408,7 +408,7 @@
       <section class="final-cta" aria-labelledby="final-title">
         <div class="container">
           <p class="eyebrow eyebrow-center">Try it with your own data</p>
-          <h2 id="final-title">Make your next figure in SciPlot-Graphs.</h2>
+          <h2 id="final-title">Make your next figure in SciTrace-Graphs.</h2>
           <p>Editable publication figures, fitting and analysis for Windows, macOS and Linux.</p>
           <div class="actions actions-center">
             <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>

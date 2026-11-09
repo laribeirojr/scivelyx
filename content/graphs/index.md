@@ -1,10 +1,10 @@
-# SciPlot-Graphs guide
+# SciTrace-Graphs guide
 
-SciPlot-Graphs turns measured or simulated data into publication figures and analyses them: sheets with
+SciTrace-Graphs turns measured or simulated data into publication figures and analyses them: sheets with
 formulas, more than 35 graph types in which every element can be edited, curve and peak fitting, statistics,
 matrices, Python scripts and the migration of Origin, SciDAVis and QtiPlot projects.
 
-![SciPlot-Graphs main window]({{ROOT}}assets/img/main-window.webp){: width="1600" height="1000" loading="lazy" }
+![SciTrace-Graphs main window]({{ROOT}}assets/img/main-window.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Where to start
 

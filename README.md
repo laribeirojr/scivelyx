@@ -1,11 +1,10 @@
-# SciPlot-Studio — the SciPlot-Suite website
+# SciTrace-Studio — the SciTrace-Suite website
 
-Source of the website of the **SciPlot-Suite**: one site for every application of the suite —
-SciPlot-Graphs today; SciPlot-Math, SciPlot-DFT and SciPlot-MD later — with a page per application,
+Source of the website of the **SciTrace-Suite**: one site for every application of the suite —
+SciTrace-Graphs today; SciTrace-Math, SciTrace-DFT and SciTrace-MD later — with a page per application,
 downloads that point to each application's releases repository, the FAQ and the user guides.
 
-Published with GitHub Pages at **https://ribeirojr-gh.github.io/SciPlot-Studio/** once Pages is enabled
-(see below). The page is static: plain HTML, one stylesheet, a small script for the theme switch and the
+Published with GitHub Pages at **https://ribeirojr-gh.github.io/scitrace-studio/** (see “Publishing” below). The page is static: plain HTML, one stylesheet, a small script for the theme switch and the
 image viewer, no framework and no third-party request.
 
 ## Layout
@@ -13,13 +12,13 @@ image viewer, no framework and no third-party request.
 ```
 site/
   index.html              suite home page
-  graphs/index.html       SciPlot-Graphs page
+  graphs/index.html       SciTrace-Graphs page
   404.html
   _partials/              head, header, footer and the guide-page template (included at build time)
   styles.css, site.js     design adapted from the MDraft site (MIT, see LICENSE-MDraft.txt)
   assets/                 icons, Open Graph image, fonts (SIL OFL) and screenshots (WebP)
 content/
-  graphs/*.md             SciPlot-Graphs user guide (one page per file)
+  graphs/*.md             SciTrace-Graphs user guide (one page per file)
 site.toml                 site address, version and release links of each application, guide order
 scripts/build_site.py     builds _site/ and checks it
 .github/workflows/pages.yml   builds and publishes on every push to main
@@ -39,7 +38,7 @@ budget.
 
 ## Everyday changes
 
-- **New release of SciPlot-Graphs:** change `version` under `[apps.graphs]` in `site.toml`.
+- **New release of SciTrace-Graphs:** change `version` under `[apps.graphs]` in `site.toml`.
 - **Guide pages:** edit `content/graphs/*.md`; the order of the pages is `guides.graphs` in `site.toml`.
   Images in guides use `![alt]({{ROOT}}assets/img/file.webp){: width="W" height="H" loading="lazy" }`.
 - **New application:** add an `[apps.<name>]` table, a `site/<name>/index.html` page and its guide folder.
@@ -51,8 +50,11 @@ budget.
 2. Push to `main` (or Actions → Pages → Run workflow). The address appears in the run and under
    Settings → Pages.
 
-A Pages site is public even when the repository is private (GitHub Pro). The downloads it points to stay in
-the private `SciPlot-Graphs-releases` repository during the testing phase, so only invited testers can
+If the page shows this README instead of the site, the source is still “Deploy from a branch” (GitHub then renders the
+README with Jekyll): switch it to **GitHub Actions** and run the workflow again.
+
+The repository and the site are public. The downloads it points to stay in
+the private `scitrace-graphs-releases` repository during the testing phase, so only invited testers can
 download.
 
 ## Credits

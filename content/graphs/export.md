@@ -38,6 +38,6 @@ The pages are saved in the project.
 
 ## The project file
 
-**File → Save** writes one `.splot.json` with the graphs, the notes, the scripts, the layout pages, the column
+**File → Save** writes one `.scitrace.json` with the graphs, the notes, the scripts, the layout pages, the column
 formulas and designations and the data — embedded, or by reference with a SHA-256 checksum. Projects saved by
 earlier versions always open in later ones.
