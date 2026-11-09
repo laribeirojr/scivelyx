@@ -1,8 +1,9 @@
 # Origin graph types
 
-Version 0.19 added **Graph → Origin graph types**, with one entry for each graph type of Origin's *Basic 2D*,
+**Graph → Origin graph types** has one entry for each graph type of Origin's *Basic 2D*,
 *Bar, Column*, *Pie, Doughnut*, *Area*, *Multi-axis, multi-panel* and *Statistical* chapters, under Origin's own
-names. (The 3D, contour, specialized and financial chapters come in the next version.)
+names, and since 0.20 also the *Specialized*, *Financial*, *3D XYY*, *3D surfaces*, *3D symbol, bar, vector*,
+*Contour*, *Waterfall, grouped, image* and *Map* chapters — 153 types in all.
 
 To make one:
 
@@ -135,12 +136,118 @@ edited, and the helper sheets can be inspected or exported.
 | Grouped Scatter | x, y and group |
 | Grouped Pareto | group, category and value |
 
+## Specialized
+
+| Graph type | Columns to select |
+|---|---|
+| Bullet Chart | category, value, target, then 1 to 3 range limits |
+| Polar Contour + Gradient Vector | angle (degrees), radius and value |
+| Contour Line + Gradient Vector | x, y and z on a grid |
+| Piper (Trilinear) Diagram | Ca, Mg, Na+K, Cl, SO4, HCO3+CO3 (meq/L) |
+| Durov Diagram | Ca, Mg, Na+K, Cl, SO4, HCO3+CO3 (meq/L) |
+| Stiff Diagram | sample name, Na, Ca, Mg, Cl, HCO3, SO4 (optionally Fe, CO3) |
+| Polar Vector θrθr | start angle (°), start radius, end angle (°), end radius |
+| Polar Vector θRAM | angle (°), radius, direction (°), magnitude |
+| Compass Plot | x and y components (arrows from the centre) |
+| Radial Bar | category and value |
+| Radial Stacked Bar | category and two or more values |
+| Right-Triangle Ternary | A, B and C (any scale) |
+| Stacked Radial Plot | category and two or more values |
+| Ternary Vector | start A, B, C and end A, B, C |
+| Wind Rose (binned data) | direction (°), then one frequency column per speed class |
+| Wind Rose (raw data) | direction (°) and speed |
+| Window-view Browser Graph | x and y |
+
+## Financial
+
+| Graph type | Columns to select |
+|---|---|
+| Bridge (Waterfall) Chart | category and change |
+| Horizontal Bridge Chart | category and change |
+| Stacked Bridge Chart | category and two or more changes |
+| Stacked Bridge Chart with Total | category and two or more changes |
+| High-Low-Close | date/x, high, low, close |
+| OHLC-Volume | date/x, open, high, low, close, volume |
+| Line (stock) | date/x, close and optionally volume |
+
+## 3D XYY
+
+| Graph type | Columns to select |
+|---|---|
+| XYY 3D Bars | x (or categories) and one or more y columns |
+| 3D Side by Side Bars | x (or categories) and two or more y columns |
+| 3D Stacked Bars | x (or categories) and two or more y columns |
+| 3D 100% Stacked Bars | x (or categories) and two or more y columns |
+| 3D Bars with Error Bar | x, then pairs of y and its error |
+| 3D Wall | x and one or more y columns |
+| Stacked Wall | x and two or more y columns |
+| 100% Stacked Wall | x and two or more y columns |
+
+## 3D surfaces
+
+| Graph type | Columns to select |
+|---|---|
+| Color Fill Surface | x, y and z on a grid |
+| X and Y Constant with Base | x, y and z on a grid |
+| 3D Ternary Colormap Surface | A, B, C (fractions) and z |
+| Surface with Error Bar (color fill) | x, y, z and the error of z on a grid |
+| Surface with Error Bar (colormap) | x, y, z and the error of z on a grid |
+| Multiple Surfaces | x, y and two or more z columns on a grid |
+| 3D Stacked Surfaces | x, y and two or more z columns on a grid |
+| 3D Stacked Heatmaps | x, y and one or more value columns on a grid |
+
+## 3D symbol, bar, vector
+
+| Graph type | Columns to select |
+|---|---|
+| 3D Scatter with Z Error | x, y, z and the error of z |
+| 3D Bars with Categorical XY | x (text or numbers), y (text or numbers), z |
+| 3D Stacked Bars (XYZ) | x, y and two or more z columns |
+| 3D 100% Stacked Bars (XYZ) | x, y and two or more z columns |
+| 3D Floating Bars | x, y, z from and z to |
+| 3D Vector XYZ XYZ | start x, y, z and end x, y, z |
+| 3D Vector XYZ dXdYdZ | x, y, z and the components dx, dy, dz |
+
+## Contour
+
+| Graph type | Columns to select |
+|---|---|
+| Contour – Categorical Z | x, y and a text (category) column |
+| Polar Heatmap | angle (°), radius and value on a grid |
+| Split Heatmap | x, y (numbers or texts), value 1 (upper triangle), value 2 |
+| Heatmap with Split Tiles | x, y (numbers or texts) and 2 to 4 values |
+| Ternary Contour | A, B, C (fractions) and value |
+| Overlaid Contour | x, y and two z columns on a grid |
+| Ternary Overlaid Contour | A, B, C (fractions) and two values |
+
+## Waterfall, grouped, image
+
+| Graph type | Columns to select |
+|---|---|
+| Waterfall Color Mapped by Y | x and two or more y columns |
+| Waterfall Color Mapped by Z | x and two or more y columns (numeric names = z) |
+| 3D Waterfall | x and two or more y columns |
+| Grouped Column (by two factors) | factor A (groups), factor B (bars), value |
+| Grouped Box (by two factors) | factor A (groups), factor B (boxes), value |
+| Grouped Line + Symbol | x (or factor A), group, value |
+| Grouped Scatter (index by two factors) | factor A, factor B, value |
+| Image + Profiles | x, y and z on a grid |
+
+## Map
+
+| Graph type | Columns to select |
+|---|---|
+| Pie Map | x, y, then two or more values (one pie per row) |
+| Bar Map | x, y, then one or more values (one bar group per row) |
+
 ## New drawing tools behind them
 
 - **Filled polygons:** a curve kind whose polygons are separated by empty rows, each with its own colour or with
   a colour map. Kites, violins, Sankey links and chords use it.
 - **Line segments:** lines broken at empty rows, for rugs, before/after pairs and parallel plots.
 - **Colour-mapped line:** a line coloured by a third column.
+- **3D polygons, 3D segments, 3D vectors and flat 3D heat maps** (0.20): 3D bars, walls, error bars, vectors
+  with a *w* column, and heat maps stacked at different heights.
 - **Extra axes:** in the series properties, *Y axis* can be the 2nd to 4th right axis, the 2nd or 3rd left axis
   (offset and coloured like the curve), or the top X axis (Double X).
 
@@ -149,3 +256,13 @@ edited, and the helper sheets can be inspected or exported.
 ![Four Y axes]({{ROOT}}assets/img/four-axes.webp){: width="1600" height="1000" loading="lazy" }
 
 ![Ridgeline]({{ROOT}}assets/img/ridgeline.webp){: width="1600" height="1000" loading="lazy" }
+
+![Piper diagram]({{ROOT}}assets/img/piper.webp){: width="1600" height="1000" loading="lazy" }
+
+![Wind rose]({{ROOT}}assets/img/wind-rose.webp){: width="1600" height="1000" loading="lazy" }
+
+![Bridge chart]({{ROOT}}assets/img/bridge.webp){: width="1600" height="1000" loading="lazy" }
+
+![3D 100 % stacked bars]({{ROOT}}assets/img/bars3d.webp){: width="1600" height="1000" loading="lazy" }
+
+![Ternary contour]({{ROOT}}assets/img/ternary-contour.webp){: width="1600" height="1000" loading="lazy" }
