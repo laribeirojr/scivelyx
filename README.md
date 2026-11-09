@@ -21,6 +21,8 @@ content/
   graphs/*.md             SciTrace-Graphs user guide (one page per file)
 site.toml                 site address, version and release links of each application, guide order
 scripts/build_site.py     builds _site/ and checks it
+scripts/take_screenshots.py  screenshots of the program (needs the source repository)
+scripts/make_og.py        draws the Open Graph image site/assets/og.png
 .github/workflows/pages.yml   builds and publishes on every push to main
 ```
 
