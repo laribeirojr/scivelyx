@@ -13,9 +13,10 @@ No. The network is used only when you ask for it, for example to read data from 
 English, the program's only language.
 
 **Does it cover everything SciDAVis and QtiPlot do?**
-The menus of both and, since version 0.12, the options inside their fit, axis, curve and 3D dialogs. A few options
-are left out on purpose: 3D pies, logarithmic 3D axes, images as symbols, error bars drawn through hollow symbols
-and different scales on each side of an axis break.
+Yes. The menus of both and, since version 0.12, the options inside their fit, axis, curve and 3D dialogs. Version
+0.17 added the last 21 items, such as 3D pies, logarithmic 3D axes, pictures as symbols, a log scale after an axis
+break, the Plot wizard, Append project and custom script actions. See
+[Plot wizard, windows and presentations](../working-tools/).
 
 ## Installation
 

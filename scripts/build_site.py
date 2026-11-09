@@ -273,6 +273,11 @@ def build() -> int:
         (OUT / dst).parent.mkdir(parents=True, exist_ok=True)
         (OUT / dst).write_text(text, encoding="utf-8")
     (OUT / ".nojekyll").write_text("")
+    # read by Help → Search for updates in each application (a static file: nothing is sent by the program)
+    apps = CONFIG["apps"]
+    (OUT / "version.json").write_text(json.dumps(
+        {name: {"version": a["version"], "download": a["release_url"], "notes": a.get("releases_url", "")}
+         for name, a in apps.items()}, indent=1) + "\n", encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
     urls = [SITE_URL + d.removesuffix("index.html") for d in pages if d != "404.html"]
     (OUT / "sitemap.xml").write_text(
