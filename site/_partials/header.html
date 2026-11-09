@@ -1,0 +1,34 @@
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="{{ROOT}}" aria-label="SciPlot-Suite home">
+          <img src="{{ROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:34px;height:34px" alt="" />
+          <span>SciPlot-Suite</span>
+        </a>
+        <nav class="nav" aria-label="Sections">
+{{NAV}}
+        </nav>
+        <div class="header-actions">
+          <a class="btn btn-primary header-cta" href="{{GRAPHS_RELEASE_URL}}">Download <span class="version">v{{GRAPHS_VERSION}}</span></a>
+          <button
+            class="icon-button"
+            type="button"
+            data-theme-toggle
+            data-label-light="Switch to light theme"
+            data-label-dark="Switch to dark theme"
+            aria-label="Switch to dark theme"
+            aria-pressed="false"
+          >
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>

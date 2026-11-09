@@ -1,0 +1,17 @@
+# SciPlot-Suite website settings (read by scripts/build_site.py).
+
+[site]
+origin = "https://ribeirojr-gh.github.io"
+base_path = "/SciPlot-Studio"
+
+# One table per application. Update "version" when a new release is published.
+[apps.graphs]
+version = "0.14.0"
+release_url = "https://github.com/ribeirojr-gh/SciPlot-Graphs-releases/releases/latest"
+releases_url = "https://github.com/ribeirojr-gh/SciPlot-Graphs-releases/releases"
+issues_url = "https://github.com/ribeirojr-gh/SciPlot-Graphs-releases/issues"
+
+[guides]
+# order of the SciPlot-Graphs guide pages (content/graphs/<name>.md); "index" is the guide's first page
+graphs = ["index", "install", "first-graph", "sheet", "editing", "analysis", "matrices", "scripts",
+          "migration", "export", "command-line", "faq"]

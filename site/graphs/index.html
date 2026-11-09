@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{{> head}}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "{{SITE_URL}}graphs/#app",
+            "name": "SciPlot-Graphs",
+            "applicationCategory": "ScientificApplication",
+            "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
+            "description": "Scientific graphs and data analysis: editable publication figures, curve and peak fitting, statistics, matrices, Python scripts and migration of Origin, SciDAVis and QtiPlot projects.",
+            "softwareVersion": "{{GRAPHS_VERSION}}",
+            "url": "{{SITE_URL}}graphs/",
+            "downloadUrl": "{{GRAPHS_RELEASE_URL}}",
+            "screenshot": "{{SITE_URL}}assets/img/main-window.webp",
+            "featureList": [
+              "Editing of every figure element by double click",
+              "Non-linear curve fitting with bounds, weights, confidence and prediction bands",
+              "Peak Analyzer and global fits with shared parameters",
+              "Chained recalculation of analyses when the data change",
+              "Python script window and command line",
+              "Open and save SciDAVis and QtiPlot projects; Origin projects through Origin",
+              "Vector PDF, SVG and EPS at the exact size in millimetres"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "{{SITE_URL}}graphs/#faq",
+            "mainEntity": [
+              {"@type": "Question", "name": "Can SciPlot-Graphs open my Origin projects?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and writes a file that SciPlot-Graphs opens, with a report of what was converted."}},
+              {"@type": "Question", "name": "Does it replace SciDAVis and QtiPlot?",
+               "acceptedAnswer": {"@type": "Answer", "text": "It covers their menus and, since version 0.12, the options inside their dialogs, and it opens and saves their project files."}},
+              {"@type": "Question", "name": "Which systems are supported?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 and 11 (64-bit), macOS 11 or later on Apple silicon and Intel, and Linux x86_64."}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SciPlot-Graphs · v{{GRAPHS_VERSION}} · Windows, macOS &amp; Linux</p>
+            <h1 id="hero-title">Publication figures, from the data <span class="mark">to the paper.</span></h1>
+            <p class="lead">
+              Load your measurements or simulations, plot them, fit them and export the figure at the exact
+              size of the journal column. Every title, axis, curve and legend opens its properties with a
+              double click — the way Origin, SciDAVis and QtiPlot taught us to work.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
+              <a class="btn btn-ghost" href="docs/first-graph/">Your first graph</a>
+            </div>
+            <p class="fineprint">Testing phase: downloads for invited testers. No account, no telemetry.</p>
+            <div class="chips" aria-label="At a glance">
+              <span class="chip"><strong>35+</strong> graph types</span>
+              <span class="chip"><strong>30+</strong> fit models</span>
+              <span class="chip"><strong>345</strong> automated tests</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <a class="shot hero-shot" href="../assets/img/fit-result.webp" data-full="../assets/img/fit-result.webp"
+               data-caption="An exponential fit with confidence and prediction bands and a live result box; the Analysis tab of the ribbon above."
+               data-gallery="hero">
+              <img src="../assets/img/fit-result.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="SciPlot-Graphs window with an exponential fit, confidence and prediction bands and a box with the fitted parameters." />
+            </a>
+            <span class="zoom-hint">Click the image to enlarge</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="editing" class="section" aria-labelledby="editing-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Editing</p>
+            <h2 id="editing-title">Click anything on the figure to change it.</h2>
+            <p class="lead">
+              A test in the program guarantees that every visible part of every example figure is linked to an
+              editable element — nothing is “just drawn”.
+            </p>
+          </div>
+          <div class="feature-split">
+            <div class="feature-copy">
+              <ul class="feature-list">
+                <li><strong>Axes in full.</strong> Linear, log, symlog and other scales; ticks by step, count or
+                  explicit positions with labels (Γ, X, M…); prefix, suffix, formula, dates and month names;
+                  breaks and secondary axes with unit conversion.</li>
+                <li><strong>Text that reads like a paper.</strong> A symbol palette, Greek letters, sub- and
+                  superscripts, partial bold and italic, and Latin Modern, the font of LaTeX papers.</li>
+                <li><strong>Curves and maps.</strong> Lines, symbols, error bars and bands, fills, data labels,
+                  colour maps, contours and 3D styles — down to the cap of a dash.</li>
+                <li><strong>Themes and templates.</strong> Copy a format from one curve to another, save a theme
+                  and apply it to every figure of a thesis.</li>
+              </ul>
+            </div>
+            <div class="gallery-pair">
+              <figure>
+                <div class="shot-frame">
+                  <a class="shot" href="../assets/img/axis-dialog.webp" data-full="../assets/img/axis-dialog.webp"
+                     data-caption="The tick-label tab of the axis dialog: format, prefix, suffix, formula, text from a table, dates." data-gallery="editing">
+                    <img src="../assets/img/axis-dialog.webp" width="835" height="900" loading="lazy" decoding="async"
+                         alt="Axis properties dialog with the tick labels tab open." />
+                  </a>
+                </div>
+                <figcaption>The axis dialog. <span class="zoom-hint">Click to enlarge</span></figcaption>
+              </figure>
+              <figure>
+                <div class="shot-frame">
+                  <a class="shot" href="../assets/img/dark-theme.webp" data-full="../assets/img/dark-theme.webp"
+                     data-caption="Dark theme with a 2D map and a 3D surface of the same energy landscape." data-gallery="editing">
+                    <img src="../assets/img/dark-theme.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                         alt="SciPlot-Graphs in the dark theme with a contour map and a 3D surface." />
+                  </a>
+                </div>
+                <figcaption>Light and dark themes. <span class="zoom-hint">Click to enlarge</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analysis" class="section" aria-labelledby="analysis-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Analysis</p>
+            <h2 id="analysis-title">Fit, find peaks, test — and keep it live.</h2>
+            <p class="lead">
+              Analyses remember how they were made. Change a value in the sheet and the fits, peak tables,
+              filtered signals and result boxes that depend on it are redone in a chain.
+            </p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span class="num">01</span>
+              <h3>Curve fitting</h3>
+              <p>Built-in models, your own formula or a saved library; bounds, weights, Levenberg–Marquardt or
+                Simplex; confidence and prediction bands; global fits with shared parameters.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">02</span>
+              <h3>Peak Analyzer</h3>
+              <p>Baseline, detection, Gauss, Lorentz, Voigt or pseudo-Voigt fits and a table of center,
+                height, FWHM and area with uncertainties.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">03</span>
+              <h3>Signals and statistics</h3>
+              <p>Smoothing, filters, FFT, correlation, deconvolution, integrals; descriptive statistics,
+                distribution fits, hypothesis tests and two-way ANOVA.</p>
+            </div>
+          </div>
+          <figure class="wide-shot">
+            <a class="shot" href="../assets/img/peak-analyzer.webp" data-full="../assets/img/peak-analyzer.webp"
+               data-caption="The Peak Analyzer on an X-ray diffractogram: baseline, four Gaussian peaks and the report with uncertainties."
+               data-gallery="analysis">
+              <img src="../assets/img/peak-analyzer.webp" width="1240" height="760" loading="lazy" decoding="async"
+                   alt="Peak Analyzer dialog with an X-ray diffraction pattern, four fitted peaks, residuals and a peak report." />
+            </a>
+            <figcaption>The Peak Analyzer on a diffractogram. <span class="zoom-hint">Click the image to enlarge</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="migration" class="section" aria-labelledby="migration-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Migration</p>
+            <h2 id="migration-title">Bring your Origin, SciDAVis and QtiPlot projects.</h2>
+            <p class="lead">
+              Years of finished work should not stay behind. Every import and export comes with a report: what
+              came across exactly, what approximately, and what was left out — always with the reason.
+            </p>
+          </div>
+          <div class="durability-grid">
+            <article class="durability-card">
+              <span class="marker">SciDAVis</span>
+              <h3>.sciprj, both ways.</h3>
+              <p>Sheets, matrices, notes, folders, 2D and 3D graphs, formulas and fit curves — checked against
+                SciDAVis 2.9.2 itself.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">QtiPlot</span>
+              <h3>.qti, both ways.</h3>
+              <p>Projects from QtiPlot 0.7 to 0.9.8, compressed ones included; SciPlot also hands QtiPlot projects
+                on to SciDAVis.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">Origin</span>
+              <h3>.opj and .opju, through Origin.</h3>
+              <p>A script run inside Origin reads the project; another rebuilds a SciPlot project inside Origin
+                and saves .opju.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">Folders</span>
+              <h3>A whole archive at once.</h3>
+              <p>Migrate a folder of projects in one go, from the menu or with
+                <code>sciplot migrate</code>, with one report per project.</p>
+            </article>
+          </div>
+          <div class="gallery-pair" style="margin-top: 30px">
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="../assets/img/migration-report.webp" data-full="../assets/img/migration-report.webp"
+                   data-caption="The migration report of a SciDAVis project." data-gallery="migration">
+                  <img src="../assets/img/migration-report.webp" width="980" height="260" loading="lazy" decoding="async"
+                       alt="Migration report listing the sheet, curves and graph imported exactly from a SciDAVis project." />
+                </a>
+              </div>
+              <figcaption>The report of every import. <span class="zoom-hint">Click to enlarge</span></figcaption>
+            </figure>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="../assets/img/scidavis-project.webp" data-full="../assets/img/scidavis-project.webp"
+                   data-caption="The SciDAVis project opened in SciPlot-Graphs, with its double-y graph." data-gallery="migration">
+                  <img src="../assets/img/scidavis-project.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciPlot-Graphs showing a graph with two y axes imported from a SciDAVis project." />
+                </a>
+              </div>
+              <figcaption>The same project, ready to edit. <span class="zoom-hint">Click to enlarge</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="scripts" class="section" aria-labelledby="scripts-title">
+        <div class="container">
+          <div class="feature-split reverse">
+            <div class="feature-copy">
+              <p class="eyebrow">Scripts</p>
+              <h2 id="scripts-title">Python when clicking is not enough.</h2>
+              <p class="lead">
+                A script window with a console reaches the tables, matrices, fits and graphs of the open project.
+                Scripts are saved in the project and also run without the window.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Run a line, a selection or everything</strong> (Ctrl+J, Ctrl+Shift+J); Ctrl+Enter
+                  evaluates and writes the value below.</li>
+                <li><strong>A small, clear API:</strong> <code>table()</code>, <code>new_table()</code>,
+                  <code>matrix()</code>, <code>fit()</code>, <code>plot()</code>, <code>export()</code>,
+                  <code>recalculate()</code>.</li>
+                <li><strong>The same formulas as SciDAVis and QtiPlot</strong> in column values, including the
+                  muParser functions and <code>c ? a : b</code>.</li>
+                <li><strong>Command line:</strong> <code>sciplot script analysis.py --project p.splot.json</code>
+                  in batch jobs and on clusters.</li>
+              </ul>
+            </div>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="../assets/img/script-window.webp" data-full="../assets/img/script-window.webp"
+                   data-caption="A script that fits a peak, stores the parameters in a table, plots and exports the graph."
+                   data-gallery="scripts">
+                  <img src="../assets/img/script-window.webp" width="1000" height="640" loading="lazy" decoding="async"
+                       alt="Script window with a Python script calling fit, new_table, plot and export, and the fit report in the console." />
+                </a>
+              </div>
+              <figcaption>A script and its console. <span class="zoom-hint">Click to enlarge</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Gallery</p>
+            <h2 id="gallery-title">From band structures to Smith charts.</h2>
+            <p class="lead">
+              The examples that ship with the program, exported at their final size. Each one opens in the
+              program fully editable.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <figure><a class="shot" href="../assets/img/gallery/bands.webp" data-full="../assets/img/gallery/bands.webp" data-caption="Tight-binding bands along Γ–X–M–Γ with custom tick labels." data-gallery="gallery"><img src="../assets/img/gallery/bands.webp" width="674" height="511" loading="lazy" decoding="async" alt="Band structure along Gamma, X, M with the Fermi level." /></a><figcaption>Band structure</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/spectrum-dos.webp" data-full="../assets/img/gallery/spectrum-dos.webp" data-caption="A diffractogram with model and a density of states in two panels." data-gallery="gallery"><img src="../assets/img/gallery/spectrum-dos.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Two panels: an X-ray diffraction pattern with model and a density of states." /></a><figcaption>Spectrum and DOS</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/energy-surface.webp" data-full="../assets/img/gallery/energy-surface.webp" data-caption="An energy landscape as a filled contour and as a 3D surface." data-gallery="gallery"><img src="../assets/img/gallery/energy-surface.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Filled contour map and 3D surface of the same energy landscape." /></a><figcaption>2D map and 3D surface</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/md-thermo.webp" data-full="../assets/img/gallery/md-thermo.webp" data-caption="Temperature and potential energy of a molecular-dynamics run on two y axes." data-gallery="gallery"><img src="../assets/img/gallery/md-thermo.webp" width="650" height="472" loading="lazy" decoding="async" alt="Molecular dynamics temperature and potential energy on a double y axis." /></a><figcaption>Double y axis</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/pair-potentials.webp" data-full="../assets/img/gallery/pair-potentials.webp" data-caption="Analytic pair potentials." data-gallery="gallery"><img src="../assets/img/gallery/pair-potentials.webp" width="700" height="511" loading="lazy" decoding="async" alt="Lennard-Jones and Morse pair potentials." /></a><figcaption>Pair potentials</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/histogram-violin.webp" data-full="../assets/img/gallery/histogram-violin.webp" data-caption="A histogram with a density curve and violin plots." data-gallery="gallery"><img src="../assets/img/gallery/histogram-violin.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Histogram and violin plots of synthetic samples." /></a><figcaption>Histogram and violins</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/vector-polar.webp" data-full="../assets/img/gallery/vector-polar.webp" data-caption="A vector field and a polar plot." data-gallery="gallery"><img src="../assets/img/gallery/vector-polar.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Vector field and a polar plot side by side." /></a><figcaption>Vectors and polar</figcaption></figure>
+            <figure><a class="shot" href="../assets/img/gallery/ternary-smith.webp" data-full="../assets/img/gallery/ternary-smith.webp" data-caption="A ternary diagram and a Smith chart." data-gallery="gallery"><img src="../assets/img/gallery/ternary-smith.webp" width="1100" height="530" loading="lazy" decoding="async" alt="Ternary composition diagram and Smith chart." /></a><figcaption>Ternary and Smith chart</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="publish" class="section" aria-labelledby="publish-title">
+        <div class="container export-band">
+          <div>
+            <p class="eyebrow">Publication</p>
+            <h2 id="publish-title">Exactly the size the journal asks for.</h2>
+            <p class="lead">
+              Set the width in millimetres, the font size and the journal preset; export vector files with
+              editable text, or images at the resolution you need. The project keeps data, graphs, notes and
+              scripts, and a generated Python script redraws the figure pixel for pixel.
+            </p>
+            <a class="text-link" href="docs/export/">Read the export guide</a>
+          </div>
+          <ul class="format-chips" aria-label="Export formats">
+            <li>PDF<small>vector, exact size</small></li>
+            <li>SVG<small>vector</small></li>
+            <li>EPS<small>vector</small></li>
+            <li>PNG<small>any DPI</small></li>
+            <li>TIFF<small>LZW</small></li>
+            <li>Layout page<small>several graphs</small></li>
+            <li>.sciprj / .qti<small>SciDAVis, QtiPlot</small></li>
+            <li>Python<small>reproducible script</small></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="download" class="section panel-dark download-section" aria-labelledby="download-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Download</p>
+            <h2 id="download-title">Download SciPlot-Graphs.</h2>
+            <p class="lead">
+              Version {{GRAPHS_VERSION}} for Windows, macOS and Linux. The release page carries the notes, the
+              checksums and every file. During the testing phase it is open to invited testers.
+            </p>
+          </div>
+          <div class="download-grid three">
+            <article class="platform-card">
+              <h3>Windows</h3>
+              <p>Installer without administrator rights, or a portable zip. Windows 10 and 11, 64-bit.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download for Windows</a>
+              <ul class="artifact-list">
+                <li><code>…-windows-x64-setup.exe</code></li>
+                <li><code>…-windows-x64-portable.zip</code></li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>macOS</h3>
+              <p>Disk image: drag the app to Applications. macOS 11 or later.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download for macOS</a>
+              <ul class="artifact-list">
+                <li><code>…-macos-arm64.dmg</code> (Apple silicon)</li>
+                <li><code>…-macos-x86_64.dmg</code> (Intel)</li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>Linux</h3>
+              <p>One AppImage that runs on most distributions, or a plain folder. x86_64.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download for Linux</a>
+              <ul class="artifact-list">
+                <li><code>…-linux-x86_64.AppImage</code></li>
+                <li><code>…-linux-x86_64.tar.gz</code></li>
+              </ul>
+            </article>
+          </div>
+          <ul class="download-notes">
+            <li><strong>Not code-signed yet.</strong> Windows SmartScreen may warn once (More info → Run anyway);
+              on macOS, Control-click the app → Open the first time. <a href="docs/install/">Installation guide</a>.</li>
+            <li><strong>Checksums.</strong> Every release publishes <code>SHA256SUMS.txt</code>.</li>
+            <li><strong>Command line included.</strong> Every package also contains <code>sciplot</code>
+              (render, quick, migrate, export-project, script).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Questions, answered plainly.</h2>
+            <p class="lead">More in the <a href="docs/faq/">FAQ of the guide</a>.</p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Can SciPlot-Graphs open my Origin projects?</summary>
+              <p>Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and
+                writes a file that SciPlot-Graphs opens, with a report of what was converted. Reading .opj files
+                without Origin is not offered yet.</p>
+            </details>
+            <details>
+              <summary>Does it replace SciDAVis and QtiPlot?</summary>
+              <p>It covers their menus and, since version 0.12, the options inside their dialogs, and it opens and
+                saves their project files. The few options left out on purpose are listed in the guide.</p>
+            </details>
+            <details>
+              <summary>What does a figure look like in the paper?</summary>
+              <p>Exactly as on screen: the figure is defined in millimetres and points, and PDF, SVG and EPS keep
+                the text editable with the fonts embedded.</p>
+            </details>
+            <details>
+              <summary>Where do my data go?</summary>
+              <p>Into your project file (embedded, or by reference with a checksum). The program does not upload
+                anything and works offline.</p>
+            </details>
+            <details>
+              <summary>Which language is the interface in?</summary>
+              <p>English, the program's only language.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="container">
+          <p class="eyebrow eyebrow-center">Try it with your own data</p>
+          <h2 id="final-title">Make your next figure in SciPlot-Graphs.</h2>
+          <p>Editable publication figures, fitting and analysis for Windows, macOS and Linux.</p>
+          <div class="actions actions-center">
+            <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
+            <a class="btn btn-ghost" href="docs/">Read the guide</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+  </body>
+</html>

@@ -1,0 +1,60 @@
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="footer-brand" href="{{ROOT}}">
+              <img src="{{ROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:30px;height:30px" alt="" />
+              <span>SciPlot-Suite</span>
+            </a>
+            <p class="footer-about">
+              Scientific software for research: graphs and data analysis today; symbolic mathematics, DFT and
+              molecular dynamics interfaces next.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Applications</h3>
+            <ul>
+              <li><a href="{{ROOT}}graphs/">SciPlot-Graphs</a></li>
+              <li><a href="{{ROOT}}#apps">SciPlot-Math</a></li>
+              <li><a href="{{ROOT}}#apps">SciPlot-DFT</a></li>
+              <li><a href="{{ROOT}}#apps">SciPlot-MD</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Guides</h3>
+            <ul>
+              <li><a href="{{ROOT}}graphs/docs/install/">Installation</a></li>
+              <li><a href="{{ROOT}}graphs/docs/first-graph/">Your first graph</a></li>
+              <li><a href="{{ROOT}}graphs/docs/analysis/">Fitting and analysis</a></li>
+              <li><a href="{{ROOT}}graphs/docs/migration/">Coming from Origin, SciDAVis, QtiPlot</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Project</h3>
+            <ul>
+              <li><a href="{{GRAPHS_RELEASES_URL}}">All releases</a></li>
+              <li><a href="{{GRAPHS_ISSUES_URL}}">Report a problem</a></li>
+              <li><a href="{{ROOT}}assets/fonts/eb-garamond-OFL.txt">Font licences</a></li>
+              <li><a href="{{ROOT}}assets/LICENSE-MDraft.txt">Site design credits</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© {{YEAR}} SciPlot-Suite. Typefaces under the SIL Open Font License. Site design adapted from
+            <a href="https://bgeneto.github.io/MDraft/">MDraft</a> (MIT).</p>
+          <p>This page sets no cookies and loads nothing from third parties.</p>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Close image">×</button>
+        <button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Previous image" hidden>‹</button>
+        <img data-lightbox-image alt="" />
+        <button class="lightbox-next" type="button" data-lightbox-next aria-label="Next image" hidden>›</button>
+        <p class="lightbox-caption" id="lightbox-caption" data-lightbox-caption></p>
+      </div>
+    </dialog>
+
+    <script src="{{ROOT}}site.js" defer></script>

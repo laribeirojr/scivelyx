@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{{> head}}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "{{SITE_URL}}#site",
+            "url": "{{SITE_URL}}",
+            "name": "SciPlot-Suite",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "{{SITE_URL}}graphs/#app",
+            "name": "SciPlot-Graphs",
+            "applicationCategory": "ScientificApplication",
+            "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
+            "softwareVersion": "{{GRAPHS_VERSION}}",
+            "url": "{{SITE_URL}}graphs/",
+            "downloadUrl": "{{GRAPHS_RELEASE_URL}}",
+            "screenshot": "{{SITE_URL}}assets/img/main-window.webp"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SciPlot-Suite · Windows, macOS &amp; Linux</p>
+            <h1 id="hero-title">Scientific software, from the measurement <span class="mark">to the paper.</span></h1>
+            <p class="lead">
+              A family of desktop applications for research. It starts with <strong>SciPlot-Graphs</strong> —
+              publication figures and data analysis in the tradition of Origin, SciDAVis and QtiPlot — and grows
+              into symbolic mathematics and interfaces for DFT and molecular-dynamics codes.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="graphs/">Discover SciPlot-Graphs</a>
+              <a class="btn btn-ghost" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
+            </div>
+            <p class="fineprint">
+              Testing phase: the downloads are open to invited testers. No account, no telemetry.
+            </p>
+            <div class="chips" aria-label="At a glance">
+              <span class="chip"><strong>1</strong> application available</span>
+              <span class="chip"><strong>3</strong> on the way</span>
+              <span class="chip"><strong>3</strong> operating systems</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <a class="shot hero-shot" href="assets/img/main-window.webp" data-full="assets/img/main-window.webp"
+               data-caption="SciPlot-Graphs: project explorer, graph and the properties of every element of the figure."
+               data-gallery="hero">
+              <img src="assets/img/main-window.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="SciPlot-Graphs main window with a band-structure graph, the project explorer and the properties panel." />
+            </a>
+            <span class="zoom-hint">Click the image to enlarge</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps" class="section" aria-labelledby="apps-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Applications</p>
+            <h2 id="apps-title">One suite, one way of working.</h2>
+            <p class="lead">
+              The applications share the same project files, sheets, editable graphs and export, so a result
+              computed in one is a figure in the other without copying numbers by hand.
+            </p>
+          </div>
+          <div class="app-grid">
+            <article class="app-card featured">
+              <span class="status live">Available · v{{GRAPHS_VERSION}}</span>
+              <h3>SciPlot-Graphs</h3>
+              <p>
+                Graphs and data analysis: editable publication figures, curve and peak fitting, statistics,
+                matrices, Python scripts, and migration of Origin, SciDAVis and QtiPlot projects.
+              </p>
+              <div class="actions">
+                <a class="btn btn-primary" href="graphs/">Learn more</a>
+                <a class="btn btn-ghost" href="graphs/docs/">Guide</a>
+              </div>
+            </article>
+            <article class="app-card">
+              <span class="status">Planned</span>
+              <h3>SciPlot-Math</h3>
+              <p>
+                Symbolic mathematics in notebooks: algebra, calculus, equations, series and matrices with
+                typeset output, interactive parameters and graphs straight into SciPlot.
+              </p>
+            </article>
+            <article class="app-card">
+              <span class="status">Planned</span>
+              <h3>SciPlot-DFT</h3>
+              <p>
+                Input and output for SIESTA, Quantum ESPRESSO, VASP, CASTEP and FHI-aims: validated inputs,
+                convergence, band structures, densities of states, charges and phonons.
+              </p>
+            </article>
+            <article class="app-card">
+              <span class="status">Planned</span>
+              <h3>SciPlot-MD</h3>
+              <p>
+                LAMMPS, GROMACS and NAMD trajectories, materials and biomolecules: visualization, RDF, MSD,
+                diffusion, clusters and structural analysis, with results as editable sheets and graphs.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="graphs" class="section panel-dark ai-section" aria-labelledby="graphs-title">
+        <div class="container">
+          <div class="ai-grid landscape">
+            <div>
+              <p class="eyebrow">SciPlot-Graphs</p>
+              <h2 id="graphs-title">Every element of the figure is editable.</h2>
+              <p class="lead">
+                Double-click a title, an axis, a curve or a legend and its properties open. Fit the data,
+                analyse the peaks, and export the figure at the exact size the journal asks for.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Origin-style workflow.</strong> Sheets with column designations, formulas and units;
+                  graphs that follow them; a ribbon and menus you already know.</li>
+                <li><strong>Analysis that stays live.</strong> Fits, peaks and signal operations are redone when
+                  the data change, including the result boxes on the graph.</li>
+                <li><strong>Bring your projects.</strong> SciDAVis and QtiPlot projects open directly; Origin
+                  projects come through Origin itself, with a report of everything converted.</li>
+                <li><strong>Reproducible.</strong> One project file keeps data, graphs, notes and scripts; a
+                  generated Python script redraws the figure pixel for pixel.</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="graphs/">Tour SciPlot-Graphs</a>
+              </div>
+            </div>
+            <figure class="ai-palette">
+              <a class="shot" href="assets/img/fit-wizard.webp" data-full="assets/img/fit-wizard.webp"
+                 data-caption="The fit wizard: model, weighting, bounds, iterations and tolerance, with confidence and prediction bands and the residuals."
+                 data-gallery="graphs">
+                <img src="assets/img/fit-wizard.webp" width="1260" height="820" loading="lazy" decoding="async"
+                     alt="SciPlot-Graphs fit wizard fitting an exponential decay, with parameter table, bands and residuals." />
+              </a>
+              <figcaption>The fit wizard, with bounds, bands and residuals. <span class="zoom-hint">Click to enlarge</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="principles" class="section" aria-labelledby="principles-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Principles</p>
+            <h2 id="principles-title">Built for research, not for accounts.</h2>
+            <p class="lead">
+              The applications run on your computer and keep your data in your files. Nothing is sent anywhere
+              unless you ask for it — loading a data file from GitHub, for example.
+            </p>
+          </div>
+          <div class="quiet-grid">
+            <div class="quiet-card"><strong>0</strong><span>accounts, logins or activation</span></div>
+            <div class="quiet-card"><strong>0</strong><span>telemetry or usage reporting</span></div>
+            <div class="quiet-card"><strong>1</strong><span>project file with data, graphs, notes and scripts</span></div>
+            <div class="quiet-card"><strong>100%</strong><span>of each figure reproducible from its project</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Questions, answered plainly.</h2>
+            <p class="lead">
+              Something missing? Open an issue in the downloads repository; the guides cover each part of
+              SciPlot-Graphs in detail.
+            </p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Who can download the applications now?</summary>
+              <p>
+                SciPlot-Graphs is in a testing phase: the downloads repository is private and open to invited
+                testers. Ask the author for access; a public release follows the testing phase.
+              </p>
+            </details>
+            <details>
+              <summary>Which systems are supported?</summary>
+              <p>
+                Windows 10 and 11 (64-bit), macOS 11 or later on Apple silicon and on Intel, and Linux x86_64
+                (AppImage or a plain folder).
+              </p>
+            </details>
+            <details>
+              <summary>When do SciPlot-Math, SciPlot-DFT and SciPlot-MD arrive?</summary>
+              <p>
+                After SciPlot-Graphs reaches version 1.0 and gains its AI assistant. They will share its
+                project files, sheets and graphs.
+              </p>
+            </details>
+            <details>
+              <summary>Do the applications need an internet connection?</summary>
+              <p>
+                No. They work offline. The network is used only for an action you take, such as reading data
+                from a GitHub repository.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="container">
+          <p class="eyebrow eyebrow-center">Start with your next figure</p>
+          <h2 id="final-title">Make your next figure in SciPlot-Graphs.</h2>
+          <p>Publication figures and data analysis for Windows, macOS and Linux.</p>
+          <div class="actions actions-center">
+            <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
+            <a class="btn btn-ghost" href="graphs/docs/first-graph/">Read the first steps</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+  </body>
+</html>
