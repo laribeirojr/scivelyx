@@ -26,8 +26,10 @@ fit created — curve, bands, parameter table, box — is **recalculated in a ch
 
 **Analysis → Peak Analyzer** (Ctrl+Shift+K) goes through four steps: baseline (asymmetric least squares or a
 polynomial through the ends), detection (prominence, maximum number, or positions typed by hand), the fit of
-Gauss, Lorentz, Voigt or pseudo-Voigt peaks, and a table with center, height, FWHM, area and area % — all with
-uncertainties. **Find peaks** is the quick version (positions and FWHM).
+Gauss, Lorentz, Voigt, pseudo-Voigt, Breit–Wigner–Fano, Pearson VII or bi-Gaussian peaks (one shape for all or one
+per peak, with an optional baseline fitted together), and a table with center, height, FWHM, area and area % — all
+with uncertainties. **Find peaks** is the quick version (positions and FWHM). The tools for Raman and X-ray
+diffraction are in [Spectroscopy and diffraction](../spectroscopy/).
 
 ![The Peak Analyzer]({{ROOT}}assets/img/peak-analyzer.webp){: width="1240" height="760" loading="lazy" }
 
