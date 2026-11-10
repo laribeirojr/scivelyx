@@ -1,4 +1,4 @@
-# Build the SciTrace-Suite website (site/ + content/) and publish it to GitHub Pages.
+# Build the SciVelyx Suite website (site/ + content/) and publish it to GitHub Pages.
 #
 # GitHub Pages must be enabled once in the repository settings with "Source: GitHub Actions"
 # (Settings → Pages). The workflow's GITHUB_TOKEN cannot enable it by itself.

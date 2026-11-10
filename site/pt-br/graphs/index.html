@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}">
+  <head>
+{{> head}}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "{{SITE_URL}}graphs/#app",
+            "name": "SciVelyx Graphs",
+            "applicationCategory": "ScientificApplication",
+            "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
+            "description": "Gráficos científicos e análise de dados: figuras de publicação editáveis, ajuste de curvas e de picos, estatística, matrizes, scripts Python e migração de projetos do Origin, SciDAVis e QtiPlot.",
+            "softwareVersion": "{{GRAPHS_VERSION}}",
+            "url": "{{SITE_URL}}pt-br/graphs/",
+            "downloadUrl": "{{GRAPHS_RELEASE_URL}}",
+            "screenshot": "{{SITE_URL}}assets/img/main-window.webp",
+            "featureList": [
+              "Edição de todo elemento da figura com duplo clique",
+              "Ajuste não linear de curvas com limites, pesos e bandas de confiança e de previsão",
+              "Regressão por distância ortogonal com erros em x e y",
+              "PCA, análise de agrupamentos, curvas ROC e densidade por kernel",
+              "Espectrograma e transformadas wavelet contínua e discreta",
+              "Digitalizador de gráficos e importação de HDF5, NetCDF e MATLAB",
+              "Peak Analyzer e ajustes globais com parâmetros compartilhados",
+              "Ferramentas de difração de raios X (Scherrer, Williamson-Hall, indexação) e de Raman; arquivos XRDML, RAS, UXD, JCAMP-DX e SPC",
+              "Recálculo encadeado das análises quando os dados mudam",
+              "Janela de scripts Python e linha de comando",
+              "Abre e salva projetos do SciDAVis e do QtiPlot; projetos do Origin pelo próprio Origin",
+              "PDF, SVG e EPS vetoriais no tamanho exato em milímetros"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "{{SITE_URL}}pt-br/graphs/#faq",
+            "mainEntity": [
+              {"@type": "Question", "name": "O SciVelyx Graphs abre meus projetos do Origin?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Sim, pelo próprio Origin: um script executado dentro do Origin 2021 ou mais recente lê o .opj ou .opju e grava um arquivo que o SciVelyx Graphs abre, com um relatório do que foi convertido."}},
+              {"@type": "Question", "name": "Ele substitui o SciDAVis e o QtiPlot?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Sim: desde a versão 0.17 toda função do SciDAVis e do QtiPlot tem um equivalente, e o SciVelyx Graphs abre e salva os arquivos de projeto deles."}},
+              {"@type": "Question", "name": "Quais sistemas são compatíveis?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 e 11 (64 bits), macOS 11 ou mais recente em Apple silicon e Intel, e Linux x86_64."}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SciVelyx Graphs · v{{GRAPHS_VERSION}} · Windows, macOS e Linux</p>
+            <h1 id="hero-title">Science in Motion. <span class="mark">Data in Focus.</span></h1>
+            <p class="lead">
+              Carregue suas medidas ou simulações, faça o gráfico, ajuste e exporte a figura no tamanho exato da
+              coluna da revista. Todo título, eixo, curva e legenda abre suas propriedades com um duplo clique — do
+              jeito que o Origin, o SciDAVis e o QtiPlot nos ensinaram a trabalhar.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar v{{GRAPHS_VERSION}}</a>
+              <a class="btn btn-ghost" href="docs/">Manual do usuário</a>
+            </div>
+            <p class="fineprint">Fase de testes: downloads para testadores convidados. Sem conta, sem telemetria.</p>
+            <div class="chips" aria-label="Em resumo">
+              <span class="chip"><strong>176</strong> tipos de gráfico</span>
+              <span class="chip"><strong>30+</strong> modelos de ajuste</span>
+              <span class="chip"><strong>790+</strong> testes automáticos</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <a class="shot hero-shot" href="{{AROOT}}assets/img/fit-result.webp" data-full="{{AROOT}}assets/img/fit-result.webp"
+               data-caption="Um ajuste exponencial com bandas de confiança e de previsão e uma caixa de resultados viva; acima, a aba Analysis da faixa de opções."
+               data-gallery="hero">
+              <img src="{{AROOT}}assets/img/fit-result.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="Janela do SciVelyx Graphs com um ajuste exponencial, bandas de confiança e de previsão e uma caixa com os parâmetros ajustados." />
+            </a>
+            <span class="zoom-hint">Clique na imagem para ampliar</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="editing" class="section" aria-labelledby="editing-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Edição</p>
+            <h2 id="editing-title">Clique em qualquer coisa na figura para mudá-la.</h2>
+            <p class="lead">
+              Um teste do programa garante que toda parte visível de cada figura de exemplo está ligada a um
+              elemento editável — nada é “só desenho”.
+            </p>
+          </div>
+          <div class="feature-split">
+            <div class="feature-copy">
+              <ul class="feature-list">
+                <li><strong>Eixos completos.</strong> Escalas linear, log, symlog e outras; marcas por passo, por número
+                  ou em posições explícitas com rótulos (Γ, X, M…); prefixo, sufixo, fórmula, datas e nomes de meses;
+                  quebras e eixos secundários com conversão de unidades.</li>
+                <li><strong>Texto com cara de artigo.</strong> Paleta de símbolos, letras gregas, subscritos e
+                  sobrescritos, negrito e itálico parciais, e a Latin Modern, a fonte dos artigos em LaTeX.</li>
+                <li><strong>Curvas e mapas.</strong> Linhas, símbolos, barras e bandas de erro, preenchimentos, rótulos
+                  de dados, mapas de cores, contornos e estilos 3D — até a ponta de um tracejado.</li>
+                <li><strong>Temas e modelos.</strong> Copie o formato de uma curva para outra, salve um tema e aplique-o
+                  a todas as figuras de uma tese.</li>
+              </ul>
+            </div>
+            <div class="gallery-pair">
+              <figure>
+                <div class="shot-frame">
+                  <a class="shot" href="{{AROOT}}assets/img/axis-dialog.webp" data-full="{{AROOT}}assets/img/axis-dialog.webp"
+                     data-caption="A aba de rótulos das marcas no diálogo do eixo: formato, prefixo, sufixo, fórmula, texto de uma tabela, datas." data-gallery="editing">
+                    <img src="{{AROOT}}assets/img/axis-dialog.webp" width="835" height="900" loading="lazy" decoding="async"
+                         alt="Diálogo de propriedades do eixo com a aba de rótulos das marcas aberta." />
+                  </a>
+                </div>
+                <figcaption>O diálogo do eixo. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+              </figure>
+              <figure>
+                <div class="shot-frame">
+                  <a class="shot" href="{{AROOT}}assets/img/dark-theme.webp" data-full="{{AROOT}}assets/img/dark-theme.webp"
+                     data-caption="Tema escuro com um mapa 2D e uma superfície 3D da mesma paisagem de energia." data-gallery="editing">
+                    <img src="{{AROOT}}assets/img/dark-theme.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                         alt="SciVelyx Graphs no tema escuro com um mapa de contornos e uma superfície 3D." />
+                  </a>
+                </div>
+                <figcaption>Temas claro e escuro. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analysis" class="section" aria-labelledby="analysis-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Análise</p>
+            <h2 id="analysis-title">Ajuste, encontre picos, teste — e mantenha tudo vivo.</h2>
+            <p class="lead">
+              As análises lembram como foram feitas. Mude um valor na planilha e os ajustes, tabelas de picos,
+              sinais filtrados e caixas de resultados que dependem dele são refeitos em cadeia.
+            </p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span class="num">01</span>
+              <h3>Ajuste de curvas</h3>
+              <p>Modelos prontos, sua própria fórmula ou uma biblioteca salva; limites, pesos, Levenberg–Marquardt ou
+                Simplex; bandas; ajustes globais, de réplicas e de regressão linear múltipla; parâmetros derivados.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">02</span>
+              <h3>Peak Analyzer</h3>
+              <p>Linha de base, detecção, uma forma por pico (Gauss, Lorentz, Voigt, pseudo-Voigt, BWF, Pearson VII) e
+                uma tabela de centro, altura, FWHM e área com incertezas; ferramentas de difração de raios X e de Raman.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">03</span>
+              <h3>Sinais e estatística</h3>
+              <p>Suavização, filtros, FFT, deconvolução; ajuste de distribuições, testes de normalidade, gráficos de
+                probabilidade, ANOVA com comparação de médias, cartas de controle, testes de outliers e gadgets no seletor de faixa.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">04</span>
+              <h3>Multivariada</h3>
+              <p>Componentes principais com gráfico de autovalores e biplot, agrupamento k-means e hierárquico com o
+                dendrograma, curvas ROC com a AUC, densidade por kernel.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">05</span>
+              <h3>Tempo e frequência</h3>
+              <p>Espectrograma, transformada wavelet contínua com o cone de influência, decomposição wavelet,
+                remoção de ruído e suavização.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">06</span>
+              <h3>Erros em x, dados de figuras</h3>
+              <p>Regressão por distância ortogonal para erros nos dois eixos; um digitalizador que lê curvas e
+                símbolos de um gráfico escaneado; arquivos HDF5, NetCDF e MATLAB.</p>
+            </div>
+          </div>
+          <figure class="wide-shot">
+            <a class="shot" href="{{AROOT}}assets/img/peak-analyzer.webp" data-full="{{AROOT}}assets/img/peak-analyzer.webp"
+               data-caption="O Peak Analyzer num difratograma de raios X: linha de base, quatro picos gaussianos e o relatório com incertezas."
+               data-gallery="analysis">
+              <img src="{{AROOT}}assets/img/peak-analyzer.webp" width="1240" height="760" loading="lazy" decoding="async"
+                   alt="Diálogo do Peak Analyzer com um difratograma de raios X, quatro picos ajustados, resíduos e o relatório dos picos." />
+            </a>
+            <figcaption>O Peak Analyzer num difratograma. <span class="zoom-hint">Clique na imagem para ampliar</span></figcaption>
+          </figure>
+          <div class="gallery-pair" style="margin-top: 30px">
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/img/pca.webp" data-full="{{AROOT}}assets/img/pca.webp"
+                   data-caption="Componentes principais de uma tabela de materiais: gráfico de autovalores e biplot com os pesos." data-gallery="analysis">
+                  <img src="{{AROOT}}assets/img/pca.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs com um gráfico de autovalores e um biplot de PCA de quatro propriedades de materiais." />
+                </a>
+              </div>
+              <figcaption>Componentes principais. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/img/wavelet.webp" data-full="{{AROOT}}assets/img/wavelet.webp"
+                   data-caption="Transformada wavelet contínua de Morlet de um chirp, com o cone de influência." data-gallery="analysis">
+                  <img src="{{AROOT}}assets/img/wavelet.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs mostrando o escalograma wavelet de um chirp num eixo de frequência logarítmico." />
+                </a>
+              </div>
+              <figcaption>Escalograma wavelet. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="migration" class="section" aria-labelledby="migration-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Migração</p>
+            <h2 id="migration-title">Traga seus projetos do Origin, SciDAVis e QtiPlot.</h2>
+            <p class="lead">
+              Anos de trabalho pronto não devem ficar para trás. Toda importação e exportação vem com um relatório: o
+              que veio exatamente, o que veio aproximado e o que ficou de fora — sempre com o motivo.
+            </p>
+          </div>
+          <div class="durability-grid">
+            <article class="durability-card">
+              <span class="marker">SciDAVis</span>
+              <h3>.sciprj, nos dois sentidos.</h3>
+              <p>Planilhas, matrizes, notas, pastas, gráficos 2D e 3D, fórmulas e curvas de ajuste — conferidos com o
+                próprio SciDAVis 2.9.2.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">QtiPlot</span>
+              <h3>.qti, nos dois sentidos.</h3>
+              <p>Projetos do QtiPlot 0.7 ao 0.9.8, inclusive os comprimidos; o SciVelyx também passa projetos do QtiPlot
+                para o SciDAVis.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">Origin</span>
+              <h3>.opj e .opju, pelo Origin.</h3>
+              <p>Um script executado dentro do Origin lê o projeto; outro reconstrói um projeto do SciVelyx dentro do
+                Origin e salva .opju.</p>
+            </article>
+            <article class="durability-card">
+              <span class="marker">Pastas</span>
+              <h3>Um arquivo inteiro de uma vez.</h3>
+              <p>Migre uma pasta de projetos de uma só vez, pelo menu ou com
+                <code>scivelyx migrate</code>, com um relatório por projeto.</p>
+            </article>
+          </div>
+          <div class="gallery-pair" style="margin-top: 30px">
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/img/migration-report.webp" data-full="{{AROOT}}assets/img/migration-report.webp"
+                   data-caption="O relatório de migração de um projeto do SciDAVis." data-gallery="migration">
+                  <img src="{{AROOT}}assets/img/migration-report.webp" width="980" height="260" loading="lazy" decoding="async"
+                       alt="Relatório de migração listando a planilha, as curvas e o gráfico importados exatamente de um projeto do SciDAVis." />
+                </a>
+              </div>
+              <figcaption>O relatório de cada importação. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/img/scidavis-project.webp" data-full="{{AROOT}}assets/img/scidavis-project.webp"
+                   data-caption="O projeto do SciDAVis aberto no SciVelyx Graphs, com seu gráfico de dois eixos y." data-gallery="migration">
+                  <img src="{{AROOT}}assets/img/scidavis-project.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs mostrando um gráfico com dois eixos y importado de um projeto do SciDAVis." />
+                </a>
+              </div>
+              <figcaption>O mesmo projeto, pronto para editar. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="scripts" class="section" aria-labelledby="scripts-title">
+        <div class="container">
+          <div class="feature-split reverse">
+            <div class="feature-copy">
+              <p class="eyebrow">Scripts</p>
+              <h2 id="scripts-title">Python quando clicar não basta.</h2>
+              <p class="lead">
+                Uma janela de scripts com console alcança as tabelas, matrizes, ajustes e gráficos do projeto aberto.
+                Os scripts são salvos no projeto e também rodam sem a janela.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Execute uma linha, uma seleção ou tudo</strong> (Ctrl+J, Ctrl+Shift+J); Ctrl+Enter
+                  avalia e escreve o valor abaixo.</li>
+                <li><strong>Uma API pequena e clara:</strong> <code>table()</code>, <code>new_table()</code>,
+                  <code>matrix()</code>, <code>fit()</code>, <code>plot()</code>, <code>export()</code>,
+                  <code>recalculate()</code>.</li>
+                <li><strong>As mesmas fórmulas do SciDAVis e do QtiPlot</strong> nos valores das colunas, inclusive as
+                  funções do muParser e <code>c ? a : b</code>.</li>
+                <li><strong>Linha de comando:</strong> <code>scivelyx script analysis.py --project p.scivelyx.json</code>
+                  em lotes e em clusters.</li>
+              </ul>
+            </div>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/img/script-window.webp" data-full="{{AROOT}}assets/img/script-window.webp"
+                   data-caption="Um script que ajusta um pico, guarda os parâmetros numa tabela, faz o gráfico e o exporta."
+                   data-gallery="scripts">
+                  <img src="{{AROOT}}assets/img/script-window.webp" width="1000" height="640" loading="lazy" decoding="async"
+                       alt="Janela de scripts com um script Python que chama fit, new_table, plot e export, e o relatório do ajuste no console." />
+                </a>
+              </div>
+              <figcaption>Um script e seu console. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Galeria</p>
+            <h2 id="gallery-title">De estruturas de bandas a cartas de Smith.</h2>
+            <p class="lead">
+              Os exemplos que acompanham o programa, exportados no tamanho final. Cada um abre no programa
+              totalmente editável. Os últimos recriam tipos de figura de artigos de 2026 sobre quasicristais,
+              supercondutores, nanopartículas de CeO₂, dentina e solos tropicais.
+            </p>
+          </div>
+          <div class="gallery-grid">
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/bands.webp" data-full="{{AROOT}}assets/img/gallery/bands.webp" data-caption="Bandas tight-binding ao longo de Γ–X–M–Γ com rótulos de marcas personalizados." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/bands.webp" width="674" height="511" loading="lazy" decoding="async" alt="Estrutura de bandas ao longo de Gama, X, M com o nível de Fermi." /></a><figcaption>Estrutura de bandas</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/spectrum-dos.webp" data-full="{{AROOT}}assets/img/gallery/spectrum-dos.webp" data-caption="Um difratograma com modelo e uma densidade de estados em dois painéis." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/spectrum-dos.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Dois painéis: um difratograma de raios X com modelo e uma densidade de estados." /></a><figcaption>Espectro e DOS</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/energy-surface.webp" data-full="{{AROOT}}assets/img/gallery/energy-surface.webp" data-caption="Uma paisagem de energia como contorno preenchido e como superfície 3D." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/energy-surface.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Mapa de contornos preenchido e superfície 3D da mesma paisagem de energia." /></a><figcaption>Mapa 2D e superfície 3D</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/md-thermo.webp" data-full="{{AROOT}}assets/img/gallery/md-thermo.webp" data-caption="Temperatura e energia potencial de uma simulação de dinâmica molecular em dois eixos y." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/md-thermo.webp" width="650" height="472" loading="lazy" decoding="async" alt="Temperatura e energia potencial de dinâmica molecular em dois eixos y." /></a><figcaption>Dois eixos y</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/pair-potentials.webp" data-full="{{AROOT}}assets/img/gallery/pair-potentials.webp" data-caption="Potenciais de par analíticos." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/pair-potentials.webp" width="700" height="511" loading="lazy" decoding="async" alt="Potenciais de par de Lennard-Jones e de Morse." /></a><figcaption>Potenciais de par</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/histogram-violin.webp" data-full="{{AROOT}}assets/img/gallery/histogram-violin.webp" data-caption="Um histograma com curva de densidade e gráficos de violino." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/histogram-violin.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Histograma e gráficos de violino de amostras sintéticas." /></a><figcaption>Histograma e violinos</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/vector-polar.webp" data-full="{{AROOT}}assets/img/gallery/vector-polar.webp" data-caption="Um campo vetorial e um gráfico polar." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/vector-polar.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Campo vetorial e gráfico polar lado a lado." /></a><figcaption>Vetores e polar</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/ternary-smith.webp" data-full="{{AROOT}}assets/img/gallery/ternary-smith.webp" data-caption="Um diagrama ternário e uma carta de Smith." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/ternary-smith.webp" width="1100" height="530" loading="lazy" decoding="async" alt="Diagrama ternário de composição e carta de Smith." /></a><figcaption>Ternário e carta de Smith</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-xrd-deconv.png" data-full="{{AROOT}}assets/manual/fig-xrd-deconv.png" data-caption="Deconvolução de DRX com índices de Miller." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-xrd-deconv.png" width="525" height="383" loading="lazy" decoding="async" alt="Picos de DRX ajustados um a um, com rótulos hkl." /></a><figcaption>Deconvolução de DRX</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-iv-inset.png" data-full="{{AROOT}}assets/manual/fig-iv-inset.png" data-caption="Doze curvas corrente–tensão de um supercondutor com um detalhe ampliado." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-iv-inset.png" width="506" height="442" loading="lazy" decoding="async" alt="Curvas corrente-tensão em doze campos magnéticos com um detalhe ampliado." /></a><figcaption>Curvas com detalhe ampliado</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-depth.png" data-full="{{AROOT}}assets/manual/fig-depth.png" data-caption="Perfis de profundidade de um solo em duas estações, em quatro painéis." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-depth.png" width="1080" height="501" loading="lazy" decoding="async" alt="Quatro painéis de parâmetros magnéticos do solo em função da profundidade." /></a><figcaption>Perfis de profundidade</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-forc.png" data-full="{{AROOT}}assets/manual/fig-forc.png" data-caption="Um diagrama FORC como mapa de contornos preenchido." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-forc.png" width="525" height="383" loading="lazy" decoding="async" alt="Distribuição de curvas de reversão de primeira ordem como mapa de contornos." /></a><figcaption>Diagrama FORC</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="publish" class="section" aria-labelledby="publish-title">
+        <div class="container export-band">
+          <div>
+            <p class="eyebrow">Publicação</p>
+            <h2 id="publish-title">Exatamente o tamanho que a revista pede.</h2>
+            <p class="lead">
+              Defina a largura em milímetros, o tamanho da fonte e o padrão da revista; exporte arquivos vetoriais
+              com texto editável, ou imagens na resolução que precisar. O projeto guarda dados, gráficos, notas e
+              scripts, e um script Python gerado redesenha a figura pixel a pixel.
+            </p>
+            <a class="text-link" href="docs/export/">Leia o capítulo sobre exportação</a>
+          </div>
+          <ul class="format-chips" aria-label="Formatos de exportação">
+            <li>PDF<small>vetorial, tamanho exato</small></li>
+            <li>SVG<small>vetorial</small></li>
+            <li>EPS<small>vetorial</small></li>
+            <li>PNG<small>qualquer DPI</small></li>
+            <li>TIFF<small>LZW</small></li>
+            <li>Página de layout<small>vários gráficos</small></li>
+            <li>.sciprj / .qti<small>SciDAVis, QtiPlot</small></li>
+            <li>Python<small>script reprodutível</small></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="download" class="section panel-dark download-section" aria-labelledby="download-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Baixar</p>
+            <h2 id="download-title">Baixe o SciVelyx Graphs.</h2>
+            <p class="lead">
+              Versão {{GRAPHS_VERSION}} para Windows, macOS e Linux. A página da versão traz as notas, as somas de
+              verificação e todos os arquivos. Durante a fase de testes ela é aberta a testadores convidados.
+            </p>
+          </div>
+          <div class="download-grid three">
+            <article class="platform-card">
+              <h3>Windows</h3>
+              <p>Instalador sem direitos de administrador, ou um zip portátil. Windows 10 e 11, 64 bits.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar para Windows</a>
+              <ul class="artifact-list">
+                <li><code>…-windows-x64-setup.exe</code></li>
+                <li><code>…-windows-x64-portable.zip</code></li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>macOS</h3>
+              <p>Imagem de disco: arraste o aplicativo para Aplicativos. macOS 11 ou mais recente.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar para macOS</a>
+              <ul class="artifact-list">
+                <li><code>…-macos-arm64.dmg</code> (Apple silicon)</li>
+                <li><code>…-macos-x86_64.dmg</code> (Intel)</li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>Linux</h3>
+              <p>Um AppImage que roda na maioria das distribuições, ou uma pasta simples. x86_64.</p>
+              <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar para Linux</a>
+              <ul class="artifact-list">
+                <li><code>…-linux-x86_64.AppImage</code></li>
+                <li><code>…-linux-x86_64.tar.gz</code></li>
+              </ul>
+            </article>
+          </div>
+          <ul class="download-notes">
+            <li><strong>Ainda sem assinatura de código.</strong> O SmartScreen do Windows pode avisar uma vez (Mais
+              informações → Executar assim mesmo); no macOS, Control-clique no aplicativo → Abrir na primeira vez.
+              <a href="docs/install/">Instalação</a>.</li>
+            <li><strong>Somas de verificação.</strong> Toda versão publica <code>SHA256SUMS.txt</code>.</li>
+            <li><strong>Linha de comando incluída.</strong> Todo pacote também traz o <code>scivelyx</code>
+              (render, quick, migrate, export-project, script).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-head">
+            <p class="eyebrow">Perguntas</p>
+            <h2 id="faq-title">Perguntas, respondidas com clareza.</h2>
+            <p class="lead">Mais nas <a href="docs/faq/">perguntas frequentes do manual</a>.</p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>O SciVelyx Graphs abre meus projetos do Origin?</summary>
+              <p>Sim, pelo próprio Origin: um script executado dentro do Origin 2021 ou mais recente lê o .opj ou
+                .opju e grava um arquivo que o SciVelyx Graphs abre, com um relatório do que foi convertido. Ler
+                arquivos .opj sem o Origin ainda não é oferecido.</p>
+            </details>
+            <details>
+              <summary>Ele substitui o SciDAVis e o QtiPlot?</summary>
+              <p>Sim. Desde a versão 0.17 toda ação de menu e opção de diálogo do SciDAVis e do QtiPlot tem um
+                equivalente, e o SciVelyx Graphs abre e salva os arquivos de projeto deles.</p>
+            </details>
+            <details>
+              <summary>Como a figura fica no artigo?</summary>
+              <p>Exatamente como na tela: a figura é definida em milímetros e pontos, e PDF, SVG e EPS mantêm o texto
+                editável com as fontes embutidas.</p>
+            </details>
+            <details>
+              <summary>Para onde vão os meus dados?</summary>
+              <p>Para o seu arquivo de projeto (embutidos, ou por referência com uma soma de verificação). O programa
+                não envia nada e funciona sem internet.</p>
+            </details>
+            <details>
+              <summary>Em que idioma está a interface?</summary>
+              <p>Inglês, o único idioma do programa. O manual do usuário e este site estão em inglês e em
+                português.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="container">
+          <p class="eyebrow eyebrow-center">Experimente com os seus dados</p>
+          <h2 id="final-title">Faça sua próxima figura no SciVelyx Graphs.</h2>
+          <p>Figuras de publicação editáveis, ajuste e análise para Windows, macOS e Linux.</p>
+          <div class="actions actions-center">
+            <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar v{{GRAPHS_VERSION}}</a>
+            <a class="btn btn-ghost" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Manual do usuário (PDF)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+  </body>
+</html>

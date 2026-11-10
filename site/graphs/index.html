@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{HTML_LANG}}">
   <head>
 {{> head}}
     <script type="application/ld+json">
@@ -9,7 +9,7 @@
           {
             "@type": "SoftwareApplication",
             "@id": "{{SITE_URL}}graphs/#app",
-            "name": "SciTrace-Graphs",
+            "name": "SciVelyx Graphs",
             "applicationCategory": "ScientificApplication",
             "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
             "description": "Scientific graphs and data analysis: editable publication figures, curve and peak fitting, statistics, matrices, Python scripts and migration of Origin, SciDAVis and QtiPlot projects.",
@@ -36,10 +36,10 @@
             "@type": "FAQPage",
             "@id": "{{SITE_URL}}graphs/#faq",
             "mainEntity": [
-              {"@type": "Question", "name": "Can SciTrace-Graphs open my Origin projects?",
-               "acceptedAnswer": {"@type": "Answer", "text": "Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and writes a file that SciTrace-Graphs opens, with a report of what was converted."}},
+              {"@type": "Question", "name": "Can SciVelyx Graphs open my Origin projects?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and writes a file that SciVelyx Graphs opens, with a report of what was converted."}},
               {"@type": "Question", "name": "Does it replace SciDAVis and QtiPlot?",
-               "acceptedAnswer": {"@type": "Answer", "text": "Yes: since version 0.17 every function of SciDAVis and QtiPlot has an equivalent, and SciTrace-Graphs opens and saves their project files."}},
+               "acceptedAnswer": {"@type": "Answer", "text": "Yes: since version 0.17 every function of SciDAVis and QtiPlot has an equivalent, and SciVelyx Graphs opens and saves their project files."}},
               {"@type": "Question", "name": "Which systems are supported?",
                "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 and 11 (64-bit), macOS 11 or later on Apple silicon and Intel, and Linux x86_64."}}
             ]
@@ -56,8 +56,8 @@
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">SciTrace-Graphs · v{{GRAPHS_VERSION}} · Windows, macOS &amp; Linux</p>
-            <h1 id="hero-title">Publication figures, from the data <span class="mark">to the paper.</span></h1>
+            <p class="eyebrow">SciVelyx Graphs · v{{GRAPHS_VERSION}} · Windows, macOS &amp; Linux</p>
+            <h1 id="hero-title">Science in Motion. <span class="mark">Data in Focus.</span></h1>
             <p class="lead">
               Load your measurements or simulations, plot them, fit them and export the figure at the exact
               size of the journal column. Every title, axis, curve and legend opens its properties with a
@@ -65,21 +65,21 @@
             </p>
             <div class="actions">
               <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
-              <a class="btn btn-ghost" href="docs/first-graph/">Your first graph</a>
+              <a class="btn btn-ghost" href="docs/">User manual</a>
             </div>
             <p class="fineprint">Testing phase: downloads for invited testers. No account, no telemetry.</p>
             <div class="chips" aria-label="At a glance">
-              <span class="chip"><strong>35+</strong> graph types</span>
+              <span class="chip"><strong>176</strong> graph types</span>
               <span class="chip"><strong>30+</strong> fit models</span>
-              <span class="chip"><strong>345</strong> automated tests</span>
+              <span class="chip"><strong>790+</strong> automated tests</span>
             </div>
           </div>
           <div class="hero-visual">
-            <a class="shot hero-shot" href="../assets/img/fit-result.webp" data-full="../assets/img/fit-result.webp"
+            <a class="shot hero-shot" href="{{AROOT}}assets/img/fit-result.webp" data-full="{{AROOT}}assets/img/fit-result.webp"
                data-caption="An exponential fit with confidence and prediction bands and a live result box; the Analysis tab of the ribbon above."
                data-gallery="hero">
-              <img src="../assets/img/fit-result.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
-                   alt="SciTrace-Graphs window with an exponential fit, confidence and prediction bands and a box with the fitted parameters." />
+              <img src="{{AROOT}}assets/img/fit-result.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="SciVelyx Graphs window with an exponential fit, confidence and prediction bands and a box with the fitted parameters." />
             </a>
             <span class="zoom-hint">Click the image to enlarge</span>
           </div>
@@ -113,9 +113,9 @@
             <div class="gallery-pair">
               <figure>
                 <div class="shot-frame">
-                  <a class="shot" href="../assets/img/axis-dialog.webp" data-full="../assets/img/axis-dialog.webp"
+                  <a class="shot" href="{{AROOT}}assets/img/axis-dialog.webp" data-full="{{AROOT}}assets/img/axis-dialog.webp"
                      data-caption="The tick-label tab of the axis dialog: format, prefix, suffix, formula, text from a table, dates." data-gallery="editing">
-                    <img src="../assets/img/axis-dialog.webp" width="835" height="900" loading="lazy" decoding="async"
+                    <img src="{{AROOT}}assets/img/axis-dialog.webp" width="835" height="900" loading="lazy" decoding="async"
                          alt="Axis properties dialog with the tick labels tab open." />
                   </a>
                 </div>
@@ -123,10 +123,10 @@
               </figure>
               <figure>
                 <div class="shot-frame">
-                  <a class="shot" href="../assets/img/dark-theme.webp" data-full="../assets/img/dark-theme.webp"
+                  <a class="shot" href="{{AROOT}}assets/img/dark-theme.webp" data-full="{{AROOT}}assets/img/dark-theme.webp"
                      data-caption="Dark theme with a 2D map and a 3D surface of the same energy landscape." data-gallery="editing">
-                    <img src="../assets/img/dark-theme.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                         alt="SciTrace-Graphs in the dark theme with a contour map and a 3D surface." />
+                    <img src="{{AROOT}}assets/img/dark-theme.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                         alt="SciVelyx Graphs in the dark theme with a contour map and a 3D surface." />
                   </a>
                 </div>
                 <figcaption>Light and dark themes. <span class="zoom-hint">Click to enlarge</span></figcaption>
@@ -185,10 +185,10 @@
             </div>
           </div>
           <figure class="wide-shot">
-            <a class="shot" href="../assets/img/peak-analyzer.webp" data-full="../assets/img/peak-analyzer.webp"
+            <a class="shot" href="{{AROOT}}assets/img/peak-analyzer.webp" data-full="{{AROOT}}assets/img/peak-analyzer.webp"
                data-caption="The Peak Analyzer on an X-ray diffractogram: baseline, four Gaussian peaks and the report with uncertainties."
                data-gallery="analysis">
-              <img src="../assets/img/peak-analyzer.webp" width="1240" height="760" loading="lazy" decoding="async"
+              <img src="{{AROOT}}assets/img/peak-analyzer.webp" width="1240" height="760" loading="lazy" decoding="async"
                    alt="Peak Analyzer dialog with an X-ray diffraction pattern, four fitted peaks, residuals and a peak report." />
             </a>
             <figcaption>The Peak Analyzer on a diffractogram. <span class="zoom-hint">Click the image to enlarge</span></figcaption>
@@ -196,20 +196,20 @@
           <div class="gallery-pair" style="margin-top: 30px">
             <figure>
               <div class="shot-frame">
-                <a class="shot" href="../assets/img/pca.webp" data-full="../assets/img/pca.webp"
+                <a class="shot" href="{{AROOT}}assets/img/pca.webp" data-full="{{AROOT}}assets/img/pca.webp"
                    data-caption="Principal components of a materials table: scree plot and biplot with the loadings." data-gallery="analysis">
-                  <img src="../assets/img/pca.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                       alt="SciTrace-Graphs with a scree plot and a PCA biplot of four material properties." />
+                  <img src="{{AROOT}}assets/img/pca.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs with a scree plot and a PCA biplot of four material properties." />
                 </a>
               </div>
               <figcaption>Principal components. <span class="zoom-hint">Click to enlarge</span></figcaption>
             </figure>
             <figure>
               <div class="shot-frame">
-                <a class="shot" href="../assets/img/wavelet.webp" data-full="../assets/img/wavelet.webp"
+                <a class="shot" href="{{AROOT}}assets/img/wavelet.webp" data-full="{{AROOT}}assets/img/wavelet.webp"
                    data-caption="Continuous Morlet wavelet transform of a chirp, with the cone of influence." data-gallery="analysis">
-                  <img src="../assets/img/wavelet.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                       alt="SciTrace-Graphs showing the wavelet scalogram of a chirp on a logarithmic frequency axis." />
+                  <img src="{{AROOT}}assets/img/wavelet.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs showing the wavelet scalogram of a chirp on a logarithmic frequency axis." />
                 </a>
               </div>
               <figcaption>Wavelet scalogram. <span class="zoom-hint">Click to enlarge</span></figcaption>
@@ -238,28 +238,28 @@
             <article class="durability-card">
               <span class="marker">QtiPlot</span>
               <h3>.qti, both ways.</h3>
-              <p>Projects from QtiPlot 0.7 to 0.9.8, compressed ones included; SciTrace also hands QtiPlot projects
+              <p>Projects from QtiPlot 0.7 to 0.9.8, compressed ones included; SciVelyx also hands QtiPlot projects
                 on to SciDAVis.</p>
             </article>
             <article class="durability-card">
               <span class="marker">Origin</span>
               <h3>.opj and .opju, through Origin.</h3>
-              <p>A script run inside Origin reads the project; another rebuilds a SciTrace project inside Origin
+              <p>A script run inside Origin reads the project; another rebuilds a SciVelyx project inside Origin
                 and saves .opju.</p>
             </article>
             <article class="durability-card">
               <span class="marker">Folders</span>
               <h3>A whole archive at once.</h3>
               <p>Migrate a folder of projects in one go, from the menu or with
-                <code>scitrace migrate</code>, with one report per project.</p>
+                <code>scivelyx migrate</code>, with one report per project.</p>
             </article>
           </div>
           <div class="gallery-pair" style="margin-top: 30px">
             <figure>
               <div class="shot-frame">
-                <a class="shot" href="../assets/img/migration-report.webp" data-full="../assets/img/migration-report.webp"
+                <a class="shot" href="{{AROOT}}assets/img/migration-report.webp" data-full="{{AROOT}}assets/img/migration-report.webp"
                    data-caption="The migration report of a SciDAVis project." data-gallery="migration">
-                  <img src="../assets/img/migration-report.webp" width="980" height="260" loading="lazy" decoding="async"
+                  <img src="{{AROOT}}assets/img/migration-report.webp" width="980" height="260" loading="lazy" decoding="async"
                        alt="Migration report listing the sheet, curves and graph imported exactly from a SciDAVis project." />
                 </a>
               </div>
@@ -267,10 +267,10 @@
             </figure>
             <figure>
               <div class="shot-frame">
-                <a class="shot" href="../assets/img/scidavis-project.webp" data-full="../assets/img/scidavis-project.webp"
-                   data-caption="The SciDAVis project opened in SciTrace-Graphs, with its double-y graph." data-gallery="migration">
-                  <img src="../assets/img/scidavis-project.webp" width="1600" height="1000" loading="lazy" decoding="async"
-                       alt="SciTrace-Graphs showing a graph with two y axes imported from a SciDAVis project." />
+                <a class="shot" href="{{AROOT}}assets/img/scidavis-project.webp" data-full="{{AROOT}}assets/img/scidavis-project.webp"
+                   data-caption="The SciDAVis project opened in SciVelyx Graphs, with its double-y graph." data-gallery="migration">
+                  <img src="{{AROOT}}assets/img/scidavis-project.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="SciVelyx Graphs showing a graph with two y axes imported from a SciDAVis project." />
                 </a>
               </div>
               <figcaption>The same project, ready to edit. <span class="zoom-hint">Click to enlarge</span></figcaption>
@@ -297,16 +297,16 @@
                   <code>recalculate()</code>.</li>
                 <li><strong>The same formulas as SciDAVis and QtiPlot</strong> in column values, including the
                   muParser functions and <code>c ? a : b</code>.</li>
-                <li><strong>Command line:</strong> <code>scitrace script analysis.py --project p.scitrace.json</code>
+                <li><strong>Command line:</strong> <code>scivelyx script analysis.py --project p.scivelyx.json</code>
                   in batch jobs and on clusters.</li>
               </ul>
             </div>
             <figure>
               <div class="shot-frame">
-                <a class="shot" href="../assets/img/script-window.webp" data-full="../assets/img/script-window.webp"
+                <a class="shot" href="{{AROOT}}assets/img/script-window.webp" data-full="{{AROOT}}assets/img/script-window.webp"
                    data-caption="A script that fits a peak, stores the parameters in a table, plots and exports the graph."
                    data-gallery="scripts">
-                  <img src="../assets/img/script-window.webp" width="1000" height="640" loading="lazy" decoding="async"
+                  <img src="{{AROOT}}assets/img/script-window.webp" width="1000" height="640" loading="lazy" decoding="async"
                        alt="Script window with a Python script calling fit, new_table, plot and export, and the fit report in the console." />
                 </a>
               </div>
@@ -323,18 +323,23 @@
             <h2 id="gallery-title">From band structures to Smith charts.</h2>
             <p class="lead">
               The examples that ship with the program, exported at their final size. Each one opens in the
-              program fully editable.
+              program fully editable. The last ones recreate figure types from 2026 papers on quasicrystals,
+              superconductors, CeO₂ nanoparticles, dentin and tropical soils.
             </p>
           </div>
           <div class="gallery-grid">
-            <figure><a class="shot" href="../assets/img/gallery/bands.webp" data-full="../assets/img/gallery/bands.webp" data-caption="Tight-binding bands along Γ–X–M–Γ with custom tick labels." data-gallery="gallery"><img src="../assets/img/gallery/bands.webp" width="674" height="511" loading="lazy" decoding="async" alt="Band structure along Gamma, X, M with the Fermi level." /></a><figcaption>Band structure</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/spectrum-dos.webp" data-full="../assets/img/gallery/spectrum-dos.webp" data-caption="A diffractogram with model and a density of states in two panels." data-gallery="gallery"><img src="../assets/img/gallery/spectrum-dos.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Two panels: an X-ray diffraction pattern with model and a density of states." /></a><figcaption>Spectrum and DOS</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/energy-surface.webp" data-full="../assets/img/gallery/energy-surface.webp" data-caption="An energy landscape as a filled contour and as a 3D surface." data-gallery="gallery"><img src="../assets/img/gallery/energy-surface.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Filled contour map and 3D surface of the same energy landscape." /></a><figcaption>2D map and 3D surface</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/md-thermo.webp" data-full="../assets/img/gallery/md-thermo.webp" data-caption="Temperature and potential energy of a molecular-dynamics run on two y axes." data-gallery="gallery"><img src="../assets/img/gallery/md-thermo.webp" width="650" height="472" loading="lazy" decoding="async" alt="Molecular dynamics temperature and potential energy on a double y axis." /></a><figcaption>Double y axis</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/pair-potentials.webp" data-full="../assets/img/gallery/pair-potentials.webp" data-caption="Analytic pair potentials." data-gallery="gallery"><img src="../assets/img/gallery/pair-potentials.webp" width="700" height="511" loading="lazy" decoding="async" alt="Lennard-Jones and Morse pair potentials." /></a><figcaption>Pair potentials</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/histogram-violin.webp" data-full="../assets/img/gallery/histogram-violin.webp" data-caption="A histogram with a density curve and violin plots." data-gallery="gallery"><img src="../assets/img/gallery/histogram-violin.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Histogram and violin plots of synthetic samples." /></a><figcaption>Histogram and violins</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/vector-polar.webp" data-full="../assets/img/gallery/vector-polar.webp" data-caption="A vector field and a polar plot." data-gallery="gallery"><img src="../assets/img/gallery/vector-polar.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Vector field and a polar plot side by side." /></a><figcaption>Vectors and polar</figcaption></figure>
-            <figure><a class="shot" href="../assets/img/gallery/ternary-smith.webp" data-full="../assets/img/gallery/ternary-smith.webp" data-caption="A ternary diagram and a Smith chart." data-gallery="gallery"><img src="../assets/img/gallery/ternary-smith.webp" width="1100" height="530" loading="lazy" decoding="async" alt="Ternary composition diagram and Smith chart." /></a><figcaption>Ternary and Smith chart</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/bands.webp" data-full="{{AROOT}}assets/img/gallery/bands.webp" data-caption="Tight-binding bands along Γ–X–M–Γ with custom tick labels." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/bands.webp" width="674" height="511" loading="lazy" decoding="async" alt="Band structure along Gamma, X, M with the Fermi level." /></a><figcaption>Band structure</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/spectrum-dos.webp" data-full="{{AROOT}}assets/img/gallery/spectrum-dos.webp" data-caption="A diffractogram with model and a density of states in two panels." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/spectrum-dos.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Two panels: an X-ray diffraction pattern with model and a density of states." /></a><figcaption>Spectrum and DOS</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/energy-surface.webp" data-full="{{AROOT}}assets/img/gallery/energy-surface.webp" data-caption="An energy landscape as a filled contour and as a 3D surface." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/energy-surface.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Filled contour map and 3D surface of the same energy landscape." /></a><figcaption>2D map and 3D surface</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/md-thermo.webp" data-full="{{AROOT}}assets/img/gallery/md-thermo.webp" data-caption="Temperature and potential energy of a molecular-dynamics run on two y axes." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/md-thermo.webp" width="650" height="472" loading="lazy" decoding="async" alt="Molecular dynamics temperature and potential energy on a double y axis." /></a><figcaption>Double y axis</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/pair-potentials.webp" data-full="{{AROOT}}assets/img/gallery/pair-potentials.webp" data-caption="Analytic pair potentials." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/pair-potentials.webp" width="700" height="511" loading="lazy" decoding="async" alt="Lennard-Jones and Morse pair potentials." /></a><figcaption>Pair potentials</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/histogram-violin.webp" data-full="{{AROOT}}assets/img/gallery/histogram-violin.webp" data-caption="A histogram with a density curve and violin plots." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/histogram-violin.webp" width="1100" height="361" loading="lazy" decoding="async" alt="Histogram and violin plots of synthetic samples." /></a><figcaption>Histogram and violins</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/vector-polar.webp" data-full="{{AROOT}}assets/img/gallery/vector-polar.webp" data-caption="A vector field and a polar plot." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/vector-polar.webp" width="1100" height="451" loading="lazy" decoding="async" alt="Vector field and a polar plot side by side." /></a><figcaption>Vectors and polar</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/img/gallery/ternary-smith.webp" data-full="{{AROOT}}assets/img/gallery/ternary-smith.webp" data-caption="A ternary diagram and a Smith chart." data-gallery="gallery"><img src="{{AROOT}}assets/img/gallery/ternary-smith.webp" width="1100" height="530" loading="lazy" decoding="async" alt="Ternary composition diagram and Smith chart." /></a><figcaption>Ternary and Smith chart</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-xrd-deconv.png" data-full="{{AROOT}}assets/manual/fig-xrd-deconv.png" data-caption="XRD deconvolution with Miller indices." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-xrd-deconv.png" width="525" height="383" loading="lazy" decoding="async" alt="XRD peaks fitted one by one, with hkl labels." /></a><figcaption>XRD deconvolution</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-iv-inset.png" data-full="{{AROOT}}assets/manual/fig-iv-inset.png" data-caption="Twelve current–voltage curves of a superconductor with a zoom inset." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-iv-inset.png" width="506" height="442" loading="lazy" decoding="async" alt="Current-voltage curves at twelve magnetic fields with a zoom inset." /></a><figcaption>Curves with a zoom inset</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-depth.png" data-full="{{AROOT}}assets/manual/fig-depth.png" data-caption="Soil depth profiles of two seasons in four panels." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-depth.png" width="1080" height="501" loading="lazy" decoding="async" alt="Four panels of soil magnetic parameters against depth." /></a><figcaption>Depth profiles</figcaption></figure>
+            <figure><a class="shot" href="{{AROOT}}assets/manual/fig-forc.png" data-full="{{AROOT}}assets/manual/fig-forc.png" data-caption="A FORC diagram as a filled contour map." data-gallery="gallery"><img src="{{AROOT}}assets/manual/fig-forc.png" width="525" height="383" loading="lazy" decoding="async" alt="First-order reversal curve distribution as a contour map." /></a><figcaption>FORC diagram</figcaption></figure>
           </div>
         </div>
       </section>
@@ -368,7 +373,7 @@
         <div class="container">
           <div class="section-head">
             <p class="eyebrow">Download</p>
-            <h2 id="download-title">Download SciTrace-Graphs.</h2>
+            <h2 id="download-title">Download SciVelyx Graphs.</h2>
             <p class="lead">
               Version {{GRAPHS_VERSION}} for Windows, macOS and Linux. The release page carries the notes, the
               checksums and every file. During the testing phase it is open to invited testers.
@@ -407,7 +412,7 @@
             <li><strong>Not code-signed yet.</strong> Windows SmartScreen may warn once (More info → Run anyway);
               on macOS, Control-click the app → Open the first time. <a href="docs/install/">Installation guide</a>.</li>
             <li><strong>Checksums.</strong> Every release publishes <code>SHA256SUMS.txt</code>.</li>
-            <li><strong>Command line included.</strong> Every package also contains <code>scitrace</code>
+            <li><strong>Command line included.</strong> Every package also contains <code>scivelyx</code>
               (render, quick, migrate, export-project, script).</li>
           </ul>
         </div>
@@ -418,19 +423,19 @@
           <div class="section-head">
             <p class="eyebrow">FAQ</p>
             <h2 id="faq-title">Questions, answered plainly.</h2>
-            <p class="lead">More in the <a href="docs/faq/">FAQ of the guide</a>.</p>
+            <p class="lead">More in the <a href="docs/faq/">FAQ of the manual</a>.</p>
           </div>
           <div class="faq">
             <details>
-              <summary>Can SciTrace-Graphs open my Origin projects?</summary>
+              <summary>Can SciVelyx Graphs open my Origin projects?</summary>
               <p>Yes, through Origin itself: a script run inside Origin 2021 or later reads the .opj or .opju and
-                writes a file that SciTrace-Graphs opens, with a report of what was converted. Reading .opj files
+                writes a file that SciVelyx Graphs opens, with a report of what was converted. Reading .opj files
                 without Origin is not offered yet.</p>
             </details>
             <details>
               <summary>Does it replace SciDAVis and QtiPlot?</summary>
               <p>Yes. Since version 0.17 every menu action and dialog option of SciDAVis and QtiPlot has an equivalent,
-                and SciTrace-Graphs opens and saves their project files.</p>
+                and SciVelyx Graphs opens and saves their project files.</p>
             </details>
             <details>
               <summary>What does a figure look like in the paper?</summary>
@@ -444,7 +449,8 @@
             </details>
             <details>
               <summary>Which language is the interface in?</summary>
-              <p>English, the program's only language.</p>
+              <p>English, the program's only language. The user manual and this site are in English and
+                Portuguese.</p>
             </details>
           </div>
         </div>
@@ -453,11 +459,11 @@
       <section class="final-cta" aria-labelledby="final-title">
         <div class="container">
           <p class="eyebrow eyebrow-center">Try it with your own data</p>
-          <h2 id="final-title">Make your next figure in SciTrace-Graphs.</h2>
+          <h2 id="final-title">Make your next figure in SciVelyx Graphs.</h2>
           <p>Editable publication figures, fitting and analysis for Windows, macOS and Linux.</p>
           <div class="actions actions-center">
             <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Download v{{GRAPHS_VERSION}}</a>
-            <a class="btn btn-ghost" href="docs/">Read the guide</a>
+            <a class="btn btn-ghost" href="{{AROOT}}downloads/{{MANUAL_PDF}}">User manual (PDF)</a>
           </div>
         </div>
       </section>

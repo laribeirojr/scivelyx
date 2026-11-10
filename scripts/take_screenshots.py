@@ -1,21 +1,21 @@
-"""Take the SciTrace-Graphs screenshots of the website (WebP, English interface).
+"""Take the SciVelyx Graphs screenshots of the website (WebP, English interface).
 
     python scripts/take_screenshots.py /path/to/scitrace-studio-backup
 
-Needs SciTrace-Graphs installed (pip install -e <source>) and runs offscreen.  The SciDAVis project of the
-migration pictures is made from one of the program's examples with ``scitrace export-project``."""
+Needs SciVelyx Graphs installed (pip install -e <source>) and runs offscreen.  The SciDAVis project of the
+migration pictures is made from one of the program's examples with ``scivelyx export-project``."""
 import os, tempfile, sys
 os.environ["QT_QPA_PLATFORM"] = "offscreen"; os.environ["HOME"] = tempfile.mkdtemp()
-os.environ["SCITRACE_CONFIG_DIR"] = tempfile.mkdtemp()
+os.environ["SCIVELYX_CONFIG_DIR"] = tempfile.mkdtemp()
 import numpy as np, pandas as pd
 from pathlib import Path
 from PIL import Image
 from PySide6.QtWidgets import QApplication
 app = QApplication.instance() or QApplication([])
-from scitrace.gui.main_window import MainWindow
-from scitrace.core.data import from_frame
-from scitrace.core.spec import SeriesSpec
-from scitrace.examples import gallery
+from scivelyx.gui.main_window import MainWindow
+from scivelyx.core.data import from_frame
+from scivelyx.core.spec import SeriesSpec
+from scivelyx.examples import gallery
 SOURCE = Path(sys.argv[1] if len(sys.argv) > 1 else "../scitrace-studio-backup").resolve()
 OUT = Path(__file__).resolve().parent.parent / "site" / "assets" / "img"; OUT.mkdir(parents=True, exist_ok=True)
 TMP = Path(tempfile.mkdtemp())
@@ -35,7 +35,7 @@ names = list(gallery())
 w.load_example(next(n for n in names if n.lower().startswith("tight")) ); flush()
 save(w, "main-window")
 # property dialog of an axis
-from scitrace.gui.dialogs import PropertyDialog
+from scivelyx.gui.dialogs import PropertyDialog
 d = PropertyDialog(w, ("axis", 0, "x"), "Tick labels"); d.resize(835, 900); d.show(); app.processEvents(); save(d, "axis-dialog"); d.reject()
 # peak analyzer
 rng = np.random.default_rng(5)
@@ -46,11 +46,11 @@ dd = from_frame("XRD", pd.DataFrame({"2theta": x, "I": y})); dd.set_meta("2theta
 w.add_dataset(dd); w.new_graph(name="XRD")
 a = w.spec.axes[0]; a.series = [SeriesSpec(kind="line", dataset="XRD", x="2theta", y="I", label="XRD", color="#15243A", linewidth=0.8)]
 a.xlabel, a.ylabel = "2θ (°)", "Intensity (a.u.)"; w._structure_changed(); w.redraw(); flush()
-from scitrace.gui.advanced_dialogs import PeakAnalyzerDialog
+from scivelyx.gui.advanced_dialogs import PeakAnalyzerDialog
 pa = PeakAnalyzerDialog(w, 0, 0); pa.nmax.setValue(4); pa.run(); pa.resize(1240, 760); pa.show(); app.processEvents()
 save(pa, "peak-analyzer"); pa.out_res.setChecked(True); pa.accept(); flush()
 # fit wizard
-from scitrace.gui.analysis_dialogs import FitDialog
+from scivelyx.gui.analysis_dialogs import FitDialog
 xx = np.linspace(0, 10, 60)
 w.add_dataset(from_frame("decay", pd.DataFrame({"t": xx, "signal": 3*np.exp(-xx/2) + 0.5 + rng.normal(0, 0.04, xx.size)})))
 w.new_graph(name="Fit"); w.spec.axes[0].series = [SeriesSpec(kind="scatter", dataset="decay", x="t", y="signal", label="signal", markersize=4)]
@@ -78,8 +78,8 @@ sw.hide()
 # migration report
 import subprocess
 sci = TMP / "md_thermo.sciprj"
-subprocess.run([sys.executable, "-m", "scitrace.cli", "export-project",
-                str(SOURCE / "examples" / "04_md_thermodynamics_dual_axis_synthetic.scitrace.json"), "-o", str(sci)], check=True)
+subprocess.run([sys.executable, "-m", "scivelyx.cli", "export-project",
+                str(SOURCE / "examples" / "04_md_thermodynamics_dual_axis_synthetic.scivelyx.json"), "-o", str(sci)], check=True)
 w._open_project_path(str(sci), show_report=True); flush()
 dlg = getattr(w, "last_dialog", None)
 if dlg is not None:

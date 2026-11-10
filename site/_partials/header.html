@@ -1,23 +1,27 @@
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{{T_SKIP}}</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="{{ROOT}}" aria-label="SciTrace-Suite home">
-          <img src="{{ROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:34px;height:34px" alt="" />
-          <span>SciTrace-Suite</span>
+        <a class="brand" href="{{ROOT}}" aria-label="{{T_HOME_LABEL}}">
+          <img src="{{AROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:34px;height:34px" alt="" />
+          <span>SciVelyx Suite</span>
         </a>
-        <nav class="nav" aria-label="Sections">
+        <nav class="nav" aria-label="{{T_SECTIONS}}">
 {{NAV}}
         </nav>
         <div class="header-actions">
-          <a class="btn btn-primary header-cta" href="{{GRAPHS_RELEASE_URL}}">Download <span class="version">v{{GRAPHS_VERSION}}</span></a>
+          <nav class="lang-switch" aria-label="{{T_LANGUAGE}}">
+            <a href="{{URL_EN}}" hreflang="en" lang="en" aria-current="{{CUR_EN}}">EN</a>
+            <a href="{{URL_PT}}" hreflang="pt-BR" lang="pt-BR" aria-current="{{CUR_PT}}">PT</a>
+          </nav>
+          <a class="btn btn-primary header-cta" href="{{GRAPHS_RELEASE_URL}}">{{T_DOWNLOAD}} <span class="version">v{{GRAPHS_VERSION}}</span></a>
           <button
             class="icon-button"
             type="button"
             data-theme-toggle
-            data-label-light="Switch to light theme"
-            data-label-dark="Switch to dark theme"
-            aria-label="Switch to dark theme"
+            data-label-light="{{T_LIGHT}}"
+            data-label-dark="{{T_DARK}}"
+            aria-label="{{T_DARK}}"
             aria-pressed="false"
           >
             <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"

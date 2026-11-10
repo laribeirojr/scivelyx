@@ -38,6 +38,8 @@ The table shows the shape of each peak and its shape parameter: η for the pseud
 for BWF, and the left and right widths of a bi-Gaussian. A BWF tail never reaches zero, so its area is
 integrated over the fitted range, and its center is the position of the maximum.
 
+![Peak Analyzer with a shape per peak and a linear baseline fitted with the peaks]({{AROOT}}assets/manual/peak-analyzer.png)
+
 ## X-ray diffraction
 
 | Tool | What it does |
@@ -50,6 +52,8 @@ integrated over the fitted range, and its center is the position of the maximum.
 
 Wavelengths are built in for the Kα1, Kα2, Kα and Kβ lines of Cu, Mo, Co, Cr, Fe and Ag. You can also type any
 value in ångström.
+
+Step-by-step examples: [Worked examples](../tutorials/), sections 1, 2 and 4.
 
 ## Raman
 

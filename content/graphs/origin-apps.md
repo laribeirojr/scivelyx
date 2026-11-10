@@ -12,7 +12,7 @@ Tools that work on columns read the columns you select in the sheet (Ctrl+click 
 curve use the curve you clicked on the graph. Tools that compare curves use every curve of the active panel.
 Results go to new sheets, to the Messages dock and, where it helps, to a graph.
 
-![Chromaticity diagram]({{ROOT}}assets/img/chromaticity.webp){: width="1600" height="1000" loading="lazy" }
+![Chromaticity diagram]({{AROOT}}assets/img/chromaticity.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Curve fitting
 
@@ -37,7 +37,7 @@ Results go to new sheets, to the Messages dock and, where it helps, to a graph.
 | Distance between two points | Distance, dx, dy, angle and slope, with the segment drawn on the panel. |
 | Level crossing | The x values where the curve crosses a level: rising, falling or both. Hysteresis ignores noise around the level. |
 
-![Nyquist plot with Bode panels]({{ROOT}}assets/img/nyquist.webp){: width="1600" height="1000" loading="lazy" }
+![Nyquist plot with Bode panels]({{AROOT}}assets/img/nyquist.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Signal and statistics
 
@@ -74,8 +74,8 @@ Results go to new sheets, to the Messages dock and, where it helps, to a graph.
 | LaTeX equation | Typesets LaTeX math, such as `\frac{a}{b}` or `\int_0^\infty e^{-x^2}dx`, on the panel. |
 | Toolbar maker | Builds your own toolbar from any commands. It is kept between sessions. |
 
-![Taylor diagram]({{ROOT}}assets/img/taylor.webp){: width="1600" height="1000" loading="lazy" }
+![Taylor diagram]({{AROOT}}assets/img/taylor.webp){: width="1600" height="1000" loading="lazy" }
 
-![USDA soil texture triangle]({{ROOT}}assets/img/soil-texture.webp){: width="1600" height="1000" loading="lazy" }
+![USDA soil texture triangle]({{AROOT}}assets/img/soil-texture.webp){: width="1600" height="1000" loading="lazy" }
 
-![Isosurface]({{ROOT}}assets/img/isosurface.webp){: width="1600" height="1000" loading="lazy" }
+![Isosurface]({{AROOT}}assets/img/isosurface.webp){: width="1600" height="1000" loading="lazy" }

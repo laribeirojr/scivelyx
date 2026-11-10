@@ -39,7 +39,7 @@ The graph shows the **scree plot** and the **biplot**: scores as points, loading
 variable names. The report also gives the Kaiser criterion, the number of eigenvalues above 1. Rows with a missing
 value are left out.
 
-![PCA: scree plot and biplot]({{ROOT}}assets/img/pca.webp){: width="1600" height="1000" loading="lazy" }
+![PCA: scree plot and biplot]({{AROOT}}assets/img/pca.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Cluster analysis
 
@@ -54,7 +54,7 @@ distance to the centre. A second sheet holds the centres. The graph colours the 
 hierarchical method, draws the **dendrogram**. The report gives the mean silhouette width, from −1 to 1, where
 higher means better separated clusters, and for trees the cophenetic correlation.
 
-![Hierarchical clustering with the dendrogram]({{ROOT}}assets/img/clusters.webp){: width="1600" height="1000" loading="lazy" }
+![Hierarchical clustering with the dendrogram]({{AROOT}}assets/img/clusters.webp){: width="1600" height="1000" loading="lazy" }
 
 ## ROC curve
 
@@ -100,7 +100,7 @@ a colour map. When x is in seconds, the frequency is in hertz.
 The scalogram is drawn on a logarithmic frequency axis. The dashed **cone of influence** marks where the edges of
 the record distort it.
 
-![Continuous wavelet transform of a chirp]({{ROOT}}assets/img/wavelet.webp){: width="1600" height="1000" loading="lazy" }
+![Continuous wavelet transform of a chirp]({{AROOT}}assets/img/wavelet.webp){: width="1600" height="1000" loading="lazy" }
 
 **Wavelet decomposition** splits the signal into an approximation and the details at each level. This is the
 multiresolution analysis, with Haar, Daubechies, Symlets, Coiflets or biorthogonal wavelets. The parts add up to the
@@ -140,7 +140,7 @@ screenshot.
 3. **Sheet.** **Next curve** keeps the points and starts another curve. **Create sheets** makes one sheet per curve
    and a graph with all of them.
 
-![The digitizer tracing a curve]({{ROOT}}assets/img/digitizer.webp){: width="1200" height="760" loading="lazy" }
+![The digitizer tracing a curve]({{AROOT}}assets/img/digitizer.webp){: width="1200" height="760" loading="lazy" }
 
 ## In scripts
 

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}">
+  <head>
+{{> head}}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "{{SITE_URL}}pt-br/#site",
+            "url": "{{SITE_URL}}pt-br/",
+            "name": "SciVelyx Suite",
+            "inLanguage": "{{HTML_LANG}}"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "{{SITE_URL}}graphs/#app",
+            "name": "SciVelyx Graphs",
+            "applicationCategory": "ScientificApplication",
+            "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
+            "softwareVersion": "{{GRAPHS_VERSION}}",
+            "url": "{{SITE_URL}}pt-br/graphs/",
+            "downloadUrl": "{{GRAPHS_RELEASE_URL}}",
+            "screenshot": "{{SITE_URL}}assets/img/main-window.webp"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SciVelyx Suite · Windows, macOS e Linux</p>
+            <h1 id="hero-title">Science in Motion. <span class="mark">Data in Focus.</span></h1>
+            <p class="lead">
+              Ferramentas rápidas, precisas e intuitivas para analisar e visualizar dados científicos, para que
+              conjuntos de dados complexos virem conclusões claras. Começa pelo <strong>SciVelyx Graphs</strong> —
+              figuras de publicação e análise de dados na tradição do Origin, SciDAVis e QtiPlot — e cresce para a
+              matemática simbólica e interfaces para programas de DFT e de dinâmica molecular.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="graphs/">Conheça o SciVelyx Graphs</a>
+              <a class="btn btn-ghost" href="{{GRAPHS_RELEASE_URL}}">Baixar v{{GRAPHS_VERSION}}</a>
+            </div>
+            <p class="fineprint">
+              Fase de testes: os downloads estão abertos a testadores convidados. Sem conta, sem telemetria.
+            </p>
+            <div class="chips" aria-label="Em resumo">
+              <span class="chip"><strong>1</strong> aplicativo disponível</span>
+              <span class="chip"><strong>3</strong> a caminho</span>
+              <span class="chip"><strong>3</strong> sistemas operacionais</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <a class="shot hero-shot" href="{{AROOT}}assets/img/main-window.webp" data-full="{{AROOT}}assets/img/main-window.webp"
+               data-caption="SciVelyx Graphs: explorador do projeto, gráfico e as propriedades de cada elemento da figura."
+               data-gallery="hero">
+              <img src="{{AROOT}}assets/img/main-window.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="Janela principal do SciVelyx Graphs com um gráfico de estrutura de bandas, o explorador do projeto e o painel de propriedades." />
+            </a>
+            <span class="zoom-hint">Clique na imagem para ampliar</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="apps" class="section" aria-labelledby="apps-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Aplicativos</p>
+            <h2 id="apps-title">Uma suíte, uma maneira de trabalhar.</h2>
+            <p class="lead">
+              Os aplicativos compartilham os mesmos arquivos de projeto, planilhas, gráficos editáveis e exportação:
+              um resultado calculado em um deles vira figura no outro sem copiar números à mão.
+            </p>
+          </div>
+          <div class="app-grid">
+            <article class="app-card featured">
+              <span class="status live">Disponível · v{{GRAPHS_VERSION}}</span>
+              <h3>SciVelyx Graphs</h3>
+              <p>
+                Gráficos e análise de dados: figuras de publicação editáveis, ajuste de curvas e de picos,
+                espectroscopia, estatística, matrizes, scripts Python e migração de projetos do Origin, SciDAVis e
+                QtiPlot.
+              </p>
+              <div class="actions">
+                <a class="btn btn-primary" href="graphs/">Saiba mais</a>
+                <a class="btn btn-ghost" href="graphs/docs/">Manual</a>
+              </div>
+            </article>
+            <article class="app-card">
+              <span class="status">Planejado</span>
+              <h3>SciVelyx Math</h3>
+              <p>
+                Matemática simbólica em cadernos: álgebra, cálculo, equações, séries e matrizes com saída
+                tipografada, parâmetros interativos e gráficos direto no SciVelyx.
+              </p>
+            </article>
+            <article class="app-card">
+              <span class="status">Planejado</span>
+              <h3>SciVelyx DFT</h3>
+              <p>
+                Entrada e saída para SIESTA, Quantum ESPRESSO, VASP, CASTEP e FHI-aims: entradas validadas,
+                convergência, estruturas de bandas, densidades de estados, cargas e fônons.
+              </p>
+            </article>
+            <article class="app-card">
+              <span class="status">Planejado</span>
+              <h3>SciVelyx MD</h3>
+              <p>
+                Trajetórias do LAMMPS, GROMACS e NAMD, materiais e biomoléculas: visualização, RDF, MSD, difusão,
+                aglomerados e análise estrutural, com resultados em planilhas e gráficos editáveis.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="graphs" class="section panel-dark ai-section" aria-labelledby="graphs-title">
+        <div class="container">
+          <div class="ai-grid landscape">
+            <div>
+              <p class="eyebrow">SciVelyx Graphs</p>
+              <h2 id="graphs-title">Todo elemento da figura é editável.</h2>
+              <p class="lead">
+                Dê um duplo clique num título, eixo, curva ou legenda e as propriedades se abrem. Ajuste os dados,
+                analise os picos e exporte a figura no tamanho exato pedido pela revista.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Fluxo de trabalho do Origin.</strong> Planilhas com designação de colunas, fórmulas e
+                  unidades; gráficos que as seguem; uma faixa de opções e menus que você já conhece.</li>
+                <li><strong>Análises que continuam vivas.</strong> Ajustes, picos e operações de sinal são refeitos
+                  quando os dados mudam, inclusive as caixas de resultados no gráfico.</li>
+                <li><strong>Traga seus projetos.</strong> Projetos do SciDAVis e do QtiPlot abrem diretamente; os do
+                  Origin passam pelo próprio Origin, com um relatório de tudo o que foi convertido.</li>
+                <li><strong>Reprodutível.</strong> Um único arquivo de projeto guarda dados, gráficos, notas e
+                  scripts; um script Python gerado redesenha a figura pixel a pixel.</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="graphs/">Conheça o SciVelyx Graphs</a>
+              </div>
+            </div>
+            <figure class="ai-palette">
+              <a class="shot" href="{{AROOT}}assets/img/fit-wizard.webp" data-full="{{AROOT}}assets/img/fit-wizard.webp"
+                 data-caption="O assistente de ajuste: modelo, pesos, limites, iterações e tolerância, com bandas de confiança e de previsão e os resíduos."
+                 data-gallery="graphs">
+                <img src="{{AROOT}}assets/img/fit-wizard.webp" width="1260" height="820" loading="lazy" decoding="async"
+                     alt="Assistente de ajuste do SciVelyx Graphs ajustando um decaimento exponencial, com tabela de parâmetros, bandas e resíduos." />
+              </a>
+              <figcaption>O assistente de ajuste, com limites, bandas e resíduos. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="principles" class="section" aria-labelledby="principles-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Princípios</p>
+            <h2 id="principles-title">Feito para a pesquisa, não para contas.</h2>
+            <p class="lead">
+              Os aplicativos rodam no seu computador e guardam os dados nos seus arquivos. Nada é enviado a lugar
+              algum, a não ser que você peça — ao carregar um arquivo de dados do GitHub, por exemplo.
+            </p>
+          </div>
+          <div class="quiet-grid">
+            <div class="quiet-card"><strong>0</strong><span>contas, logins ou ativação</span></div>
+            <div class="quiet-card"><strong>0</strong><span>telemetria ou relatório de uso</span></div>
+            <div class="quiet-card"><strong>1</strong><span>arquivo de projeto com dados, gráficos, notas e scripts</span></div>
+            <div class="quiet-card"><strong>100%</strong><span>de cada figura reprodutível a partir do seu projeto</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-head">
+            <p class="eyebrow">Perguntas</p>
+            <h2 id="faq-title">Perguntas, respondidas com clareza.</h2>
+            <p class="lead">
+              Faltou alguma coisa? Abra uma issue no repositório de downloads; o manual do usuário cobre cada parte
+              do SciVelyx Graphs em detalhe.
+            </p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Quem pode baixar os aplicativos agora?</summary>
+              <p>
+                O SciVelyx Graphs está em fase de testes: o repositório de downloads é privado e aberto a
+                testadores convidados. Peça acesso ao autor; a versão pública vem depois da fase de testes.
+              </p>
+            </details>
+            <details>
+              <summary>Quais sistemas são compatíveis?</summary>
+              <p>
+                Windows 10 e 11 (64 bits), macOS 11 ou mais recente, em Apple silicon e em Intel, e Linux x86_64
+                (AppImage ou uma pasta simples).
+              </p>
+            </details>
+            <details>
+              <summary>Quando chegam o SciVelyx Math, o SciVelyx DFT e o SciVelyx MD?</summary>
+              <p>
+                Depois que o SciVelyx Graphs chegar à versão 1.0 e ganhar seu assistente de IA. Eles vão
+                compartilhar os arquivos de projeto, as planilhas e os gráficos dele.
+              </p>
+            </details>
+            <details>
+              <summary>O SciVelyx já teve outros nomes?</summary>
+              <p>
+                Sim. Até a versão 0.14 a suíte se chamava SciPlot, e da 0.15 à 1.0.0rc5, SciTrace. Os dois nomes
+                já eram usados por outros programas; por isso passou a se chamar SciVelyx na 1.0.0rc6. Projetos
+                salvos com os nomes anteriores (<code>.splot.json</code>, <code>.scitrace.json</code>) abrem como
+                antes, e as preferências são mantidas.
+              </p>
+            </details>
+            <details>
+              <summary>Os aplicativos precisam de internet?</summary>
+              <p>
+                Não. Eles funcionam sem conexão. A rede só é usada por uma ação sua, como ler dados de um
+                repositório do GitHub.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="container">
+          <p class="eyebrow eyebrow-center">Comece pela sua próxima figura</p>
+          <h2 id="final-title">Faça sua próxima figura no SciVelyx Graphs.</h2>
+          <p>Figuras de publicação e análise de dados para Windows, macOS e Linux.</p>
+          <div class="actions actions-center">
+            <a class="btn btn-primary" href="{{GRAPHS_RELEASE_URL}}">Baixar v{{GRAPHS_VERSION}}</a>
+            <a class="btn btn-ghost" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Manual do usuário (PDF)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+  </body>
+</html>

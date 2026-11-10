@@ -22,6 +22,9 @@ fit created — curve, bands, parameter table, box — is **recalculated in a ch
 **Analysis → Global fit** fits one model to several curves at once and lets you choose which parameters are shared
 (the same width in every spectrum, for example).
 
+For curves given as f(x, y) = 0 — circles, ellipses, conics — use **Analysis → Spectroscopy and diffraction → Fit
+implicit function…** ([Worked examples](../tutorials/), section 4).
+
 ## Peaks
 
 **Analysis → Peak Analyzer** (Ctrl+Shift+K) goes through four steps: baseline (asymmetric least squares or a
@@ -31,7 +34,7 @@ per peak, with an optional baseline fitted together), and a table with center, h
 with uncertainties. **Find peaks** is the quick version (positions and FWHM). The tools for Raman and X-ray
 diffraction are in [Spectroscopy and diffraction](../spectroscopy/).
 
-![The Peak Analyzer]({{ROOT}}assets/img/peak-analyzer.webp){: width="1240" height="760" loading="lazy" }
+![The Peak Analyzer]({{AROOT}}assets/img/peak-analyzer.webp){: width="1240" height="760" loading="lazy" }
 
 ## Signal
 

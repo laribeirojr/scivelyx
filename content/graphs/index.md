@@ -1,20 +1,38 @@
-# SciTrace-Graphs guide
+# SciVelyx Graphs user manual
 
-SciTrace-Graphs turns measured or simulated data into publication figures and analyses them: sheets with
-formulas, more than 35 graph types in which every element can be edited, curve and peak fitting, statistics,
-matrices, Python scripts and the migration of Origin, SciDAVis and QtiPlot projects.
+*Science in Motion. Data in Focus.*
 
-![SciTrace-Graphs main window]({{ROOT}}assets/img/main-window.webp){: width="1600" height="1000" loading="lazy" }
+SciVelyx Graphs turns measured or simulated data into publication figures and analyses them. It has:
+
+- sheets with formulas;
+- 176 graph types, in which every element can be edited;
+- curve and peak fitting, spectroscopy and X-ray diffraction tools;
+- statistics, matrices and Python scripts;
+- the migration of Origin, SciDAVis and QtiPlot projects.
+
+Our mission: to give researchers everywhere fast, precise and intuitive tools for analysing and visualising
+scientific data, so that complex datasets become clear insights and the path from data to discovery is shorter.
+
+<div class="manual-download">
+<a class="btn btn-primary" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Download this manual (PDF)</a>
+</div>
+
+The PDF has the same chapters as these pages, for reading offline or printing.
+
+![SciVelyx Graphs with a figure being edited]({{AROOT}}assets/manual/workspace.png)
 
 ## Where to start
 
 | If you want to… | Read |
 |---|---|
 | install the program | [Installation](install/) |
+| know the parts of the window | [The window](interface/) |
+| follow complete examples (XRD, Raman, band gap, implicit fit) | [Worked examples](tutorials/) |
 | make a figure from a data file in five minutes | [Your first graph](first-graph/) |
 | prepare data: import, formulas, units, masks | [Sheets and data](sheet/) |
 | change anything on a figure | [Editing graphs](editing/) |
 | fit curves, analyse peaks, run tests | [Fitting and analysis](analysis/) |
+| X-ray diffraction, Raman, instrument files | [Spectroscopy and diffraction](spectroscopy/) |
 | PCA, clusters, ROC, wavelets, ODR, read data from a picture | [Multivariate, wavelets and the digitizer](origin-tools/) |
 | use the Origin Apps (Tafel, logistic regression, Taylor and Venn diagrams…) | [Origin Apps](origin-apps/) |
 | work with grids, images and surfaces | [Matrices and surfaces](matrices/) |

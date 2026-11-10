@@ -15,7 +15,7 @@ shapes and a legend. Everything you see is linked to an editable element.
 | Panel background | Projection (2D, 3D, polar, ternary, Smith), background, aspect, grid (also on top of the data), 3D view, zoom and resolution. |
 | Outside the panels | The figure: journal, size in mm, DPI, rows and columns of panels, spacing, base font, math font, Matplotlib style sheets, colour cycle, (a)/(b) labels, overall title. |
 
-![The axis dialog]({{ROOT}}assets/img/axis-dialog.webp){: width="835" height="900" loading="lazy" }
+![The axis dialog]({{AROOT}}assets/img/axis-dialog.webp){: width="835" height="900" loading="lazy" }
 
 ## Mouse and keyboard
 

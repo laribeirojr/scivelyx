@@ -3,8 +3,8 @@
         <div class="footer-grid">
           <div>
             <a class="footer-brand" href="{{ROOT}}">
-              <img src="{{ROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:30px;height:30px" alt="" />
-              <span>SciTrace-Suite</span>
+              <img src="{{AROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:30px;height:30px" alt="" />
+              <span>SciVelyx Suite</span>
             </a>
             <p class="footer-about">
               Scientific software for research: graphs and data analysis today; symbolic mathematics, DFT and
@@ -14,15 +14,16 @@
           <div class="footer-col">
             <h3>Applications</h3>
             <ul>
-              <li><a href="{{ROOT}}graphs/">SciTrace-Graphs</a></li>
-              <li><a href="{{ROOT}}#apps">SciTrace-Math</a></li>
-              <li><a href="{{ROOT}}#apps">SciTrace-DFT</a></li>
-              <li><a href="{{ROOT}}#apps">SciTrace-MD</a></li>
+              <li><a href="{{ROOT}}graphs/">SciVelyx Graphs</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx Math</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx DFT</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx MD</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h3>Guides</h3>
             <ul>
+              <li><a href="{{AROOT}}downloads/{{MANUAL_PDF}}">User manual (PDF)</a></li>
               <li><a href="{{ROOT}}graphs/docs/install/">Installation</a></li>
               <li><a href="{{ROOT}}graphs/docs/first-graph/">Your first graph</a></li>
               <li><a href="{{ROOT}}graphs/docs/analysis/">Fitting and analysis</a></li>
@@ -34,15 +35,19 @@
             <ul>
               <li><a href="{{GRAPHS_RELEASES_URL}}">All releases</a></li>
               <li><a href="{{GRAPHS_ISSUES_URL}}">Report a problem</a></li>
-              <li><a href="{{ROOT}}assets/fonts/eb-garamond-OFL.txt">Font licences</a></li>
-              <li><a href="{{ROOT}}assets/LICENSE-MDraft.txt">Site design credits</a></li>
+              <li><a href="{{AROOT}}assets/fonts/eb-garamond-OFL.txt">Font licences</a></li>
+              <li><a href="{{AROOT}}assets/LICENSE-MDraft.txt">Site design credits</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© {{YEAR}} SciTrace-Suite. Typefaces under the SIL Open Font License. Site design adapted from
+          <p>© {{YEAR}} SciVelyx Suite. Typefaces under the SIL Open Font License. Site design adapted from
             <a href="https://bgeneto.github.io/MDraft/">MDraft</a> (MIT).</p>
           <p>This page sets no cookies and loads nothing from third parties.</p>
+          <nav class="lang-switch" aria-label="Language">
+            <a href="{{URL_EN}}" hreflang="en" lang="en" aria-current="{{CUR_EN}}">EN</a>
+            <a href="{{URL_PT}}" hreflang="pt-BR" lang="pt-BR" aria-current="{{CUR_PT}}">PT</a>
+          </nav>
         </div>
       </div>
     </footer>
@@ -57,4 +62,4 @@
       </div>
     </dialog>
 
-    <script src="{{ROOT}}site.js" defer></script>
+    <script src="{{AROOT}}site.js" defer></script>

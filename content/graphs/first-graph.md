@@ -6,7 +6,8 @@ scripted later ([Scripts]({{ROOT}}graphs/docs/scripts/)).
 ## 1. Open the data
 
 **File → Open data** (Ctrl+O) reads CSV, TSV and text in columns (with `#` comments and Fortran `D` exponents), Excel,
-LibreOffice (.ods), NumPy, JSON, Parquet, GROMACS `.xvg`, LAMMPS logs, WAV and SQLite. For files with an unusual
+LibreOffice (.ods), NumPy, JSON, Parquet, GROMACS `.xvg`, LAMMPS logs, WAV and SQLite, and the files of
+diffractometers and spectrometers ([Spectroscopy and diffraction]({{ROOT}}graphs/docs/spectroscopy/)). For files with an unusual
 layout — a decimal comma, header lines to skip, names on another line — use **File → Import wizard**
 (Ctrl+Shift+I), which shows the table while you adjust the options.
 
@@ -39,17 +40,17 @@ decay, Voigt, several peaks, your own formula…), press **Fit**, look at the pa
 bands, and **Apply to graph**. The fitted curve, the confidence band and a box with the parameters appear on the
 graph and are recalculated whenever the data change.
 
-![The fit wizard]({{ROOT}}assets/img/fit-wizard.webp){: width="1260" height="820" loading="lazy" }
+![The fit wizard]({{AROOT}}assets/img/fit-wizard.webp){: width="1260" height="820" loading="lazy" }
 
 ## 5. Export
 
 Choose the journal size in **Format → Journal** (e.g. *Nature — 1 column (89 mm)*, *APS — 1 column*), then
 **File → Export** (Ctrl+E). PDF, SVG and EPS keep the text editable at the exact physical size; PNG and TIFF use the
-resolution you set. **File → Save** keeps everything — data, graphs, notes and scripts — in one `.scitrace.json`
+resolution you set. **File → Save** keeps everything — data, graphs, notes and scripts — in one `.scivelyx.json`
 project.
 
 ## Try the examples
 
-The **Examples** menu opens ready-made figures (band structure with Γ–X–M ticks, spectrum with density of states,
-energy surface in 2D and 3D, molecular-dynamics thermodynamics on two y axes, ternary and Smith charts…). Each one
+The **Examples** menu and the start screen open ready-made figures (band structure with Γ–X–M ticks, spectrum with density of states,
+energy surface in 2D and 3D, molecular-dynamics thermodynamics on two y axes, ternary and Smith charts, and the figures modelled on 2026 papers…). Each one
 is fully editable and shows a technique you can reuse.

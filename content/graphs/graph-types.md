@@ -16,7 +16,7 @@ box statistics, percentages or the polygons of a Sankey diagram. Those numbers a
 helper sheets named after your sheet. The graph is an ordinary graph: every curve, axis, text and colour can be
 edited, and the helper sheets can be inspected or exported.
 
-![Violin with box]({{ROOT}}assets/img/violin-box.webp){: width="1600" height="1000" loading="lazy" }
+![Violin with box]({{AROOT}}assets/img/violin-box.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Basic 2D
 
@@ -285,18 +285,18 @@ Width, Layer Stack Manager, Color Editor, LaTeX) are tools in **Graph → Apps**
 - **Extra axes:** in the series properties, *Y axis* can be the 2nd to 4th right axis, the 2nd or 3rd left axis
   (offset and coloured like the curve), or the top X axis (Double X).
 
-![Sankey diagram]({{ROOT}}assets/img/sankey.webp){: width="1600" height="1000" loading="lazy" }
+![Sankey diagram]({{AROOT}}assets/img/sankey.webp){: width="1600" height="1000" loading="lazy" }
 
-![Four Y axes]({{ROOT}}assets/img/four-axes.webp){: width="1600" height="1000" loading="lazy" }
+![Four Y axes]({{AROOT}}assets/img/four-axes.webp){: width="1600" height="1000" loading="lazy" }
 
-![Ridgeline]({{ROOT}}assets/img/ridgeline.webp){: width="1600" height="1000" loading="lazy" }
+![Ridgeline]({{AROOT}}assets/img/ridgeline.webp){: width="1600" height="1000" loading="lazy" }
 
-![Piper diagram]({{ROOT}}assets/img/piper.webp){: width="1600" height="1000" loading="lazy" }
+![Piper diagram]({{AROOT}}assets/img/piper.webp){: width="1600" height="1000" loading="lazy" }
 
-![Wind rose]({{ROOT}}assets/img/wind-rose.webp){: width="1600" height="1000" loading="lazy" }
+![Wind rose]({{AROOT}}assets/img/wind-rose.webp){: width="1600" height="1000" loading="lazy" }
 
-![Bridge chart]({{ROOT}}assets/img/bridge.webp){: width="1600" height="1000" loading="lazy" }
+![Bridge chart]({{AROOT}}assets/img/bridge.webp){: width="1600" height="1000" loading="lazy" }
 
-![3D 100 % stacked bars]({{ROOT}}assets/img/bars3d.webp){: width="1600" height="1000" loading="lazy" }
+![3D 100 % stacked bars]({{AROOT}}assets/img/bars3d.webp){: width="1600" height="1000" loading="lazy" }
 
-![Ternary contour]({{ROOT}}assets/img/ternary-contour.webp){: width="1600" height="1000" loading="lazy" }
+![Ternary contour]({{AROOT}}assets/img/ternary-contour.webp){: width="1600" height="1000" loading="lazy" }
