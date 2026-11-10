@@ -4,7 +4,7 @@ Source of the website of the **SciVelyx Suite**: one site for every application 
 SciVelyx Graphs today; SciVelyx Math, SciVelyx DFT and SciVelyx MD later — with a page per application,
 downloads that point to each application's releases repository, the FAQ and the user guides.
 
-Published with GitHub Pages at **https://laribeirojr.github.io/scivelyx/** (see “Publishing” below). The page is static: plain HTML, one stylesheet, a small script for the theme switch and the
+Published with GitHub Pages at **https://scivelyx.github.io/** (see “Publishing” below). The page is static: plain HTML, one stylesheet, a small script for the theme switch and the
 image viewer, no framework and no third-party request.
 
 ## Layout

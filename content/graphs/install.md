@@ -52,7 +52,7 @@ and its rebuilds, openSUSE and Arch. Where the system Python is older than 3.10 
 Python 3.11:
 
 ```bash
-git clone https://github.com/laribeirojr/scivelyx-graphs.git ~/scivelyx
+git clone https://github.com/scivelyx/scivelyx-graphs.git ~/scivelyx
 cd ~/scivelyx && ./install.sh     # later: ./update.sh
 ```
 

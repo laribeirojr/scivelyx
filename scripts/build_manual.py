@@ -44,7 +44,8 @@ TEXT = {
 
 
 def site_url() -> str:
-    return CONFIG["site"]["origin"].rstrip("/") + "/" + CONFIG["site"]["base_path"].strip("/") + "/"
+    base = CONFIG["site"]["base_path"].strip("/")
+    return CONFIG["site"]["origin"].rstrip("/") + "/" + (base + "/" if base else "")
 
 
 def chapter(slug: str, text: str, tmp: Path, slugs: list) -> str:

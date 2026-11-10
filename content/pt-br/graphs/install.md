@@ -51,7 +51,7 @@ Linux Mint, Fedora, RHEL e derivados, openSUSE e Arch. Onde o Python do sistema 
 openSUSE Leap), ele instala o Python 3.11:
 
 ```bash
-git clone https://github.com/laribeirojr/scivelyx-graphs.git ~/scivelyx
+git clone https://github.com/scivelyx/scivelyx-graphs.git ~/scivelyx
 cd ~/scivelyx && ./install.sh     # depois: ./update.sh
 ```
 
