@@ -48,23 +48,18 @@ shasum -a 256 -c SHA256SUMS.txt --ignore-missing    # macOS
 certutil -hashfile SciTrace-Graphs-<version>-windows-x64-setup.exe SHA256    # Windows
 ```
 
-## From the source code
+## Licence
 
-With access to the source repository, you can install and update the program with git. This works on Linux,
-on Ubuntu in WSL (the window opens in Windows) and on macOS:
+SciTrace-Graphs is **freeware**:
 
-```bash
-git clone <source repository> ~/scitrace && cd ~/scitrace
-./install.sh          # system libraries, Python environment, commands and a menu entry
-scitrace-gui          # start it
-./update.sh           # later: fetch the new version and run it
-```
+- it is free of charge for any use, including research, teaching and work in companies;
+- you may give the unmodified installers to others, free of charge;
+- you may not modify, decompile or sell it;
+- the figures and data you make with it are yours.
 
-`install.sh` installs the Qt libraries on Debian and Ubuntu, using `sudo`. It also creates a private Python
-environment that runs the code of the clone directly, so each `./update.sh` brings the new version at once. Use
-`./install.sh --test` to run the automated tests and the self-test as well.
-
-Developers can also install by hand (Python 3.10 or newer): `pip install -e ".[gui,excel]"`, then `scitrace gui`.
+The installer shows the full licence, which is also in `LICENSE.txt` (English) and `LICENSE.pt-BR.txt`
+(Portuguese) in the program folder. The licences of the third-party components are in
+`THIRD_PARTY_NOTICES.txt`.
 
 ## Checking the installation
 
