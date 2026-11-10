@@ -52,3 +52,22 @@ certutil -hashfile SciTrace-Graphs-<version>-windows-x64-setup.exe SHA256    # W
 
 Developers can also run the program from its Python source (Python 3.10 or newer):
 `pip install -e ".[gui,excel]"` and then `scitrace gui`.
+
+## Checking the installation
+
+**Help → Run the self-test…** checks what depends on your computer:
+
+- the numerical libraries, figure drawing and the export formats, including the exact page size of a PDF;
+- the fonts, the file formats and the settings folder;
+- in the real window: the screen and its scaling, the clipboard, printing and the themes.
+
+It ends with a report in the browser and a `selftest.zip`. Attach the zip to a problem report.
+
+From a terminal, the same check runs with:
+
+```bash
+scitrace selftest --gui            # report in ~/SciTrace-selftest
+```
+
+**Help → Report a problem…** opens a problem report on GitHub, already filled in with the version and the
+system.
