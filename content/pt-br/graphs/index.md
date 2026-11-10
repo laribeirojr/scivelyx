@@ -18,7 +18,8 @@ descoberta fique mais curto.
 <a class="btn btn-primary" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Baixar este manual (PDF)</a>
 </div>
 
-O PDF tem os mesmos capítulos destas páginas, para ler sem internet ou imprimir.
+O PDF tem os mesmos capítulos destas páginas, para ler sem internet ou imprimir. Vídeos tutoriais curtos, gravados
+no programa, estão no [canal SciVelyx no YouTube](https://www.youtube.com/@SciVelyxSuite).
 
 **Sobre os nomes na tela.** O programa está em inglês. Neste manual, os nomes de menus, botões e campos aparecem
 como na tela, em negrito e em inglês — por exemplo, **File → Open data** (Arquivo → Abrir dados) — para que você os

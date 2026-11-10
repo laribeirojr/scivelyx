@@ -106,10 +106,11 @@ def common_values(rel_root: str, url_path: str, title: str, description: str, na
         "ABS_EN": SITE_URL + url_path, "ABS_PT": SITE_URL + "pt-br/" + url_path,
         "ROOT": rel_root, "SITE_URL": SITE_URL, "CANONICAL": SITE_URL + L["prefix"] + url_path,
         "TITLE": html.escape(title),
-        "DESCRIPTION": html.escape(description), "OG_IMAGE": SITE_URL + "assets/og.png?v=1",
+        "DESCRIPTION": html.escape(description), "OG_IMAGE": SITE_URL + "assets/og.png?v=2",
         "YEAR": str(_dt.date.today().year), "NAV": nav,
         "GRAPHS_VERSION": graphs["version"], "GRAPHS_RELEASE_URL": graphs["release_url"],
         "GRAPHS_RELEASES_URL": graphs["releases_url"], "GRAPHS_ISSUES_URL": graphs["issues_url"],
+        "GRAPHS_YOUTUBE_URL": graphs.get("youtube_url", "https://www.youtube.com/@SciVelyxSuite"),
     }
 
 

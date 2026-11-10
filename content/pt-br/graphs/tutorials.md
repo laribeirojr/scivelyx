@@ -6,6 +6,8 @@ seus serão outros.
 
 ## 1. Tamanho de cristalito a partir de um difratograma de raios X
 
+**Vídeo (1 minuto):** [este exemplo no YouTube](https://youtu.be/PyzbgjUO4O8).
+
 **Objetivo:** as distâncias interplanares d, o tamanho de Scherrer de cada pico, o tamanho e a deformação de
 Williamson–Hall e o parâmetro de rede de um pó cúbico.
 
@@ -53,6 +55,8 @@ O exemplo *Stacked XRD after milling* da galeria mostra um conjunto de difratogr
 Tabela 1 do artigo.
 
 ## 2. Bandas D e G de um espectro Raman de carbono
+
+**Vídeo (1 minuto):** [este exemplo no YouTube](https://youtu.be/ZTF_9Nyzifs).
 
 **Objetivo:** I_D/I_G, A_D/A_G e o tamanho de cristalito L_a de um carbono desordenado.
 

@@ -6,6 +6,8 @@ those data; yours will differ.
 
 ## 1. Crystallite size from an X-ray diffractogram
 
+**Video (1 minute):** [this example on YouTube](https://youtu.be/PyzbgjUO4O8).
+
 **Goal:** the d-spacings, the Scherrer size of each peak, the Williamson–Hall size and strain, and the lattice
 constant of a cubic powder.
 
@@ -49,6 +51,8 @@ The example *Stacked XRD after milling* in the gallery shows a set of patterns o
 a log–log inset* plots the crystallite size against the milling time, with the values of the paper's Table 1.
 
 ## 2. D and G bands of a carbon Raman spectrum
+
+**Video (1 minute):** [this example on YouTube](https://youtu.be/ZTF_9Nyzifs).
 
 **Goal:** I_D/I_G, A_D/A_G and the crystallite size L_a of a disordered carbon.
 

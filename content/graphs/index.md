@@ -17,7 +17,8 @@ scientific data, so that complex datasets become clear insights and the path fro
 <a class="btn btn-primary" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Download this manual (PDF)</a>
 </div>
 
-The PDF has the same chapters as these pages, for reading offline or printing.
+The PDF has the same chapters as these pages, for reading offline or printing. Short video tutorials, filmed in
+the program, are on the [SciVelyx channel on YouTube](https://www.youtube.com/@SciVelyxSuite).
 
 ![SciVelyx Graphs with a figure being edited]({{AROOT}}assets/manual/workspace.png)
 

@@ -10,6 +10,7 @@ version = "1.0.0rc7"
 release_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/releases/latest"
 releases_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/releases"
 issues_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/issues"
+youtube_url = "https://www.youtube.com/@SciVelyxSuite"
 
 [guides]
 # order of the SciVelyx Graphs guide pages (content/graphs/<name>.md); "index" is the guide's first page
