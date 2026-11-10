@@ -1,0 +1,12 @@
+#!/bin/sh
+# This repository is PUBLIC. Refuse any push that would carry the program's private source code.
+# Install with: git config core.hooksPath scripts/git-hooks
+z=0000000000000000000000000000000000000000
+while read -r lref lsha rref rsha; do
+  [ "$lsha" = "$z" ] && continue
+  if git ls-tree -r --name-only "$lsha" | grep -qE '^(src/scivelyx|src/scitrace|pyproject\.toml|packaging/)'; then
+    echo "pre-push: $lref contains the program's source code; this repository is public — push refused" >&2
+    exit 1
+  fi
+done
+exit 0
