@@ -10,8 +10,8 @@ JSON-LD, a third-party resource, or a page above the size budget.
     python scripts/build_site.py --serve    # … then serve _site/ on http://localhost:8000/
 
 Environment (optional outside CI):
-    SITE_ORIGIN     https://ribeirojr-gh.github.io
-    SITE_BASE_PATH  /scitrace-studio   (empty for a custom domain)
+    SITE_ORIGIN     https://laribeirojr.github.io
+    SITE_BASE_PATH  /scivelyx   (empty for a custom domain)
 """
 from __future__ import annotations
 

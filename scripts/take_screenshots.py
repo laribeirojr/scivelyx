@@ -1,6 +1,6 @@
 """Take the SciVelyx Graphs screenshots of the website (WebP, English interface).
 
-    python scripts/take_screenshots.py /path/to/scitrace-studio-backup
+    python scripts/take_screenshots.py /path/to/scivelyx-graphs
 
 Needs SciVelyx Graphs installed (pip install -e <source>) and runs offscreen.  The SciDAVis project of the
 migration pictures is made from one of the program's examples with ``scivelyx export-project``."""
@@ -16,7 +16,7 @@ from scivelyx.gui.main_window import MainWindow
 from scivelyx.core.data import from_frame
 from scivelyx.core.spec import SeriesSpec
 from scivelyx.examples import gallery
-SOURCE = Path(sys.argv[1] if len(sys.argv) > 1 else "../scitrace-studio-backup").resolve()
+SOURCE = Path(sys.argv[1] if len(sys.argv) > 1 else "../scivelyx-graphs").resolve()
 OUT = Path(__file__).resolve().parent.parent / "site" / "assets" / "img"; OUT.mkdir(parents=True, exist_ok=True)
 TMP = Path(tempfile.mkdtemp())
 def save(widget, name, q=86):
