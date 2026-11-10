@@ -6,7 +6,7 @@ base_path = "/scitrace-studio"
 
 # One table per application. Update "version" when a new release is published.
 [apps.graphs]
-version = "1.0.0rc1"
+version = "1.0.0rc2"
 release_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/releases/latest"
 releases_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/releases"
 issues_url = "https://github.com/ribeirojr-gh/scitrace-graphs-releases/issues"

@@ -50,8 +50,21 @@ certutil -hashfile SciTrace-Graphs-<version>-windows-x64-setup.exe SHA256    # W
 
 ## From the source code
 
-Developers can also run the program from its Python source (Python 3.10 or newer):
-`pip install -e ".[gui,excel]"` and then `scitrace gui`.
+With access to the source repository, you can install and update the program with git. This works on Linux,
+on Ubuntu in WSL (the window opens in Windows) and on macOS:
+
+```bash
+git clone <source repository> ~/scitrace && cd ~/scitrace
+./install.sh          # system libraries, Python environment, commands and a menu entry
+scitrace-gui          # start it
+./update.sh           # later: fetch the new version and run it
+```
+
+`install.sh` installs the Qt libraries on Debian and Ubuntu, using `sudo`. It also creates a private Python
+environment that runs the code of the clone directly, so each `./update.sh` brings the new version at once. Use
+`./install.sh --test` to run the automated tests and the self-test as well.
+
+Developers can also install by hand (Python 3.10 or newer): `pip install -e ".[gui,excel]"`, then `scitrace gui`.
 
 ## Checking the installation
 
