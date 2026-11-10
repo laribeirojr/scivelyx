@@ -1,15 +1,15 @@
 # SciVelyx Suite website settings (read by scripts/build_site.py).
 
 [site]
-origin = "https://scivelyx.github.io"
-base_path = ""
+origin = "https://laribeirojr.github.io"
+base_path = "/scivelyx"
 
 # One table per application. Update "version" when a new release is published.
 [apps.graphs]
 version = "1.0.0rc7"
-release_url = "https://github.com/scivelyx/scivelyx-graphs-releases/releases/latest"
-releases_url = "https://github.com/scivelyx/scivelyx-graphs-releases/releases"
-issues_url = "https://github.com/scivelyx/scivelyx-graphs-releases/issues"
+release_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/releases/latest"
+releases_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/releases"
+issues_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/issues"
 
 [guides]
 # order of the SciVelyx Graphs guide pages (content/graphs/<name>.md); "index" is the guide's first page
