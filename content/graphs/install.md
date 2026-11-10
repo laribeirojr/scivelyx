@@ -35,8 +35,26 @@ chmod +x SciVelyx-Graphs-*-linux-x86_64.AppImage
 ./SciVelyx-Graphs-*-linux-x86_64.AppImage scivelyx --help     # the command line
 ```
 
-If the AppImage asks for FUSE, install `libfuse2` (Ubuntu and Debian: `sudo apt install libfuse2`) or use the
-`.tar.gz`: extract it and run `SciVelyx-Graphs` inside the folder.
+If the AppImage asks for FUSE, install FUSE 2 or use the `.tar.gz` (extract it and run `SciVelyx-Graphs` inside the
+folder):
+
+| Distribution | Command |
+|---|---|
+| Ubuntu 24.04 or later | `sudo apt install libfuse2t64` |
+| Debian, Linux Mint, older Ubuntu | `sudo apt install libfuse2` |
+| Fedora, RHEL, Rocky, Alma | `sudo dnf install fuse-libs` |
+| openSUSE | `sudo zypper install libfuse2` |
+| Arch, Manjaro | `sudo pacman -S fuse2` |
+
+**Testers with access to the source repository** can install with git instead. `./install.sh` finds the package
+manager (apt, dnf, zypper or pacman) and installs the libraries Qt needs on Ubuntu, Debian, Linux Mint, Fedora, RHEL
+and its rebuilds, openSUSE and Arch. Where the system Python is older than 3.10 (RHEL 8–9, openSUSE Leap), it adds
+Python 3.11:
+
+```bash
+git clone https://github.com/ribeirojr-gh/scitrace-studio-backup.git ~/scivelyx
+cd ~/scivelyx && ./install.sh     # later: ./update.sh
+```
 
 ## Checking a download
 

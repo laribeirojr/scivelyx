@@ -35,8 +35,25 @@ chmod +x SciVelyx-Graphs-*-linux-x86_64.AppImage
 ./SciVelyx-Graphs-*-linux-x86_64.AppImage scivelyx --help     # a linha de comando
 ```
 
-Se o AppImage pedir FUSE, instale o `libfuse2` (Ubuntu e Debian: `sudo apt install libfuse2`) ou use o `.tar.gz`:
-extraia e rode `SciVelyx-Graphs` dentro da pasta.
+Se o AppImage pedir FUSE, instale o FUSE 2 ou use o `.tar.gz` (extraia e rode `SciVelyx-Graphs` dentro da pasta):
+
+| Distribuição | Comando |
+|---|---|
+| Ubuntu 24.04 ou mais novo | `sudo apt install libfuse2t64` |
+| Debian, Linux Mint, Ubuntu mais antigo | `sudo apt install libfuse2` |
+| Fedora, RHEL, Rocky, Alma | `sudo dnf install fuse-libs` |
+| openSUSE | `sudo zypper install libfuse2` |
+| Arch, Manjaro | `sudo pacman -S fuse2` |
+
+**Quem testa e tem acesso ao repositório do código** pode instalar com o git. O `./install.sh` reconhece o
+gerenciador de pacotes (apt, dnf, zypper ou pacman) e instala as bibliotecas de que o Qt precisa no Ubuntu, Debian,
+Linux Mint, Fedora, RHEL e derivados, openSUSE e Arch. Onde o Python do sistema é anterior ao 3.10 (RHEL 8–9,
+openSUSE Leap), ele instala o Python 3.11:
+
+```bash
+git clone https://github.com/ribeirojr-gh/scitrace-studio-backup.git ~/scivelyx
+cd ~/scivelyx && ./install.sh     # depois: ./update.sh
+```
 
 ## Conferindo um download
 
