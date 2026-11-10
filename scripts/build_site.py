@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble the SciTrace-Suite website into ``_site/`` and check it.
+"""Assemble the SciVelyx Suite website into ``_site/`` and check it.
 
 The pages are static HTML in ``site/`` with a few shared fragments in ``site/_partials/``; the user guides are
 Markdown in ``content/`` and become pages with the same header, navigation and footer.  The build fails on a
@@ -52,7 +52,29 @@ def check(ok: bool, msg: str) -> bool:
     return ok
 
 
+LANGS = {
+    "en": {"prefix": "", "html": "en", "locale": "en_US", "alt": "pt_BR", "pdf": "SciVelyx-Graphs-Manual-en.pdf",
+           "T": {"SKIP": "Skip to content", "HOME_LABEL": "SciVelyx Suite home", "SECTIONS": "Sections",
+                 "DOWNLOAD": "Download", "LIGHT": "Switch to light theme", "DARK": "Switch to dark theme",
+                 "LANGUAGE": "Language", "GUIDE": "SciVelyx Graphs user manual", "DOWNLOADS": "Downloads",
+                 "MANUAL_PDF": "User manual (PDF)", "LATEST": "Latest release", "REPORT": "Report a problem",
+                 "PAGES": "Manual pages", "PREV": "Previous", "NEXT": "Next", "GUIDE_TITLE": "SciVelyx Graphs manual"}},
+    "pt-br": {"prefix": "pt-br/", "html": "pt-BR", "locale": "pt_BR", "alt": "en_US",
+              "pdf": "SciVelyx-Graphs-Manual-pt-br.pdf",
+              "T": {"SKIP": "Pular para o conteúdo", "HOME_LABEL": "Início da SciVelyx Suite", "SECTIONS": "Seções",
+                    "DOWNLOAD": "Baixar", "LIGHT": "Mudar para o tema claro", "DARK": "Mudar para o tema escuro",
+                    "LANGUAGE": "Idioma", "GUIDE": "Manual do usuário do SciVelyx Graphs", "DOWNLOADS": "Downloads",
+                    "MANUAL_PDF": "Manual do usuário (PDF)", "LATEST": "Versão mais recente",
+                    "REPORT": "Relatar um problema", "PAGES": "Páginas do manual", "PREV": "Anterior",
+                    "NEXT": "Próxima", "GUIDE_TITLE": "Manual do SciVelyx Graphs"}},
+}
+LANG = "en"                     # language of the page being filled (partials may have a translated copy)
+
+
 def partial(name: str) -> str:
+    own = SITE / "_partials" / LANG / f"{name}.html"
+    if LANG != "en" and own.exists():
+        return own.read_text(encoding="utf-8")
     return (SITE / "_partials" / f"{name}.html").read_text(encoding="utf-8")
 
 
@@ -69,10 +91,21 @@ def fill(text: str, values: dict) -> str:
     return text
 
 
-def common_values(rel_root: str, url_path: str, title: str, description: str, nav: str) -> dict:
+def common_values(rel_root: str, url_path: str, title: str, description: str, nav: str, lang: str = "en",
+                  aroot: str | None = None) -> dict:
+    """``rel_root``: from the page to the root of its language; ``aroot``: to the site root (assets)."""
     graphs = CONFIG["apps"]["graphs"]
+    L = LANGS[lang]
+    aroot = rel_root if aroot is None else aroot
+    tvals = {f"T_{k}": v for k, v in L["T"].items()}
     return {
-        "ROOT": rel_root, "SITE_URL": SITE_URL, "CANONICAL": SITE_URL + url_path, "TITLE": html.escape(title),
+        **tvals, "AROOT": aroot, "HTML_LANG": L["html"], "OG_LOCALE": L["locale"], "OG_LOCALE_ALT": L["alt"],
+        "MANUAL_PDF": L["pdf"],
+        "URL_EN": aroot + url_path or "./", "URL_PT": aroot + "pt-br/" + url_path,
+        "CUR_EN": str(lang == "en").lower(), "CUR_PT": str(lang == "pt-br").lower(),
+        "ABS_EN": SITE_URL + url_path, "ABS_PT": SITE_URL + "pt-br/" + url_path,
+        "ROOT": rel_root, "SITE_URL": SITE_URL, "CANONICAL": SITE_URL + L["prefix"] + url_path,
+        "TITLE": html.escape(title),
         "DESCRIPTION": html.escape(description), "OG_IMAGE": SITE_URL + "assets/og.png?v=1",
         "YEAR": str(_dt.date.today().year), "NAV": nav,
         "GRAPHS_VERSION": graphs["version"], "GRAPHS_RELEASE_URL": graphs["release_url"],
@@ -85,18 +118,26 @@ def nav_links(items) -> str:
     return "\n".join(f'          <a href="{href}">{html.escape(label)}</a>' for label, href in items)
 
 
-NAV_SUITE = [("Applications", "#apps"), ("SciTrace-Graphs", "graphs/"), ("Principles", "#principles"),
-             ("FAQ", "#faq"), ("Guides", "graphs/docs/")]
-NAV_GRAPHS = [("Editing", "#editing"), ("Analysis", "#analysis"), ("Migration", "#migration"),
-              ("Scripts", "#scripts"), ("Gallery", "#gallery"), ("Download", "#download"), ("Guides", "docs/")]
+NAV_SUITE = {"en": [("Applications", "#apps"), ("SciVelyx Graphs", "graphs/"), ("Principles", "#principles"),
+                     ("FAQ", "#faq"), ("Manual", "graphs/docs/")],
+             "pt-br": [("Aplicativos", "#apps"), ("SciVelyx Graphs", "graphs/"), ("Princípios", "#principles"),
+                       ("Perguntas", "#faq"), ("Manual", "graphs/docs/")]}
+NAV_GRAPHS = {"en": [("Editing", "#editing"), ("Analysis", "#analysis"), ("Migration", "#migration"),
+                     ("Scripts", "#scripts"), ("Gallery", "#gallery"), ("Download", "#download"), ("Manual", "docs/")],
+              "pt-br": [("Edição", "#editing"), ("Análise", "#analysis"), ("Migração", "#migration"),
+                        ("Scripts", "#scripts"), ("Galeria", "#gallery"), ("Baixar", "#download"),
+                        ("Manual", "docs/")]}
 
 
 # ------------------------------------------------------------------ guides (Markdown)
-def guides() -> list[dict]:
+def guides(lang: str = "en") -> list[dict]:
     order = CONFIG["guides"]["graphs"]
     out = []
+    base = CONTENT / "graphs" if lang == "en" else CONTENT / lang / "graphs"
     for slug in order:
-        src = CONTENT / "graphs" / f"{slug}.md"
+        src = base / f"{slug}.md"
+        if not check(src.exists(), f"{lang}: manual page {slug}.md exists"):
+            src = CONTENT / "graphs" / f"{slug}.md"
         text = src.read_text(encoding="utf-8")
         m = re.match(r"^# (.+)$", text, re.M)
         out.append({"slug": slug, "title": m.group(1).strip() if m else slug, "text": text})
@@ -112,13 +153,36 @@ def doc_nav(items, current: str, rel_root: str) -> str:
     return "\n".join(li)
 
 
-def render_guide(g: dict, items: list, k: int) -> tuple[str, str]:
+def figures(body: str, aroot: str) -> str:
+    """Markdown pictures: true width/height, lazy loading, and a picture alone in a paragraph becomes a
+    <figure> whose caption is its alt text."""
+    def img(m):
+        tag = m.group(0)
+        src = re.search(r'src="([^"]+)"', tag).group(1)
+        if "width=" not in tag and src.startswith(aroot):
+            f = SITE / src[len(aroot):]
+            if f.exists():
+                with Image.open(f) as pic:
+                    w, h = pic.size
+                tag = tag.replace("<img ", f'<img width="{w}" height="{h}" loading="lazy" ', 1)
+        return tag
+    body = re.sub(r"<img [^>]+>", img, body)
+    return re.sub(r'<p>(<img [^>]*alt="([^"]*)"[^>]*>)</p>',
+                  lambda m: f'<figure class="manual-figure">{m.group(1)}<figcaption>{m.group(2)}</figcaption></figure>',
+                  body)
+
+
+def render_guide(g: dict, items: list, k: int, lang: str = "en") -> tuple[str, str]:
+    L = LANGS[lang]
     depth = 2 if g["slug"] == "index" else 3
     rel = "../" * depth
+    aroot = rel + ("../" if lang != "en" else "")
     url = "graphs/docs/" + ("" if g["slug"] == "index" else f"{g['slug']}/")
     md = markdown.Markdown(extensions=["tables", "fenced_code", "toc", "attr_list", "sane_lists"],
                            extension_configs={"toc": {"permalink": False}})
-    body = md.convert(g["text"].replace("{{ROOT}}", rel))
+    body = md.convert(g["text"].replace("{{AROOT}}", aroot).replace("{{ROOT}}", rel)
+                      .replace("{{MANUAL_PDF}}", L["pdf"]))
+    body = figures(body, aroot)
     first = re.search(r"\n\n([^#\n].+?)\n", g["text"])
     desc = re.sub(r"[*`\[\]]|\(.*?\)", "", first.group(1))[:180] if first else g["title"]
     prev_ = items[k - 1] if k > 0 else None
@@ -129,12 +193,13 @@ def render_guide(g: dict, items: list, k: int) -> tuple[str, str]:
             return "<span></span>"
         href = f"{rel}graphs/docs/" + ("" if it["slug"] == "index" else f"{it['slug']}/")
         return f'<a class="text-link" href="{href}">{label}: {html.escape(it["title"])}</a>'
+    T = L["T"]
     page = fill(partial("doc"), {
-        **common_values(rel, url, f"{g['title']} — SciTrace-Graphs guide", desc,
-                        nav_links([(lbl, f"{rel}graphs/{h}") for lbl, h in NAV_GRAPHS])),
+        **common_values(rel, url, f"{g['title']} — {T['GUIDE_TITLE']}", desc,
+                        nav_links([(lbl, f"{rel}graphs/{h}") for lbl, h in NAV_GRAPHS[lang]]), lang, aroot),
         "DOC_NAV": doc_nav(items, g["slug"], rel), "DOC_BODY": body,
-        "DOC_PAGER": link(prev_, "Previous") + link(next_, "Next")})
-    return url + "index.html", page
+        "DOC_PAGER": link(prev_, T["PREV"]) + link(next_, T["NEXT"])})
+    return L["prefix"] + url + "index.html", page
 
 
 # ------------------------------------------------------------------ checks
@@ -242,33 +307,53 @@ def validate(pages: dict[str, str]) -> None:
 def build() -> int:
     shutil.rmtree(OUT, ignore_errors=True)
     OUT.mkdir()
+    global LANG
     for item in SITE.iterdir():
-        if item.name.startswith("_") or item.suffix == ".html":
+        if item.name.startswith("_") or item.suffix == ".html" or item.name in LANGS:
             continue
         (shutil.copytree if item.is_dir() else shutil.copy2)(item, OUT / item.name)
     shutil.copy2(ROOT / "LICENSE-MDraft.txt", OUT / "assets" / "LICENSE-MDraft.txt")
     pages: dict[str, str] = {}
     specs = [
-        ("index.html", "index.html", "./", "", "SciTrace-Suite — scientific software from the measurement to the paper",
-         "SciTrace-Suite: SciTrace-Graphs for publication figures and data analysis, with SciTrace-Math, SciTrace-DFT "
-         "and SciTrace-MD to come. Free of telemetry, reproducible, built for research.", NAV_SUITE),
-        ("graphs/index.html", "graphs/index.html", "../", "graphs/",
-         "SciTrace-Graphs — scientific graphs and data analysis",
-         "Publication figures, curve fitting, peak analysis, statistics, matrices and Python scripts, with project "
-         "migration from Origin, SciDAVis and QtiPlot. Windows, macOS and Linux.", NAV_GRAPHS),
-        ("404.html", "404.html", "{{ABS}}", "404.html", "Page not found — SciTrace-Suite",
-         "This page does not exist.", NAV_SUITE),
+        ("index.html", "index.html", "./", "", {
+            "en": ("SciVelyx Suite — scientific software from the measurement to the paper",
+                   "SciVelyx Suite: SciVelyx Graphs for publication figures and data analysis, with SciVelyx Math, "
+                   "SciVelyx DFT and SciVelyx MD to come. Science in Motion. Data in Focus."),
+            "pt-br": ("SciVelyx Suite — software científico da medida ao artigo",
+                      "SciVelyx Suite: SciVelyx Graphs para figuras de publicação e análise de dados; SciVelyx Math, "
+                      "SciVelyx DFT e SciVelyx MD a caminho. Science in Motion. Data in Focus.")}, NAV_SUITE),
+        ("graphs/index.html", "graphs/index.html", "../", "graphs/", {
+            "en": ("SciVelyx Graphs — scientific graphs and data analysis",
+                   "Publication figures, curve fitting, peak analysis, spectroscopy, statistics, matrices and Python "
+                   "scripts, with project migration from Origin, SciDAVis and QtiPlot. Windows, macOS and Linux."),
+            "pt-br": ("SciVelyx Graphs — gráficos científicos e análise de dados",
+                      "Figuras de publicação, ajuste de curvas, análise de picos, espectroscopia, estatística, matrizes "
+                      "e scripts Python, com migração de projetos do Origin, SciDAVis e QtiPlot. Windows, macOS e "
+                      "Linux.")}, NAV_GRAPHS),
+        ("404.html", "404.html", "{{ABS}}", "404.html", {
+            "en": ("Page not found — SciVelyx Suite", "This page does not exist.")}, NAV_SUITE),
     ]
-    for src, dst, rel, url, title, desc, nav in specs:
-        text = (SITE / src).read_text(encoding="utf-8")
-        if dst == "404.html":                       # served from any depth: absolute paths under the base
-            rel = f"{BASE}/"
-            nav = [(label, rel + href) for label, href in nav]
-        pages[dst] = fill(text, common_values(rel, url, title, desc, nav_links(nav)))
-    items = guides()
-    for k, g in enumerate(items):
-        dst, text = render_guide(g, items, k)
-        pages[dst] = text
+    for src, dst, rel, url, texts, nav in specs:
+        for lang, (title, desc) in texts.items():
+            LANG = lang
+            L = LANGS[lang]
+            path = SITE / src if lang == "en" else SITE / lang / src
+            if not check(path.exists(), f"{lang}: page {src} exists"):
+                path = SITE / src
+            text = path.read_text(encoding="utf-8")
+            r, aroot = rel, rel + ("../" if lang != "en" else "")
+            links = nav[lang]
+            if dst == "404.html":                   # served from any depth: absolute paths under the base
+                r = aroot = f"{BASE}/"
+                links = [(label, r + href) for label, href in links]
+            pages[L["prefix"] + dst] = fill(text, common_values(r, url, title, desc, nav_links(links), lang, aroot))
+    for lang in LANGS:
+        LANG = lang
+        items = guides(lang)
+        for k, g in enumerate(items):
+            dst, text = render_guide(g, items, k, lang)
+            pages[dst] = text
+    LANG = "en"
     for dst, text in pages.items():
         (OUT / dst).parent.mkdir(parents=True, exist_ok=True)
         (OUT / dst).write_text(text, encoding="utf-8")

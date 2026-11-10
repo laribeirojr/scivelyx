@@ -18,7 +18,7 @@ dependent one. The report and the sheets give:
 The graph shows the residuals against the fitted values and one *partial leverage* (added-variable) plot per
 predictor. The slope of each partial leverage plot is that predictor's coefficient.
 
-![Multiple regression with partial leverage plots]({{ROOT}}assets/img/mlr.webp){: width="1600" height="1000" loading="lazy" }
+![Multiple regression with partial leverage plots]({{AROOT}}assets/img/mlr.webp){: width="1600" height="1000" loading="lazy" }
 
 **Confidence ellipse.** Select two columns. The ellipse holds a new observation (*population*) or the mean with the
 probability you choose. The graph also shows the data and the straight-line fit.
@@ -54,9 +54,9 @@ In the **Fit Wizard**:
 The Lilliefors, Chen–Shapiro and Dixon p-values come from simulated normal samples with a fixed seed, so they are
 the same every time.
 
-![A Weibull probability plot]({{ROOT}}assets/img/probability-plot.webp){: width="1600" height="1000" loading="lazy" }
+![A Weibull probability plot]({{AROOT}}assets/img/probability-plot.webp){: width="1600" height="1000" loading="lazy" }
 
-![An X-bar R chart]({{ROOT}}assets/img/qc-chart.webp){: width="1600" height="1000" loading="lazy" }
+![An X-bar R chart]({{AROOT}}assets/img/qc-chart.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Signal and mathematics
 
@@ -86,4 +86,4 @@ then drag along x):
 The result appears in a box on the graph, and a curve or a second graph is added when there is one. Move the range
 and the gadget is computed again. **Stop the gadget** ends it.
 
-![The sigmoidal fit gadget]({{ROOT}}assets/img/gadget.webp){: width="1600" height="1000" loading="lazy" }
+![The sigmoidal fit gadget]({{AROOT}}assets/img/gadget.webp){: width="1600" height="1000" loading="lazy" }

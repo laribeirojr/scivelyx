@@ -8,6 +8,7 @@
 | Unusual text files | **File → Import wizard** (Ctrl+Shift+I): separator, decimal comma, lines to skip, names and comment lines, with a live preview |
 | Excel, LibreOffice (.ods), NumPy, JSON, Parquet | **File → Open data** |
 | GROMACS `.xvg`, LAMMPS log | **File → Open data** |
+| Diffractometers and spectrometers (XRDML, RAS, UXD, JCAMP-DX, SPC) | **File → Open data** — see [Spectroscopy and diffraction](../spectroscopy/) |
 | Sound (.wav) | **File → Open data**: one column per channel |
 | SQLite database | **File → SQLite database…**: a table or a `SELECT` query (read-only) |
 | HDF5, NetCDF, MATLAB (.mat) | **File → HDF5, NetCDF or MATLAB file…** (or open/drop the file): variables as columns or as a matrix — see [Multivariate, wavelets and the digitizer](../origin-tools/) |
@@ -41,6 +42,9 @@ Special functions (erf, gamma, Bessel, Voigt…) and the muParser functions of S
 with several arguments, rint, w0, wm1, chi2cdf, invt, rnd…) are available. The evaluator is safe: a formula cannot
 run arbitrary code. Formula columns **recalculate by themselves** when the columns they use change; typing into a
 formula column turns it into ordinary data.
+
+In formulas the decimal separator is always the point (`2.303`), as in every programming language, even when
+your files use a comma.
 
 ## Masks and undo
 

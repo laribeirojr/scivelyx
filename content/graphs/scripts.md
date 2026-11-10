@@ -11,7 +11,7 @@ highlighting and a console. Scripts are Python and are saved in the project.
 
 The console below runs one command at a time and keeps the history. **Restart** clears the interpreter.
 
-![The script window]({{ROOT}}assets/img/script-window.webp){: width="1000" height="640" loading="lazy" }
+![The script window]({{AROOT}}assets/manual/script-window.png)
 
 ## The API
 
@@ -47,9 +47,9 @@ plot("centers", "sample", "xc", kind="scatter", new=True)
 The same API works from the command line, for batch jobs and clusters:
 
 ```bash
-scitrace script analysis.py                                  # data created by the script itself
-scitrace script analysis.py --project project.scitrace.json     # on an existing project
-scitrace script analysis.py --project p.scitrace.json --save p2.scitrace.json
+scivelyx script analysis.py                                  # data created by the script itself
+scivelyx script analysis.py --project project.scivelyx.json     # on an existing project
+scivelyx script analysis.py --project p.scivelyx.json --save p2.scivelyx.json
 ```
 
 Scripts run with your own permissions, like any Python program, so run only scripts you trust.

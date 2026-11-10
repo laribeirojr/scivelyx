@@ -1,6 +1,6 @@
 # Plot wizard, windows and presentations
 
-Version 0.17 added the last tools of SciDAVis and QtiPlot that SciTrace-Graphs did not have yet. They speed up
+Version 0.17 added the last tools of SciDAVis and QtiPlot that SciVelyx Graphs did not have yet. They speed up
 everyday work with many sheets and graphs.
 
 ## Plot wizard
@@ -15,7 +15,7 @@ everyday work with many sheets and graphs.
 
 Curves with an error column are drawn with error bars.
 
-![The plot wizard with two curves]({{ROOT}}assets/img/plot-wizard.webp){: width="720" height="460" loading="lazy" }
+![The plot wizard with two curves]({{AROOT}}assets/img/plot-wizard.webp){: width="720" height="460" loading="lazy" }
 
 ## Curves and drawing order
 
@@ -37,7 +37,7 @@ Curves with an error column are drawn with error bars.
   with the Douglas–Peucker algorithm. The tolerance is a fraction of the data range, and gaps are kept.
 - **Logarithmic 3D axes:** in a 3D panel, *Logarithmic axes* = x, y, z or any combination.
 
-![Logarithmic scale after an axis break, and a 3D pie]({{ROOT}}assets/img/break-pie.webp){: width="1600" height="1000" loading="lazy" }
+![Logarithmic scale after an axis break, and a 3D pie]({{AROOT}}assets/img/break-pie.webp){: width="1600" height="1000" loading="lazy" }
 
 ## Zoom and drag along one axis
 
@@ -48,7 +48,7 @@ use **Lock zoom/pan as limits**.
 ## Projects and windows
 
 - **File → Append project…** adds the sheets, graphs, notes, folders and scripts of another project to the open one.
-  The project can come from SciTrace, SciDAVis, QtiPlot or the Origin exporter. Sheets whose names are already in
+  The project can come from SciVelyx, SciDAVis, QtiPlot or the Origin exporter. Sheets whose names are already in
   use are renamed, and the graphs follow the new names.
 - **File → Save window as project…** saves the active graph with only the data it uses, including the sheets its
   analyses were computed from, as a project of its own.
@@ -58,7 +58,7 @@ use **Lock zoom/pan as limits**.
   (Ctrl+PgUp) cycle through the graphs. **Open graph in a separate window** shows the active graph in a window of its
   own, which is redrawn after every change; *Tile separate windows* arranges them side by side.
 
-![A graph in a separate window]({{ROOT}}assets/img/separate-window.webp){: width="700" height="340" loading="lazy" }
+![A graph in a separate window]({{AROOT}}assets/img/separate-window.webp){: width="700" height="340" loading="lazy" }
 
 ## Your own menu actions and forms
 
@@ -79,7 +79,7 @@ The widgets of the form are available by their object names.
 
 Select a numeric column and choose **Analysis → Stem-and-leaf plot**. The display goes to the project notes and the
 Messages dock, and a text graph is created. The leaf unit is chosen so there are about √n stems. In scripts,
-`scitrace.core.extras17.stem_leaf(values, leaf_unit=1, split=2)` splits each stem in two lines.
+`scivelyx.core.extras17.stem_leaf(values, leaf_unit=1, split=2)` splits each stem in two lines.
 
 ## Small things
 

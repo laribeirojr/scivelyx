@@ -1,0 +1,65 @@
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="footer-brand" href="{{ROOT}}">
+              <img src="{{AROOT}}assets/apple-touch-icon.png" width="180" height="180" style="width:30px;height:30px" alt="" />
+              <span>SciVelyx Suite</span>
+            </a>
+            <p class="footer-about">
+              Software científico para a pesquisa: gráficos e análise de dados hoje; matemática simbólica e
+              interfaces para DFT e dinâmica molecular em seguida.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h3>Aplicativos</h3>
+            <ul>
+              <li><a href="{{ROOT}}graphs/">SciVelyx Graphs</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx Math</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx DFT</a></li>
+              <li><a href="{{ROOT}}#apps">SciVelyx MD</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Manual</h3>
+            <ul>
+              <li><a href="{{AROOT}}downloads/{{MANUAL_PDF}}">Manual do usuário (PDF)</a></li>
+              <li><a href="{{ROOT}}graphs/docs/install/">Instalação</a></li>
+              <li><a href="{{ROOT}}graphs/docs/first-graph/">Seu primeiro gráfico</a></li>
+              <li><a href="{{ROOT}}graphs/docs/analysis/">Ajuste e análise</a></li>
+              <li><a href="{{ROOT}}graphs/docs/migration/">Vindo do Origin, SciDAVis, QtiPlot</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Projeto</h3>
+            <ul>
+              <li><a href="{{GRAPHS_RELEASES_URL}}">Todas as versões</a></li>
+              <li><a href="{{GRAPHS_ISSUES_URL}}">Relatar um problema</a></li>
+              <li><a href="{{AROOT}}assets/fonts/eb-garamond-OFL.txt">Licenças das fontes</a></li>
+              <li><a href="{{AROOT}}assets/LICENSE-MDraft.txt">Créditos do design do site</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© {{YEAR}} SciVelyx Suite. Fontes sob a SIL Open Font License. Design do site adaptado de
+            <a href="https://bgeneto.github.io/MDraft/">MDraft</a> (MIT).</p>
+          <p>Esta página não usa cookies e não carrega nada de terceiros.</p>
+          <nav class="lang-switch" aria-label="Idioma">
+            <a href="{{URL_EN}}" hreflang="en" lang="en" aria-current="{{CUR_EN}}">EN</a>
+            <a href="{{URL_PT}}" hreflang="pt-BR" lang="pt-BR" aria-current="{{CUR_PT}}">PT</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-inner">
+        <button class="lightbox-close" type="button" data-lightbox-close aria-label="Fechar imagem">×</button>
+        <button class="lightbox-prev" type="button" data-lightbox-prev aria-label="Imagem anterior" hidden>‹</button>
+        <img data-lightbox-image alt="" />
+        <button class="lightbox-next" type="button" data-lightbox-next aria-label="Próxima imagem" hidden>›</button>
+        <p class="lightbox-caption" id="lightbox-caption" data-lightbox-caption></p>
+      </div>
+    </dialog>
+
+    <script src="{{AROOT}}site.js" defer></script>

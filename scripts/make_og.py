@@ -29,8 +29,8 @@ p {{ position: absolute; left: 73px; top: 372px; width: 420px; margin: 0; font: 
 .shot img {{ display: block; width: 620px; height: auto; }}
 </style></head><body>
 <img class="logo" src="{data(A / "apple-touch-icon.png", "image/png")}" alt="">
-<h1>SciTrace-Suite</h1>
-<p>Scientific software, from the measurement to the paper.</p>
+<h1>SciVelyx Suite</h1>
+<p>Science in Motion.<br>Data in Focus.</p>
 <div class="bar"></div>
 <div class="shot"><img src="{data(A / "img" / "main-window.webp", "image/webp")}" alt=""></div>
 </body></html>"""
