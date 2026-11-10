@@ -81,9 +81,76 @@ then drag along x):
 
 - quick fit (straight line) and quick sigmoidal fit;
 - peaks, differentiate, interpolate and integrate;
-- FFT and statistics.
+- FFT and statistics;
+- rise time (10–90 % rise and fall times of the edges in the range);
+- cluster (number of points, means, standard deviations and correlation of the points in the range).
 
 The result appears in a box on the graph, and a curve or a second graph is added when there is one. Move the range
 and the gadget is computed again. **Stop the gadget** ends it.
 
 ![The sigmoidal fit gadget]({{AROOT}}assets/img/gadget.webp){: width="1600" height="1000" loading="lazy" }
+
+## Added in 1.0.0rc7: more statistics, signal processing and mathematics
+
+These are the OriginPro tools most used in physics. They are in the same submenus.
+
+### Statistics (more)
+
+| Tool | Select | You get |
+|---|---|---|
+| Partial correlation | three or more columns | the correlation of each pair with the other columns held constant (Pearson or Spearman), t and p |
+| Cross tabulation tests | two columns of categories, or the columns of a table of counts | χ², likelihood ratio G, Fisher's exact test (2 × 2), φ, Cramér's V and the contingency coefficient; a warning when expected counts are below 5 |
+| Two-sample F test for variances | two columns | F = s₁²/s₂², p and the confidence interval of the ratio |
+| Proportion tests | nothing (type the counts) | one proportion against p₀ (exact binomial and z, Wilson and exact intervals) or two proportions (z test and Fisher's exact test) |
+| Repeated-measures ANOVA, one way | one column per condition, one row per subject | the ANOVA table, partial η², Mauchly's test of sphericity, and the p values corrected by Greenhouse–Geisser and Huynh–Feldt |
+| Repeated-measures ANOVA, two way | the a × b columns in the order A1B1, A1B2, …, A2B1, … | each effect with its own error term and Greenhouse–Geisser correction, and the cell means |
+| Sign test | one column (against a median) or two (paired) | positive, negative and tied differences, and p |
+| Wilcoxon signed-rank, one sample | one column | W and p against a hypothesised median |
+| Two-sample Kolmogorov–Smirnov | two columns | D and p: do the samples come from the same distribution? |
+| Mood's median test | two or more columns | χ², p and the counts above and not above the grand median |
+| Friedman ANOVA | three or more columns (rows are subjects) | χ², p, mean ranks and Kendall's W |
+| t tests on rows | the columns of group A, then those of group B | a t test on every row (Welch, paired or one-sample), with the Benjamini–Hochberg q values |
+| Power and sample size | nothing | the power curve against n and the n that reaches the target power, for t tests, one-way ANOVA and two proportions |
+
+The power calculations agree with G\*Power: n = 64 per group for a two-sample t test with d = 0.5, α = 0.05 and
+power 0.8.
+
+![Power of a two-sample t test against the number per group]({{AROOT}}assets/manual/power-curve.png)
+
+### Fitting (more)
+
+**F test of nested models** fits two models to the selected curve, a simpler one and one with more parameters that
+contains it (linear and quadratic, one and two Gaussians). The extra-sum-of-squares F test and the AICc of each
+model say whether the extra parameters are worth it. Both fitted curves are drawn.
+
+### Signal and mathematics (more)
+
+- **Power spectral density (Welch):** the averaged periodogram of the selected curve, with segment length and
+  window.
+- **Coherence:** the magnitude-squared coherence (0 to 1) of two curves of the panel sampled on the same x.
+- **Decimate:** keeps one point in n after an anti-aliasing filter.
+- **Rise and fall times:** the 0 % and 100 % levels are the two most frequent values of the signal (IEEE 181). Each
+  rising and falling edge is timed between the levels you choose (10 % and 90 % by default). Dotted lines mark the
+  levels on the graph.
+- **Hilbert transform:** the transform, the envelope, the unwrapped phase and the instantaneous frequency.
+- **2D correlation (Noda):** select one column per step of a perturbation (temperature, time, pressure), with the
+  spectral axis as their x column. You get the synchronous map Φ and the asynchronous map Ψ as matrices and colour
+  maps. ν₁ is read on the y axis and ν₂ on the x axis: when Φ(ν₁, ν₂) and Ψ(ν₁, ν₂) have the same sign, the band at ν₁
+  changes before the one at ν₂.
+- **Continuous wavelet function:** the values of a Morlet, Mexican hat, derivative-of-Gaussian or Paul wavelet at a
+  scale and shift, normalised to unit energy.
+- **2D FFT filter** (also in the Matrix menu): low-pass, high-pass, band-pass or band-stop filter of the active
+  matrix, with an ideal, Gaussian or Butterworth window.
+- **2D volume integration and Surface area:** for three columns x, y, z (a regular grid or scattered points, which
+  are triangulated) or for the active matrix.
+- **Error propagation:** type the function, such as `a*b/c`, and the variables as `a = 2 ± 0.1; b = 3 ± 0.2`. You get
+  the first-order uncertainty with the contribution of each variable, and a Monte Carlo check.
+- **Convex hull and centroid** (also in the Graph menu): the hull of the selected scatter, its centroid and the lines
+  from the centroid to every point.
+
+**Matrix → Eigenvalues and eigenvectors** decomposes the active square matrix.
+
+The digital filter (**Analysis → Filter (IIR / median)**) now offers the Chebyshev I and II, elliptic and Bessel designs
+besides Butterworth, with the pass-band ripple and the stop-band attenuation.
+
+![Asynchronous 2D correlation map of a heating series: the band at 1600 cm⁻¹ grows before the one at 1700 cm⁻¹]({{AROOT}}assets/manual/corr2d-async.png)

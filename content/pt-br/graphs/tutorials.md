@@ -148,3 +148,43 @@ lista de séries, mude **Dataset**, **x** e **y**.
 Fontes dos tipos de figura: Neciosup-Puican et al., *J. Alloys Compd.* 1080 (2026) 190504; de Almeida et al.,
 arXiv:2610.36482 (2026); da Silva et al., *Micro Nanostruct.* 221 (2027) 208963; Endres et al., *Clin. Oral Investig.*
 30 (2026) 484; do Vale et al., preprint no EarthArXiv (2026).
+
+## 7. Figuras para teóricos: bandas gordas com a DOS projetada, e mapas de ELF
+
+Dois exemplos da página inicial mostram como montar as figuras dos artigos de estrutura eletrônica. Os dois são
+calculados no próprio programa a partir de modelos clássicos, por isso são fisicamente corretos, mas **ilustrativos**:
+não são resultados de DFT.
+
+**Bandas gordas e DOS projetada do silício.** Bandas do modelo tight-binding sp3s* de Vogl, Hjalmarson e Dow (1983)
+ao longo de L–Γ–X–U|K–Γ, com o peso dos orbitais s, px, py e pz em bolhas, e as DOS total, s e p num segundo painel
+estreito que compartilha o eixo de energia.
+
+![Bandas gordas e DOS projetada do silício]({{AROOT}}assets/manual/fig-fatbands.png)
+
+Como é montado (abra o exemplo e veja em **Properties**):
+
+1. **Dois painéis lado a lado** com *width ratios* 3 : 1 e o eixo y compartilhado; o painel da DOS esconde os
+   rótulos do eixo y.
+2. **As bandas** são uma linha por banda (colunas `band 1` … `band 10`), finas e cinzas.
+3. **As bandas gordas** são séries do tipo *bubble*: x = k, y = energia, tamanho = o peso de um orbital, uma série e
+   uma cor por orbital, sem contorno e semitransparentes. *Bubble max* define o tamanho de um peso igual a 1.
+4. **O caminho em k:** o eixo x tem marcas explícitas nos pontos de alta simetria, com os rótulos L, Γ, X, U|K, Γ, e
+   linhas verticais de referência pontilhadas nesses pontos. Uma linha horizontal tracejada marca o máximo da banda
+   de valência (0 eV).
+5. **O gap:** uma seta de duas pontas (**Insert → Arrow (drawing)**) do máximo da banda de valência ao mínimo da
+   banda de condução, e um texto com E_g.
+6. **O painel da DOS** põe a DOS em x e a energia em y.
+
+Para usar o seu cálculo, ponha as bandas numa planilha (k na primeira coluna, uma coluna por banda) e as projeções em
+outra (k, energia e uma coluna de peso por orbital). Depois troque **Dataset**, **x** e **y** de cada série.
+
+**Função de localização eletrônica (ELF).** Dois mapas dos planos (001) do LiF e do NaCl, com a mesma escala de cores
+de 0 a 1. A ELF é calculada a partir de íons de camada fechada com orbitais do tipo Slater (a promolécula), o que
+mostra a estrutura de camadas de cada íon.
+
+![ELF dos planos (001) do LiF e do NaCl]({{AROOT}}assets/manual/fig-elf.png)
+
+Cada painel é um *contorno preenchido* (*filled contour*) de uma planilha com as colunas x, y e ELF (50 níveis, mapa
+de cores *jet*, faixa fixa de 0 a 1, barra de cores só no painel da direita). Os eixos não têm marcas, a proporção é
+igual e os nomes dos íons são rótulos de texto. Um `ELFCAR` do VASP, ou um plano exportado pelo Quantum ESPRESSO
+(`pp.x`) ou pelo VESTA como x, y, valor, entra no gráfico do mesmo jeito.

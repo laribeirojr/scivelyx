@@ -143,3 +143,42 @@ change **Dataset**, **x** and **y**.
 Sources of the figure types: Neciosup-Puican et al., *J. Alloys Compd.* 1080 (2026) 190504; de Almeida et al.,
 arXiv:2610.36482 (2026); da Silva et al., *Micro Nanostruct.* 221 (2027) 208963; Endres et al., *Clin. Oral Investig.*
 30 (2026) 484; do Vale et al., EarthArXiv preprint (2026).
+
+## 7. Figures for theoreticians: fat bands with the projected DOS, and ELF maps
+
+Two examples of the Start page show how to build the figures of electronic-structure papers. Both are computed from
+textbook models in the program, so they are physically sound but **illustrative**, not DFT results.
+
+**Fat bands and projected DOS of silicon.** Bands of the sp3s* tight-binding model of Vogl, Hjalmarson and Dow
+(1983) along L–Γ–X–U|K–Γ, with the weight of the s, px, py and pz orbitals as bubbles, and the total, s and p DOS in a
+narrow second panel that shares the energy axis.
+
+![Fat bands and projected DOS of silicon]({{AROOT}}assets/manual/fig-fatbands.png)
+
+How it is built (open the example and look in **Properties**):
+
+1. **Two panels side by side** with *width ratios* 3 : 1 and a shared y axis; the DOS panel hides its y tick
+   labels.
+2. **The bands** are one line per band (columns `band 1` … `band 10`), thin and grey.
+3. **The fat bands** are *bubble* series: x = k, y = energy, size = the weight of one orbital, one series and one
+   colour per orbital, without edges and half transparent. Bubble max sets the size of a weight of 1.
+4. **The k path:** the x axis has explicit ticks at the high-symmetry points with the labels L, Γ, X, U|K, Γ, and
+   dotted vertical reference lines there. A dashed horizontal line marks the valence-band maximum (0 eV).
+5. **The gap:** a double-headed arrow (**Insert → Arrow (drawing)**) from the valence-band maximum to the conduction-band
+   minimum, and a text with E_g.
+6. **The DOS panel** plots the DOS on x and the energy on y.
+
+To use your own calculation, put the bands in a sheet (k in the first column, one column per band) and the
+projections in another (k, energy and one weight column per orbital). Then change **Dataset**, **x** and **y** of
+each series.
+
+**Electron localization function (ELF).** Two maps of the (001) planes of LiF and NaCl, with a shared 0–1 colour
+scale. The ELF is computed from closed-shell ions with Slater-type orbitals (the promolecule), which shows the shell
+structure of each ion.
+
+![ELF of the (001) planes of LiF and NaCl]({{AROOT}}assets/manual/fig-elf.png)
+
+Each panel is a *filled contour* of a sheet with x, y and ELF columns (50 levels, colour map *jet*, fixed range 0 to
+1, colour bar on the right panel only). The axes have no ticks, the aspect is equal, and the ion names are text
+labels. A VASP `ELFCAR`, or a plane exported by Quantum ESPRESSO (`pp.x`) or VESTA as x, y, value, plots the same
+way.
