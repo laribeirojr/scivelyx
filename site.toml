@@ -12,8 +12,18 @@ releases_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/releases
 issues_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/issues"
 youtube_url = "https://www.youtube.com/@SciVelyxSuite"
 
+[apps.md]
+version = "0.17.0"
+release_url = "https://github.com/laribeirojr/scivelyx-md-releases/releases/latest"
+releases_url = "https://github.com/laribeirojr/scivelyx-md-releases/releases"
+issues_url = "https://github.com/laribeirojr/scivelyx-md-releases/issues"
+youtube_url = "https://www.youtube.com/@SciVelyxSuite"
+
 [guides]
 # order of the SciVelyx Graphs guide pages (content/graphs/<name>.md); "index" is the guide's first page
 graphs = ["index", "install", "interface", "first-graph", "tutorials", "sheet", "editing", "analysis", "spectroscopy",
           "origin-tools", "working-tools", "statistics-gadgets", "graph-types", "origin-apps", "matrices", "scripts",
           "migration", "export", "command-line", "faq"]
+# order of the SciVelyx MD guide pages (content/md/<name>.md)
+md = ["index", "install", "interface", "first-analysis", "formats", "materials", "pipeline", "representations",
+      "biomolecules", "reaxff", "pictures-movies", "scripts", "command-line", "large-systems", "faq"]

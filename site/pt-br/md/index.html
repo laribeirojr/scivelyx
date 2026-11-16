@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="{{HTML_LANG}}">
+  <head>
+{{> head}}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "{{SITE_URL}}md/#app",
+            "name": "SciVelyx MD",
+            "applicationCategory": "ScientificApplication",
+            "operatingSystem": "Windows 10, Windows 11, macOS 11+, Linux",
+            "description": "Visualização e análise de dinâmica molecular: trajetórias do LAMMPS, GROMACS, NAMD, AMBER e HOOMD-blue e estruturas de DFT, um pipeline de modificadores como no OVITO, análises de materiais e de biomoléculas, ReaxFF, e cada resultado como planilhas e gráficos editáveis do SciVelyx Graphs.",
+            "softwareVersion": "{{MD_VERSION}}",
+            "url": "{{SITE_URL}}md/",
+            "downloadUrl": "{{MD_RELEASE_URL}}",
+            "screenshot": "{{SITE_URL}}assets/md/main-window.webp",
+            "featureList": [
+              "Dumps de texto e binários, arquivos data, logs e arquivos de ligações e espécies do ReaxFF do LAMMPS",
+              "Arquivos do GROMACS, CHARMM/NAMD, AMBER, GSD do HOOMD-blue, MOL2, PDB, CIF, XYZ e VASP",
+              "Estruturas do Quantum ESPRESSO, CASTEP e FHI-aims e arquivos Gaussian cube",
+              "Um pipeline de 54 modificadores como no OVITO: seleção, modificação, identificação de estruturas, análise e visualização",
+              "RDF, MSD e difusão, CNA, polyhedral template matching, Voronoi, deformação atômica, defeitos de Wigner-Seitz, grãos",
+              "RMSD, RMSF, ligações de hidrogênio, DSSP, SASA, PCA, pontes salinas, mapas de contato e linhas do tempo por resíduo",
+              "Licorice, cartoon, superfícies QuickSurf, SAS e SES, isossuperfícies e mapas de densidade 3D",
+              "Imagens em ray tracing pelo Tachyon ou POV-Ray, filmes MP4 e GIF",
+              "Console Python, scripts e linha de comando",
+              "Cada resultado mandado ao SciVelyx Graphs como planilhas e gráficos editáveis"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "{{SITE_URL}}md/#faq",
+            "mainEntity": [
+              {"@type": "Question", "name": "Quais programas de simulação o SciVelyx MD lê?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Trajetórias do LAMMPS (inclusive ReaxFF), GROMACS, CHARMM e NAMD, AMBER e HOOMD-blue, e as estruturas do Quantum ESPRESSO, CASTEP, FHI-aims e VASP."}},
+              {"@type": "Question", "name": "Ele substitui o OVITO e o VMD?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Ele cobre 98,7 % da lista do OVITO 3 Basic (modificadores, formatos, visualização) e 100 % da lista de recursos do VMD adotada pelo projeto, conferido com os dois programas e com o LAMMPS, o MDAnalysis e o MDTraj."}},
+              {"@type": "Question", "name": "Quais sistemas são suportados?",
+               "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 e 11 (64 bits), macOS 11 ou mais novo em Apple silicon e Intel, e Linux x86_64."}}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">SciVelyx MD · v{{MD_VERSION}} · Windows, macOS &amp; Linux</p>
+            <h1 id="hero-title">Science in Motion. <span class="mark">Data in Focus.</span></h1>
+            <p class="lead">
+              Abra uma simulação do LAMMPS, GROMACS, NAMD ou AMBER, veja-a em 3D, selecione e modifique os átomos
+              como no OVITO, desenhe-a como no VMD e analise-a. Cada resultado abre no SciVelyx Graphs como planilha
+              e gráfico editáveis — a figura do artigo fica a um passo.
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#download">Baixar a v{{MD_VERSION}}</a>
+              <a class="btn btn-ghost" href="docs/">Manual do usuário</a>
+              <a class="btn btn-ghost" href="{{GRAPHS_YOUTUBE_URL}}">Vídeos tutoriais</a>
+            </div>
+            <p class="fineprint">Fase de testes: downloads para testadores convidados. Sem conta, sem telemetria.</p>
+            <div class="chips" aria-label="Em resumo">
+              <span class="chip"><strong>26</strong> formatos de arquivo</span>
+              <span class="chip"><strong>54</strong> modificadores</span>
+              <span class="chip"><strong>430+</strong> testes automáticos</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <a class="shot hero-shot" href="{{AROOT}}assets/md/main-window.webp" data-full="{{AROOT}}assets/md/main-window.webp"
+               data-caption="A adenilato quinase como cartoon colorido pela estrutura secundária, com a superfície excluída do solvente de um domínio; o painel Pipeline à direita."
+               data-gallery="hero">
+              <img src="{{AROOT}}assets/md/main-window.webp" width="1600" height="1000" fetchpriority="high" decoding="async"
+                   alt="Janela do SciVelyx MD com uma proteína desenhada como cartoon e uma superfície molecular, a tabela de átomos e o pipeline de modificadores." />
+            </a>
+            <span class="zoom-hint">Clique na imagem para ampliar</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="formats" class="section" aria-labelledby="formats-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Formatos</p>
+            <h2 id="formats-title">Os arquivos das suas simulações, como eles são.</h2>
+            <p class="lead">
+              Abra a trajetória com sua topologia e o SciVelyx MD acha o resto: rótulos de tipos e ligações de um
+              arquivo data do LAMMPS, resíduos e cargas de um tpr ou psf, energias do log. Os arquivos são lidos frame
+              a frame, e uma simulação de milhões de átomos abre em segundos.
+            </p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span class="num">01</span>
+              <h3>LAMMPS</h3>
+              <p>Dumps de texto e binários com quaisquer colunas, arquivos data com oito estilos de átomos, logs, e
+                os arquivos de ligações e espécies do ReaxFF.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">02</span>
+              <h3>GROMACS, NAMD, AMBER</h3>
+              <p>tpr, gro, xtc, trr e energias; psf, dcd, coor e logs do NAMD; prmtop e NetCDF; GSD do HOOMD-blue e
+                MOL2.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">03</span>
+              <h3>Estruturas de DFT</h3>
+              <p>Cada passo iônico do Quantum ESPRESSO, CASTEP e FHI-aims com sua energia; POSCAR e XDATCAR do VASP;
+                arquivos Gaussian cube com sua grade.</p>
+            </div>
+          </div>
+          <figure class="wide-shot">
+            <a class="shot" href="{{AROOT}}assets/md/qe-cube.webp" data-full="{{AROOT}}assets/md/qe-cube.webp"
+               data-caption="Uma relaxação do Si8 no Quantum ESPRESSO com a isossuperfície da densidade de carga de valência gravada pelo pp.x."
+               data-gallery="formats">
+              <img src="{{AROOT}}assets/md/qe-cube.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                   alt="SciVelyx MD com uma célula de silício de uma relaxação do Quantum ESPRESSO e a densidade de carga como isossuperfície azul." />
+            </a>
+            <figcaption>Uma relaxação do pw.x com a densidade de carga do pp.x. <span class="zoom-hint">Clique na imagem para ampliar</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="materials" class="section" aria-labelledby="materials-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Materiais</p>
+            <h2 id="materials-title">Cristais, líquidos e defeitos — conferidos com o LAMMPS e o OVITO.</h2>
+            <p class="lead">
+              Cada análise segue a definição do compute do LAMMPS ou do modificador do OVITO que ela substitui, e os
+              testes a comparam com eles átomo por átomo em simulações reais.
+            </p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini-card">
+              <span class="num">01</span>
+              <h3>Estrutura</h3>
+              <p>CNA e CNA adaptativa, polyhedral template matching com orientações, Ackland–Jones, diamante, Chill+
+                para gelo, VoroTop, parâmetros de ordem de Steinhardt, centrossimetria.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">02</span>
+              <h3>Deformação e defeitos</h3>
+              <p>Deslocamentos, deformação atômica e elástica, vacâncias e intersticiais de Wigner–Seitz, segmentação
+                de grãos, discordâncias pelo algoritmo do próprio OVITO.</p>
+            </div>
+            <div class="mini-card">
+              <span class="num">03</span>
+              <h3>Dinâmica e distribuições</h3>
+              <p>RDF, MSD e difusão com seu erro, VACF, ângulos de ligação, perfis de densidade, células de Voronoi,
+                clusters, correlação espacial, histogramas no tempo.</p>
+            </div>
+          </div>
+          <div class="gallery-pair" style="margin-top: 30px">
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/ptm-grains.webp" data-full="{{AROOT}}assets/md/ptm-grains.webp"
+                   data-caption="Polyhedral template matching e segmentação de grãos de um bicristal de ferro." data-gallery="materials">
+                  <img src="{{AROOT}}assets/md/ptm-grains.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="Um bicristal de ferro colorido por grão depois do polyhedral template matching." />
+                </a>
+              </div>
+              <figcaption>PTM e grãos. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/msd.webp" data-full="{{AROOT}}assets/md/msd.webp"
+                   data-caption="Deslocamento quadrático médio de um líquido de Lennard-Jones e seu coeficiente de difusão." data-gallery="materials">
+                  <img src="{{AROOT}}assets/md/msd.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="Uma aba de resultado com o deslocamento quadrático médio em função do tempo e o coeficiente de difusão ajustado." />
+                </a>
+              </div>
+              <figcaption>MSD e difusão. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="biomolecules" class="section panel-dark ai-section" aria-labelledby="bio-title">
+        <div class="container">
+          <div class="ai-grid landscape">
+            <div>
+              <p class="eyebrow">Biomoléculas</p>
+              <h2 id="bio-title">Do RMSD às pontes salinas.</h2>
+              <p class="lead">
+                As análises do VMD e das ferramentas do GROMACS num só menu, com as proteínas refeitas inteiras através
+                da fronteira periódica e cada resultado pronto para o SciVelyx Graphs.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Estrutura e dinâmica.</strong> RMSD depois do ajuste, RMSF por átomo e resíduo, raio de
+                  giro, componentes principais.</li>
+                <li><strong>Interações.</strong> Ligações de hidrogênio com sua ocupação, pontes salinas, mapas de
+                  contato entre resíduos.</li>
+                <li><strong>Por resíduo, no tempo.</strong> Estrutura secundária pelo DSSP, SASA e linhas do tempo de
+                  qualquer grandeza por resíduo como mapas de calor.</li>
+                <li><strong>Conferido.</strong> Com o MDAnalysis e o MDTraj, nos arquivos de teste oficiais.</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-primary" href="docs/biomolecules/">Leia o guia</a>
+              </div>
+            </div>
+            <figure class="ai-palette">
+              <a class="shot" href="{{AROOT}}assets/md/contact-map.webp" data-full="{{AROOT}}assets/md/contact-map.webp"
+                 data-caption="O mapa de contatos entre resíduos da adenilato quinase: a fração dos frames em que dois resíduos estão a menos de 4,5 Å."
+                 data-gallery="bio">
+                <img src="{{AROOT}}assets/md/contact-map.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                     alt="Um mapa de contatos entre resíduos como mapa de calor, com o número de contatos por frame abaixo." />
+              </a>
+              <figcaption>Um mapa de contatos. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="pipeline" class="section" aria-labelledby="pipeline-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Pipeline e representações</p>
+            <h2 id="pipeline-title">Modifique como no OVITO, desenhe como no VMD.</h2>
+            <p class="lead">
+              54 modificadores valem para cada frame que você vê, analisa, filma ou exporta: selecionar, apagar,
+              replicar, fatiar, transformar, colorir, rotular — e desenhar licorice, cartoons, superfícies, mapas de
+              densidade e poliedros, vários deles na mesma imagem.
+            </p>
+          </div>
+          <div class="gallery-pair">
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/pipeline.webp" data-full="{{AROOT}}assets/md/pipeline.webp"
+                   data-caption="Um pipeline: CNA, seleção dos átomos que não são FCC, remoção, replicação do cristal, um rótulo de texto com atributos." data-gallery="pipeline">
+                  <img src="{{AROOT}}assets/md/pipeline.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="O cristal FCC de uma simulação bifásica depois de apagar o líquido e replicar, com o painel do pipeline." />
+                </a>
+              </div>
+              <figcaption>O painel Pipeline. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/styles.webp" data-full="{{AROOT}}assets/md/styles.webp"
+                   data-caption="Água como licorice, ligações de hidrogênio como linhas tracejadas e a densidade do oxigênio como isossuperfície." data-gallery="pipeline">
+                  <img src="{{AROOT}}assets/md/styles.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="Moléculas de água como licorice, com ligações de hidrogênio tracejadas e uma isossuperfície vermelha da densidade do oxigênio." />
+                </a>
+              </div>
+              <figcaption>Licorice, ligações de hidrogênio, volmap. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+          <figure class="wide-shot">
+            <a class="shot" href="{{AROOT}}assets/md/raytraced.webp" data-full="{{AROOT}}assets/md/raytraced.webp"
+               data-caption="Uma imagem em ray tracing do Tachyon (instalado pelo usuário), com a câmera da vista."
+               data-gallery="pipeline">
+              <img src="{{AROOT}}assets/md/raytraced.webp" width="1200" height="900" loading="lazy" decoding="async"
+                   alt="Imagem em ray tracing da adenilato quinase como cartoon, com uma superfície molecular transparente." />
+            </a>
+            <figcaption>Ray tracing pelo Tachyon. <span class="zoom-hint">Clique na imagem para ampliar</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="scripts" class="section" aria-labelledby="scripts-title">
+        <div class="container">
+          <div class="feature-split reverse">
+            <div class="feature-copy">
+              <p class="eyebrow">Scripts</p>
+              <h2 id="scripts-title">Python, na janela e no cluster.</h2>
+              <p class="lead">
+                Um console Python e um editor de scripts comandam a janela; os mesmos comandos rodam em scripts e no
+                terminal, sem janela.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Cada leitor e cada análise</strong> como comando: <code>load</code>, <code>rdf</code>,
+                  <code>msd</code>, <code>ptm</code>, <code>rmsd</code>, <code>salt_bridges</code> …</li>
+                <li><strong>O pipeline em código:</strong> <code>modify(t, [Replicate(nx=2), Slice(distance=5)])</code>.</li>
+                <li><strong>Imagens e filmes</strong> sem janela, e <code>send()</code> para o SciVelyx Graphs.</li>
+                <li><strong>Linha de comando:</strong> <code>scivelyx-md rdf</code>, <code>msd</code>, <code>modify</code>,
+                  <code>image</code>, <code>script</code> … para trabalhos em lote.</li>
+              </ul>
+            </div>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/python.webp" data-full="{{AROOT}}assets/md/python.webp"
+                   data-caption="Um script de exemplo no painel Python; o console comanda a vista e calcula uma RDF."
+                   data-gallery="scripts">
+                  <img src="{{AROOT}}assets/md/python.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="O painel Python abaixo da vista 3D, com um script e a saída do console." />
+                </a>
+              </div>
+              <figcaption>O painel Python. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="graphs" class="section" aria-labelledby="graphs-title">
+        <div class="container">
+          <div class="feature-split">
+            <div class="feature-copy">
+              <p class="eyebrow">SciVelyx Graphs</p>
+              <h2 id="graphs-title">Da trajetória à figura.</h2>
+              <p class="lead">
+                Ctrl+G abre qualquer resultado no SciVelyx Graphs: planilhas com nomes e unidades, gráficos em que todo
+                elemento é editável, ajustes, e exportação no tamanho exato da revista. Cada planilha lembra o arquivo,
+                os frames e os parâmetros de onde veio.
+              </p>
+              <a class="text-link" href="docs/first-analysis/">Sua primeira análise, passo a passo</a>
+            </div>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/graphs.webp" data-full="{{AROOT}}assets/md/graphs.webp"
+                   data-caption="A função de distribuição radial O–H de uma simulação de água, mandada ao SciVelyx Graphs." data-gallery="graphs">
+                  <img src="{{AROOT}}assets/md/graphs.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="Janela do SciVelyx Graphs com a g(r) da água e sua planilha." />
+                </a>
+              </div>
+              <figcaption>Uma RDF no SciVelyx Graphs. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="section panel-dark download-section" aria-labelledby="download-title">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Baixar</p>
+            <h2 id="download-title">Baixe o SciVelyx MD.</h2>
+            <p class="lead">
+              Versão {{MD_VERSION}} para Windows, macOS e Linux, com o SciVelyx Graphs dentro. A página da versão traz
+              as notas, as somas de verificação e todos os arquivos. Durante a fase de testes, ela está aberta aos
+              testadores convidados.
+            </p>
+          </div>
+          <div class="download-grid three">
+            <article class="platform-card">
+              <h3>Windows</h3>
+              <p>Instalador sem direitos de administrador, ou um zip portátil. Windows 10 e 11, 64 bits.</p>
+              <a class="btn btn-primary" href="{{MD_RELEASE_URL}}">Baixar para Windows</a>
+              <ul class="artifact-list">
+                <li><code>…-windows-x64-setup.exe</code></li>
+                <li><code>…-windows-x64-portable.zip</code></li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>macOS</h3>
+              <p>Imagem de disco: arraste o app para Aplicativos. macOS 11 ou mais novo.</p>
+              <a class="btn btn-primary" href="{{MD_RELEASE_URL}}">Baixar para macOS</a>
+              <ul class="artifact-list">
+                <li><code>…-macos-arm64.dmg</code> (Apple silicon)</li>
+                <li><code>…-macos-x86_64.dmg</code> (Intel)</li>
+              </ul>
+            </article>
+            <article class="platform-card">
+              <h3>Linux</h3>
+              <p>Um AppImage que roda na maioria das distribuições, ou uma pasta simples. x86_64.</p>
+              <a class="btn btn-primary" href="{{MD_RELEASE_URL}}">Baixar para Linux</a>
+              <ul class="artifact-list">
+                <li><code>…-linux-x86_64.AppImage</code></li>
+                <li><code>…-linux-x86_64.tar.gz</code></li>
+              </ul>
+            </article>
+          </div>
+          <ul class="download-notes">
+            <li><strong>Ainda sem assinatura de código.</strong> O Windows SmartScreen pode avisar uma vez (Mais
+              informações → Executar assim mesmo); no macOS, Control-clique no app → Abrir na primeira vez.
+              <a href="docs/install/">Guia de instalação</a>.</li>
+            <li><strong>Somas de verificação.</strong> Cada versão publica <code>SHA256SUMS.txt</code>.</li>
+            <li><strong>Linha de comando incluída.</strong> Todo pacote traz também o <code>scivelyx-md</code>.</li>
+            <li><strong>Programas opcionais.</strong> ffmpeg para MP4, Tachyon ou POV-Ray para ray tracing, VMD,
+              ChimeraX ou PyMOL como visualizadores externos — instalados por você, achados pelo SciVelyx MD.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="faq" class="section" aria-labelledby="faq-title">
+        <div class="container faq-grid">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Perguntas, respondidas com clareza.</h2>
+            <p class="lead">Mais nas <a href="docs/faq/">perguntas do manual</a>.</p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Quais programas de simulação o SciVelyx MD lê?</summary>
+              <p>Trajetórias do LAMMPS (com ReaxFF), GROMACS, CHARMM e NAMD, AMBER e HOOMD-blue, e as estruturas do
+                Quantum ESPRESSO, CASTEP, FHI-aims e VASP. A <a href="docs/formats/">página de formatos</a> lista todos
+                os arquivos.</p>
+            </details>
+            <details>
+              <summary>Ele substitui o OVITO e o VMD?</summary>
+              <p>Para análises e figuras, em grande parte: ele cobre 98,7 % da lista do OVITO 3 Basic e 100 % da lista
+                de recursos do VMD adotada pelo projeto, e os testes o comparam com o OVITO, o LAMMPS, o MDAnalysis e o
+                MDTraj. Ele não lê os arquivos de sessão deles.</p>
+            </details>
+            <details>
+              <summary>Ele roda simulações?</summary>
+              <p>Não. Ele lê, analisa e desenha a saída dos programas de simulação.</p>
+            </details>
+            <details>
+              <summary>Até que tamanho de sistema?</summary>
+              <p>Os frames são lidos sob demanda: quatro milhões de átomos abrem em cerca de um segundo a partir de um
+                dump binário do LAMMPS, com cerca de 1 GB de memória. Veja <a href="docs/large-systems/">Sistemas
+                grandes</a>.</p>
+            </details>
+            <details>
+              <summary>Em que idioma está a interface?</summary>
+              <p>Inglês. O manual do usuário e este site estão em inglês e português.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="container">
+          <p class="eyebrow eyebrow-center">Experimente com a sua simulação</p>
+          <h2 id="final-title">Abra sua próxima trajetória no SciVelyx MD.</h2>
+          <p>Visualização e análise de dinâmica molecular para Windows, macOS e Linux.</p>
+          <div class="actions actions-center">
+            <a class="btn btn-primary" href="{{MD_RELEASE_URL}}">Baixar a v{{MD_VERSION}}</a>
+            <a class="btn btn-ghost" href="{{AROOT}}downloads/{{MANUAL_PDF}}">Manual do usuário (PDF)</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+  </body>
+</html>

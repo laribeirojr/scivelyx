@@ -53,21 +53,32 @@ def check(ok: bool, msg: str) -> bool:
 
 
 LANGS = {
-    "en": {"prefix": "", "html": "en", "locale": "en_US", "alt": "pt_BR", "pdf": "SciVelyx-Graphs-Manual-en.pdf",
+    "en": {"prefix": "", "html": "en", "locale": "en_US", "alt": "pt_BR", "pdf": "SciVelyx-{APP}-Manual-en.pdf",
            "T": {"SKIP": "Skip to content", "HOME_LABEL": "SciVelyx Suite home", "SECTIONS": "Sections",
                  "DOWNLOAD": "Download", "LIGHT": "Switch to light theme", "DARK": "Switch to dark theme",
-                 "LANGUAGE": "Language", "GUIDE": "SciVelyx Graphs user manual", "DOWNLOADS": "Downloads",
+                 "LANGUAGE": "Language", "GUIDE": "SciVelyx {APP} user manual", "DOWNLOADS": "Downloads",
                  "MANUAL_PDF": "User manual (PDF)", "LATEST": "Latest release", "REPORT": "Report a problem",
-                 "PAGES": "Manual pages", "PREV": "Previous", "NEXT": "Next", "GUIDE_TITLE": "SciVelyx Graphs manual"}},
+                 "PAGES": "Manual pages", "PREV": "Previous", "NEXT": "Next", "GUIDE_TITLE": "SciVelyx {APP} manual"}},
     "pt-br": {"prefix": "pt-br/", "html": "pt-BR", "locale": "pt_BR", "alt": "en_US",
-              "pdf": "SciVelyx-Graphs-Manual-pt-br.pdf",
+              "pdf": "SciVelyx-{APP}-Manual-pt-br.pdf",
               "T": {"SKIP": "Pular para o conteúdo", "HOME_LABEL": "Início da SciVelyx Suite", "SECTIONS": "Seções",
                     "DOWNLOAD": "Baixar", "LIGHT": "Mudar para o tema claro", "DARK": "Mudar para o tema escuro",
-                    "LANGUAGE": "Idioma", "GUIDE": "Manual do usuário do SciVelyx Graphs", "DOWNLOADS": "Downloads",
+                    "LANGUAGE": "Idioma", "GUIDE": "Manual do usuário do SciVelyx {APP}", "DOWNLOADS": "Downloads",
                     "MANUAL_PDF": "Manual do usuário (PDF)", "LATEST": "Versão mais recente",
                     "REPORT": "Relatar um problema", "PAGES": "Páginas do manual", "PREV": "Anterior",
-                    "NEXT": "Próxima", "GUIDE_TITLE": "Manual do SciVelyx Graphs"}},
+                    "NEXT": "Próxima", "GUIDE_TITLE": "Manual do SciVelyx {APP}"}},
 }
+# applications with a page and a manual: key in site.toml → name in titles and PDF file names
+APPS = {"graphs": "Graphs", "md": "MD"}
+
+
+def tr(lang: str, app: str = "graphs") -> dict:
+    """The interface strings of a language for one application."""
+    return {k: v.replace("{APP}", APPS[app]) for k, v in LANGS[lang]["T"].items()}
+
+
+def manual_pdf(lang: str, app: str = "graphs") -> str:
+    return LANGS[lang]["pdf"].replace("{APP}", APPS[app])
 LANG = "en"                     # language of the page being filled (partials may have a translated copy)
 
 
@@ -92,15 +103,23 @@ def fill(text: str, values: dict) -> str:
 
 
 def common_values(rel_root: str, url_path: str, title: str, description: str, nav: str, lang: str = "en",
-                  aroot: str | None = None) -> dict:
-    """``rel_root``: from the page to the root of its language; ``aroot``: to the site root (assets)."""
+                  aroot: str | None = None, app: str = "graphs") -> dict:
+    """``rel_root``: from the page to the root of its language; ``aroot``: to the site root (assets); ``app``: the
+    application of the page (the download button, the manual and the report links of its header and side bar)."""
     graphs = CONFIG["apps"]["graphs"]
+    md = CONFIG["apps"]["md"]
+    cur = CONFIG["apps"][app]
     L = LANGS[lang]
     aroot = rel_root if aroot is None else aroot
-    tvals = {f"T_{k}": v for k, v in L["T"].items()}
+    tvals = {f"T_{k}": v for k, v in tr(lang, app).items()}
     return {
         **tvals, "AROOT": aroot, "HTML_LANG": L["html"], "OG_LOCALE": L["locale"], "OG_LOCALE_ALT": L["alt"],
-        "MANUAL_PDF": L["pdf"],
+        "MANUAL_PDF": manual_pdf(lang, app), "GRAPHS_MANUAL_PDF": manual_pdf(lang, "graphs"),
+        "MD_MANUAL_PDF": manual_pdf(lang, "md"), "APP_SLUG": app, "APP_NAME": "SciVelyx " + APPS[app],
+        "APP_VERSION": cur["version"], "APP_RELEASE_URL": cur["release_url"],
+        "APP_RELEASES_URL": cur["releases_url"], "APP_ISSUES_URL": cur["issues_url"],
+        "MD_VERSION": md["version"], "MD_RELEASE_URL": md["release_url"], "MD_RELEASES_URL": md["releases_url"],
+        "MD_ISSUES_URL": md["issues_url"],
         "URL_EN": aroot + url_path or "./", "URL_PT": aroot + "pt-br/" + url_path,
         "CUR_EN": str(lang == "en").lower(), "CUR_PT": str(lang == "pt-br").lower(),
         "ABS_EN": SITE_URL + url_path, "ABS_PT": SITE_URL + "pt-br/" + url_path,
@@ -119,10 +138,15 @@ def nav_links(items) -> str:
     return "\n".join(f'          <a href="{href}">{html.escape(label)}</a>' for label, href in items)
 
 
-NAV_SUITE = {"en": [("Applications", "#apps"), ("SciVelyx Graphs", "graphs/"), ("Principles", "#principles"),
-                     ("FAQ", "#faq"), ("Manual", "graphs/docs/")],
-             "pt-br": [("Aplicativos", "#apps"), ("SciVelyx Graphs", "graphs/"), ("Princípios", "#principles"),
-                       ("Perguntas", "#faq"), ("Manual", "graphs/docs/")]}
+NAV_SUITE = {"en": [("Applications", "#apps"), ("SciVelyx Graphs", "graphs/"), ("SciVelyx MD", "md/"),
+                     ("Principles", "#principles"), ("FAQ", "#faq")],
+             "pt-br": [("Aplicativos", "#apps"), ("SciVelyx Graphs", "graphs/"), ("SciVelyx MD", "md/"),
+                       ("Princípios", "#principles"), ("Perguntas", "#faq")]}
+NAV_MD = {"en": [("Formats", "#formats"), ("Materials", "#materials"), ("Biomolecules", "#biomolecules"),
+                 ("Pipeline", "#pipeline"), ("Scripts", "#scripts"), ("Download", "#download"), ("Manual", "docs/")],
+          "pt-br": [("Formatos", "#formats"), ("Materiais", "#materials"), ("Biomoléculas", "#biomolecules"),
+                    ("Pipeline", "#pipeline"), ("Scripts", "#scripts"), ("Baixar", "#download"),
+                    ("Manual", "docs/")]}
 NAV_GRAPHS = {"en": [("Editing", "#editing"), ("Analysis", "#analysis"), ("Migration", "#migration"),
                      ("Scripts", "#scripts"), ("Gallery", "#gallery"), ("Download", "#download"), ("Manual", "docs/")],
               "pt-br": [("Edição", "#editing"), ("Análise", "#analysis"), ("Migração", "#migration"),
@@ -130,26 +154,29 @@ NAV_GRAPHS = {"en": [("Editing", "#editing"), ("Analysis", "#analysis"), ("Migra
                         ("Manual", "docs/")]}
 
 
+NAV_APP = {"graphs": NAV_GRAPHS, "md": NAV_MD}
+
+
 # ------------------------------------------------------------------ guides (Markdown)
-def guides(lang: str = "en") -> list[dict]:
-    order = CONFIG["guides"]["graphs"]
+def guides(lang: str = "en", app: str = "graphs") -> list[dict]:
+    order = CONFIG["guides"][app]
     out = []
-    base = CONTENT / "graphs" if lang == "en" else CONTENT / lang / "graphs"
+    base = CONTENT / app if lang == "en" else CONTENT / lang / app
     for slug in order:
         src = base / f"{slug}.md"
-        if not check(src.exists(), f"{lang}: manual page {slug}.md exists"):
-            src = CONTENT / "graphs" / f"{slug}.md"
+        if not check(src.exists(), f"{lang}: manual page {app}/{slug}.md exists"):
+            src = CONTENT / app / f"{slug}.md"
         text = src.read_text(encoding="utf-8")
         m = re.match(r"^# (.+)$", text, re.M)
         out.append({"slug": slug, "title": m.group(1).strip() if m else slug, "text": text})
     return out
 
 
-def doc_nav(items, current: str, rel_root: str) -> str:
+def doc_nav(items, current: str, rel_root: str, app: str = "graphs") -> str:
     li = []
     for g in items:
         cur = ' aria-current="page"' if g["slug"] == current else ""
-        href = f"{rel_root}graphs/docs/" + ("" if g["slug"] == "index" else f"{g['slug']}/")
+        href = f"{rel_root}{app}/docs/" + ("" if g["slug"] == "index" else f"{g['slug']}/")
         li.append(f'<li><a href="{href}"{cur}>{html.escape(g["title"])}</a></li>')
     return "\n".join(li)
 
@@ -173,16 +200,16 @@ def figures(body: str, aroot: str) -> str:
                   body)
 
 
-def render_guide(g: dict, items: list, k: int, lang: str = "en") -> tuple[str, str]:
+def render_guide(g: dict, items: list, k: int, lang: str = "en", app: str = "graphs") -> tuple[str, str]:
     L = LANGS[lang]
     depth = 2 if g["slug"] == "index" else 3
     rel = "../" * depth
     aroot = rel + ("../" if lang != "en" else "")
-    url = "graphs/docs/" + ("" if g["slug"] == "index" else f"{g['slug']}/")
+    url = f"{app}/docs/" + ("" if g["slug"] == "index" else f"{g['slug']}/")
     md = markdown.Markdown(extensions=["tables", "fenced_code", "toc", "attr_list", "sane_lists"],
                            extension_configs={"toc": {"permalink": False}})
     body = md.convert(g["text"].replace("{{AROOT}}", aroot).replace("{{ROOT}}", rel)
-                      .replace("{{MANUAL_PDF}}", L["pdf"]))
+                      .replace("{{MANUAL_PDF}}", manual_pdf(lang, app)))
     body = figures(body, aroot)
     first = re.search(r"\n\n([^#\n].+?)\n", g["text"])
     desc = re.sub(r"[*`\[\]]|\(.*?\)", "", first.group(1))[:180] if first else g["title"]
@@ -192,13 +219,13 @@ def render_guide(g: dict, items: list, k: int, lang: str = "en") -> tuple[str, s
     def link(it, label):
         if it is None:
             return "<span></span>"
-        href = f"{rel}graphs/docs/" + ("" if it["slug"] == "index" else f"{it['slug']}/")
+        href = f"{rel}{app}/docs/" + ("" if it["slug"] == "index" else f"{it['slug']}/")
         return f'<a class="text-link" href="{href}">{label}: {html.escape(it["title"])}</a>'
-    T = L["T"]
+    T = tr(lang, app)
     page = fill(partial("doc"), {
         **common_values(rel, url, f"{g['title']} — {T['GUIDE_TITLE']}", desc,
-                        nav_links([(lbl, f"{rel}graphs/{h}") for lbl, h in NAV_GRAPHS[lang]]), lang, aroot),
-        "DOC_NAV": doc_nav(items, g["slug"], rel), "DOC_BODY": body,
+                        nav_links([(lbl, f"{rel}{app}/{h}") for lbl, h in NAV_APP[app][lang]]), lang, aroot, app),
+        "DOC_NAV": doc_nav(items, g["slug"], rel, app), "DOC_BODY": body,
         "DOC_PAGER": link(prev_, T["PREV"]) + link(next_, T["NEXT"])})
     return L["prefix"] + url + "index.html", page
 
@@ -318,11 +345,11 @@ def build() -> int:
     specs = [
         ("index.html", "index.html", "./", "", {
             "en": ("SciVelyx Suite — scientific software from the measurement to the paper",
-                   "SciVelyx Suite: SciVelyx Graphs for publication figures and data analysis, with SciVelyx Math, "
-                   "SciVelyx DFT and SciVelyx MD to come. Science in Motion. Data in Focus."),
+                   "SciVelyx Suite: SciVelyx Graphs for publication figures and data analysis, SciVelyx MD for "
+                   "molecular dynamics, with SciVelyx Math and SciVelyx DFT to come. Science in Motion. Data in Focus."),
             "pt-br": ("SciVelyx Suite — software científico da medida ao artigo",
-                      "SciVelyx Suite: SciVelyx Graphs para figuras de publicação e análise de dados; SciVelyx Math, "
-                      "SciVelyx DFT e SciVelyx MD a caminho. Science in Motion. Data in Focus.")}, NAV_SUITE),
+                      "SciVelyx Suite: SciVelyx Graphs para figuras de publicação e análise de dados, SciVelyx MD para "
+                      "dinâmica molecular; SciVelyx Math e SciVelyx DFT a caminho. Science in Motion. Data in Focus.")}, NAV_SUITE),
         ("graphs/index.html", "graphs/index.html", "../", "graphs/", {
             "en": ("SciVelyx Graphs — scientific graphs and data analysis",
                    "Publication figures, curve fitting, peak analysis, spectroscopy, statistics, matrices and Python "
@@ -331,6 +358,15 @@ def build() -> int:
                       "Figuras de publicação, ajuste de curvas, análise de picos, espectroscopia, estatística, matrizes "
                       "e scripts Python, com migração de projetos do Origin, SciDAVis e QtiPlot. Windows, macOS e "
                       "Linux.")}, NAV_GRAPHS),
+        ("md/index.html", "md/index.html", "../", "md/", {
+            "en": ("SciVelyx MD — molecular dynamics: visualization and analysis",
+                   "LAMMPS, GROMACS, NAMD, AMBER and HOOMD-blue trajectories and DFT structures: 3D view, OVITO-style "
+                   "modifier pipeline, materials and biomolecule analyses, ReaxFF, and every result as editable "
+                   "SciVelyx Graphs sheets and graphs."),
+            "pt-br": ("SciVelyx MD — dinâmica molecular: visualização e análise",
+                      "Trajetórias do LAMMPS, GROMACS, NAMD, AMBER e HOOMD-blue e estruturas de DFT: vista 3D, "
+                      "pipeline de modificadores como no OVITO, análises de materiais e de biomoléculas, ReaxFF, e "
+                      "cada resultado como planilhas e gráficos editáveis do SciVelyx Graphs.")}, NAV_MD),
         ("404.html", "404.html", "{{ABS}}", "404.html", {
             "en": ("Page not found — SciVelyx Suite", "This page does not exist.")}, NAV_SUITE),
     ]
@@ -347,13 +383,16 @@ def build() -> int:
             if dst == "404.html":                   # served from any depth: absolute paths under the base
                 r = aroot = f"{BASE}/"
                 links = [(label, r + href) for label, href in links]
-            pages[L["prefix"] + dst] = fill(text, common_values(r, url, title, desc, nav_links(links), lang, aroot))
+            app = "md" if src.startswith("md/") else "graphs"
+            pages[L["prefix"] + dst] = fill(text, common_values(r, url, title, desc, nav_links(links), lang, aroot,
+                                                                app))
     for lang in LANGS:
         LANG = lang
-        items = guides(lang)
-        for k, g in enumerate(items):
-            dst, text = render_guide(g, items, k, lang)
-            pages[dst] = text
+        for app in APPS:
+            items = guides(lang, app)
+            for k, g in enumerate(items):
+                dst, text = render_guide(g, items, k, lang, app)
+                pages[dst] = text
     LANG = "en"
     for dst, text in pages.items():
         (OUT / dst).parent.mkdir(parents=True, exist_ok=True)

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build the PDF user manual of SciVelyx Graphs from the same Markdown pages as the website.
+"""Build the PDF user manuals of SciVelyx Graphs and SciVelyx MD from the same Markdown pages as the website.
 
-    python scripts/build_manual.py            # both languages → site/downloads/SciVelyx-Graphs-Manual-<lang>.pdf
-    python scripts/build_manual.py pt-br      # one language
+    python scripts/build_manual.py              # every application and language → site/downloads/SciVelyx-<App>-Manual-<lang>.pdf
+    python scripts/build_manual.py pt-br        # one language
+    python scripts/build_manual.py md           # one application (md or graphs), both languages
 
 Needs pandoc (≥ 2.19) and LuaLaTeX with the KOMA-Script classes, TeX Gyre Pagella and DejaVu fonts.  The chapters
 follow the order of site.toml; links between pages become links inside the PDF."""
@@ -25,6 +26,12 @@ CONTENT = ROOT / "content"
 CONFIG = tomllib.loads((ROOT / "site.toml").read_text(encoding="utf-8"))
 OUT = SITE / "downloads"
 
+APPS = {"graphs": "Graphs", "md": "MD"}
+MISSION = {  # what each application is, under the mission on the cover
+    "md": {"en": "SciVelyx MD reads molecular-dynamics trajectories of materials and biomolecules, analyses them and "
+                 "hands every result to SciVelyx Graphs as editable sheets and graphs.",
+           "pt-br": "O SciVelyx MD lê trajetórias de dinâmica molecular de materiais e de biomoléculas, analisa-as e "
+                    "entrega cada resultado ao SciVelyx Graphs como planilhas e gráficos editáveis."}}
 TEXT = {
     "en": {"lang": "en-GB", "title": "SciVelyx Graphs", "subtitle": "User manual",
            "slogan": "Science in Motion. Data in Focus.", "version": "Version",
@@ -54,6 +61,7 @@ def chapter(slug: str, text: str, tmp: Path, slugs: list) -> str:
     text = re.sub(r'<div class="manual-download">.*?</div>\s*', "", text, flags=re.S)
     text = re.sub(r"^The PDF has the same chapters.*?\n\n", "", text, flags=re.M)
     text = re.sub(r"^O PDF tem os mesmos capítulos.*?\n\n", "", text, flags=re.M)
+    text = re.sub(r'<div class="video-card">.*?</div>\s*', "", text, flags=re.S)
 
     def image(m):
         alt, src = m.group(1), m.group(2)
@@ -79,11 +87,11 @@ def chapter(slug: str, text: str, tmp: Path, slugs: list) -> str:
         if h.startswith("downloads/") or h.startswith("assets/"):
             return label
         h = h.split("#")[0].strip("/")
-        h = h.removeprefix("graphs/docs").strip("/").removeprefix("../").strip("/")
+        h = re.sub(r"^(graphs|md)/docs", "", h).strip("/").removeprefix("../").strip("/")
         target = h.split("/")[-1] if h else "index"
         if target in slugs:
             return f"[{label}](#ch-{target})"
-        if h in ("graphs", "") or "download" in href:
+        if h in ("graphs", "md", "") or "download" in href:
             return label
         return label
     text = re.sub(r"(?<!!)\[([^\]]+)\]\(([^)\s]+)\)", link, text)
@@ -113,7 +121,7 @@ FALLBACKS
 \usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \clearpairofpagestyles
-\ohead{\small\sffamily SciVelyx Graphs}
+\ohead{\small\sffamily @@APPTITLE@@}
 \ihead{\small\sffamily\leftmark}
 \ofoot*{\small\sffamily\pagemark}
 \setlength{\emergencystretch}{3em}
@@ -154,11 +162,15 @@ def fallbacks(text: str) -> str:
     return "\n".join(f'\\newunicodechar{{{c}}}{{{{\\fallbackfont\\char"{ord(c):04X}\\relax}}}}' for c in chars)
 
 
-def build(lang: str) -> Path:
-    T = TEXT[lang]
-    base = CONTENT / "graphs" if lang == "en" else CONTENT / lang / "graphs"
-    slugs = CONFIG["guides"]["graphs"]
-    version = CONFIG["apps"]["graphs"]["version"]
+def build(lang: str, app: str = "graphs") -> Path:
+    T = dict(TEXT[lang])
+    T["title"] = "SciVelyx " + APPS[app]
+    T["file"] = T["file"].replace("Graphs", APPS[app])
+    if app in MISSION:
+        T["mission"] = T["mission"] + r"\par\medskip " + MISSION[app][lang]
+    base = CONTENT / app if lang == "en" else CONTENT / lang / app
+    slugs = CONFIG["guides"][app]
+    version = CONFIG["apps"][app]["version"]
     tmp = Path(tempfile.mkdtemp(prefix="manual-"))
     parts = []
     for slug in slugs:
@@ -170,9 +182,9 @@ def build(lang: str) -> Path:
     values = {"LOGO": logo.as_posix(), "TITLE": T["title"], "SUBTITLE": T["subtitle"], "SLOGAN": T["slogan"],
               "MISSION": T["mission"], "VERSIONLABEL": T["version"], "VERSION": version,
               "DATE": dt.date.today().isoformat(), "SITETEXT": T["site"],
-              "SITEURL": site_url() + T["web"] + "graphs/docs/"}
+              "SITEURL": site_url() + T["web"] + f"{app}/docs/"}
     cover = re.sub(r"@@([A-Z]+)@@", lambda m: values[m.group(1)], COVER)
-    pre = PREAMBLE.replace("FALLBACKS", fallbacks(md))
+    pre = PREAMBLE.replace("FALLBACKS", fallbacks(md)).replace("@@APPTITLE@@", T["title"])
     (tmp / "preamble.tex").write_text(pre + "\\AtBeginDocument{\\hypersetup{pdftitle={" + T["title"] + " — "
                                       + T["subtitle"] + "}, pdfauthor={SciVelyx Suite}}}\n", encoding="utf-8")
     (tmp / "cover.tex").write_text(cover, encoding="utf-8")
@@ -196,6 +208,9 @@ def build(lang: str) -> Path:
 
 
 if __name__ == "__main__":
-    langs = sys.argv[1:] or list(TEXT)
-    for lg in langs:
-        build(lg)
+    args = sys.argv[1:]
+    langs = [a for a in args if a in TEXT] or list(TEXT)
+    apps = [a for a in args if a in APPS] or list(APPS)
+    for ap in apps:
+        for lg in langs:
+            build(lg, ap)
