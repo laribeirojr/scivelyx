@@ -49,7 +49,7 @@ the program, are on the [SciVelyx channel on YouTube](https://www.youtube.com/@S
 ## How the results reach SciVelyx Graphs
 
 Every analysis opens a result tab with its table and graph. **File ▸ Send to SciVelyx Graphs** (Ctrl+G) opens the
-same sheets and graphs in a SciVelyx Graphs window, fully editable: change the axes, fit, export at the size of the
+same sheets and graphs in SciVelyx Graphs (installed separately), fully editable: change the axes, fit, export at the size of the
 journal. **File ▸ Save as SciVelyx project** writes them to a `*.scivelyx.json` file that SciVelyx Graphs opens.
 Each sheet records where it came from: the file, the frames and the parameters of the analysis.
 

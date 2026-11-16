@@ -42,8 +42,9 @@ the six digits LAMMPS prints.
 
 ## 4. Send it to SciVelyx Graphs
 
-**File ▸ Send to SciVelyx Graphs** (Ctrl+G) opens a SciVelyx Graphs window with the sheet (r, g, n with names and
-units) and the two graphs. Everything there is editable: axes, curves, fits, export at the size of the journal.
+**File ▸ Send to SciVelyx Graphs** (Ctrl+G) saves the result as a project and opens it in SciVelyx Graphs (when it
+is installed; otherwise the status bar says where the file is), with the sheet (r, g, n with names and units) and the
+two graphs. Everything there is editable: axes, curves, fits, export at the size of the journal.
 
 ![The RDF opened in SciVelyx Graphs]({{AROOT}}assets/md/graphs.webp)
 

@@ -1,8 +1,8 @@
 # Instalação
 
 O SciVelyx MD roda no Windows 10 e 11 (64 bits), no macOS 11 ou mais novo (Apple silicon e Intel) e no Linux
-x86_64. Os instaladores trazem também o SciVelyx Graphs, para que um resultado abra como gráfico editável sem
-instalar mais nada. Baixe o arquivo do seu sistema na [página de versões]({{ROOT}}md/#download). Durante a fase de
+x86_64. O programa é independente: não precisa de nenhuma outra aplicação SciVelyx. Para editar os resultados como
+gráficos, instale também o SciVelyx Graphs (instalador próprio); **File ▸ Send to SciVelyx Graphs** os abre lá. Baixe o arquivo do seu sistema na [página de versões]({{ROOT}}md/#download). Durante a fase de
 testes, a página de versões está aberta aos testadores convidados.
 
 | Sistema | Arquivo | Observações |
@@ -39,7 +39,7 @@ Cada versão publica também `SHA256SUMS.txt`, com as somas de verificação dos
 
 ## A partir do código (testadores com acesso)
 
-No Linux, no WSL e no macOS, com o código do SciVelyx MD e do SciVelyx Graphs clonados lado a lado:
+No Linux, no WSL e no macOS, a partir de um clone do código do SciVelyx MD:
 
 ```bash
 cd scivelyx-md

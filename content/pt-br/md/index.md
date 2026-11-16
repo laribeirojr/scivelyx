@@ -53,7 +53,7 @@ programa, estão no [canal SciVelyx no YouTube](https://www.youtube.com/@SciVely
 ## Como os resultados chegam ao SciVelyx Graphs
 
 Cada análise abre uma aba de resultado com sua tabela e seu gráfico. **File ▸ Send to SciVelyx Graphs** (Ctrl+G)
-abre as mesmas planilhas e gráficos numa janela do SciVelyx Graphs, totalmente editáveis: mude os eixos, ajuste
+abre as mesmas planilhas e gráficos no SciVelyx Graphs (instalado à parte), totalmente editáveis: mude os eixos, ajuste
 curvas, exporte no tamanho da revista. **File ▸ Save as SciVelyx project** grava tudo num arquivo
 `*.scivelyx.json` que o SciVelyx Graphs abre. Cada planilha registra de onde veio: o arquivo, os frames e os
 parâmetros da análise.

@@ -4,8 +4,9 @@
 No. It reads the output of LAMMPS, GROMACS, NAMD, AMBER, HOOMD-blue and DFT codes, and analyses it.
 
 **Do I need SciVelyx Graphs?**
-It comes inside the installers. Every result can be sent to it with Ctrl+G as editable sheets and graphs, or saved
-as a `*.scivelyx.json` project that SciVelyx Graphs opens.
+No: SciVelyx MD works without it, and every result has its table and graph in SciVelyx MD. To edit the graphs,
+install SciVelyx Graphs (its own installer): Ctrl+G saves the result as a `*.scivelyx.json` project and opens it in
+SciVelyx Graphs. Without SciVelyx Graphs the project file is kept, and opens there later.
 
 **My xtc (or dcd, or nc) file does not open.**
 These files have positions only. Open the topology together with them: a `.tpr` or `.gro` for an `.xtc`, a `.psf`

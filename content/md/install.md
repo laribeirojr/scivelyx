@@ -1,8 +1,8 @@
 # Installation
 
 SciVelyx MD runs on Windows 10 and 11 (64-bit), macOS 11 or later (Apple silicon and Intel) and Linux x86_64. The
-installers carry SciVelyx Graphs too, so a result can be opened as an editable graph without installing anything
-else. Download the file for your system from the [releases page]({{ROOT}}md/#download). During the testing phase the
+program stands alone: it needs no other SciVelyx application. To edit the results as graphs, install SciVelyx
+Graphs as well (its own installer); **File ▸ Send to SciVelyx Graphs** then opens them there. Download the file for your system from the [releases page]({{ROOT}}md/#download). During the testing phase the
 release page is open to invited testers.
 
 | System | File | Notes |
@@ -39,7 +39,7 @@ Every release also publishes `SHA256SUMS.txt` with the checksums of its files.
 
 ## From the source (testers with access)
 
-On Linux, WSL and macOS, with the source of SciVelyx MD and of SciVelyx Graphs cloned side by side:
+On Linux, WSL and macOS, from a clone of the SciVelyx MD source:
 
 ```bash
 cd scivelyx-md

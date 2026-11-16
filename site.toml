@@ -13,7 +13,7 @@ issues_url = "https://github.com/laribeirojr/scivelyx-graphs-releases/issues"
 youtube_url = "https://www.youtube.com/@SciVelyxSuite"
 
 [apps.md]
-version = "0.17.0"
+version = "0.17.1"
 release_url = "https://github.com/laribeirojr/scivelyx-md-releases/releases/latest"
 releases_url = "https://github.com/laribeirojr/scivelyx-md-releases/releases"
 issues_url = "https://github.com/laribeirojr/scivelyx-md-releases/issues"

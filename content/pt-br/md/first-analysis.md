@@ -42,8 +42,9 @@ seis algarismos que o LAMMPS imprime.
 
 ## 4. Mande para o SciVelyx Graphs
 
-**File ▸ Send to SciVelyx Graphs** (Ctrl+G) abre uma janela do SciVelyx Graphs com a planilha (r, g, n, com nomes
-e unidades) e os dois gráficos. Tudo ali é editável: eixos, curvas, ajustes, exportação no tamanho da revista.
+**File ▸ Send to SciVelyx Graphs** (Ctrl+G) salva o resultado como projeto e o abre no SciVelyx Graphs (quando
+instalado; senão, a barra de status diz onde ficou o arquivo), com a planilha (r, g, n, com nomes e unidades) e os
+dois gráficos. Tudo ali é editável: eixos, curvas, ajustes, exportação no tamanho da revista.
 
 ![A RDF aberta no SciVelyx Graphs]({{AROOT}}assets/md/graphs.webp)
 
