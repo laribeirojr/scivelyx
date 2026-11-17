@@ -101,10 +101,44 @@ The tables these modifiers make (histograms, clusters, grains, Voronoi indices, 
 **Pipeline ▸ Data tables of the current frame** and go to SciVelyx Graphs like any result; their single values
 (counts, areas, volumes) are attributes of the frame, shown in the Properties dock and in text labels.
 
+## The analyses of OVITO Pro
+
+Since version 0.19 SciVelyx MD also has, free, the analyses that OVITO keeps for its paid Pro edition (Analysis ▸
+Materials, or Pipeline ▸ Add modifier):
+
+- **Structure factor** S(k) by the reciprocal lattice of the cell or from g(r), with the partial and Faber–Ziman
+  structure factors and X-ray form factors;
+- **Find rings** (shortest-path rings of the bonds, drawn as polygons), **bond length** and **bond angle
+  distributions**, and **bond orders** with the functional groups of molecules (amide, aromatic, carboxylate,
+  nitro, amine) — add **Create bonds** first, or use the bonds of the file;
+- **Bader charge integration** of an electron density (a Gaussian cube file), per atom;
+- **Volumetric regions and pores**: the volume and area of every filled and empty region, porosity and voids;
+- **Identify fcc planar faults**: intrinsic stacking faults, twin boundaries and multilayer faults with their areas,
+  after *Polyhedral template matching*;
+- **Calculate local entropy** (the pair entropy of Piaggi and Parrinello, as LAMMPS's compute entropy/atom);
+- **Render LAMMPS regions** (block, sphere, cylinder, cone, plane, prism, ellipsoid) and the atoms inside them;
+- **Spatial binning** in 1, 2 or 3 dimensions, **Reduce property**, **Difference between frames**, **Time
+  averaging**, **Time series**, **Diffusion coefficient** (with the displacement tensor and per atom type),
+  **Steinhardt order parameters** (Voronoi-weighted, averaged), **Color by type**;
+- the core atoms of each dislocation (an option of *Dislocation analysis*) and slices along lattice planes given by
+  Miller indices (an option of *Slice*).
+
+```sh
+scivelyx-md modify asi.dump -m "create_bonds mode=cutoff cutoff=2.85" -m "find_rings maximum=10" --tables rings/
+scivelyx-md modify cu.dump -m "ptm" -m "fcc_planar_faults" --tables faults/
+```
+
+![Shortest-path rings of amorphous silicon, drawn as polygons coloured by size]({{AROOT}}assets/md/pro-rings.webp)
+
+![An intrinsic stacking fault (red), a multilayer fault (purple) and the two boundaries of a twin lamella (blue) in copper, the FCC atoms removed]({{AROOT}}assets/md/pro-faults.webp)
+
 ## How they were checked
 
 On real LAMMPS runs of a Lennard-Jones crystal–liquid system, a vapour, a liquid and a BCC iron bicrystal with
 defects: coordination, CNA, clusters, Voronoi faces and volumes, centrosymmetry, Steinhardt, displacements,
 Ackland–Jones and the MSD are equal to LAMMPS's own computes; PTM, a-CNA, diamond, Chill+, VoroTop, atomic and
 elastic strain, Wigner–Seitz, clusters, Voronoi and the correlation are equal to OVITO 3.17 atom by atom. The
-diffusion coefficient of the Lennard-Jones liquid is within 3 % of the literature.
+diffusion coefficient of the Lennard-Jones liquid is within 3 % of the literature. The analyses of OVITO Pro are
+equal to OVITO Pro's own (structure factor, rings, Bader charges, regions, planar faults, binning, diffusion,
+Steinhardt) or to LAMMPS (local entropy, regions) on real LAMMPS runs; bond orders and the Debye structure factor
+are close to OVITO's (the project's coverage file says where they differ).

@@ -103,6 +103,37 @@ As tabelas desses modificadores (histogramas, clusters, grãos, índices de Voro
 **Pipeline ▸ Data tables of the current frame** e vão para o SciVelyx Graphs como qualquer resultado; seus valores
 únicos (contagens, áreas, volumes) são atributos do frame, mostrados no painel Properties e nos rótulos de texto.
 
+## As análises do OVITO Pro
+
+Desde a versão 0.19 o SciVelyx MD tem também, de graça, as análises que o OVITO reserva à edição paga Pro (Análise ▸
+Materials, ou Pipeline ▸ Add modifier):
+
+- **Fator de estrutura** S(k) pela rede recíproca da célula ou a partir de g(r), com os fatores de estrutura parciais
+  e de Faber–Ziman e fatores de forma de raios X;
+- **Find rings** (anéis de caminho mínimo das ligações, desenhados como polígonos), **distribuições de comprimentos**
+  e de **ângulos de ligação**, e **ordens de ligação** com os grupos funcionais de moléculas (amida, aromático,
+  carboxilato, nitro, amina) — acrescente antes **Create bonds**, ou use as ligações do arquivo;
+- **Integração de cargas de Bader** de uma densidade eletrônica (arquivo cube do Gaussian), por átomo;
+- **Regiões volumétricas e poros**: volume e área de cada região cheia e vazia, porosidade e vazios;
+- **Identify fcc planar faults**: falhas de empilhamento intrínsecas, contornos de macla e falhas de várias camadas
+  com suas áreas, depois de *Polyhedral template matching*;
+- **Entropia local** (a entropia de pares de Piaggi e Parrinello, como o compute entropy/atom do LAMMPS);
+- **Regiões do LAMMPS** (block, sphere, cylinder, cone, plane, prism, ellipsoid) e os átomos dentro delas;
+- **Spatial binning** em 1, 2 ou 3 dimensões, **Reduce property**, **diferença entre quadros**, **média no tempo**,
+  **séries temporais**, **coeficiente de difusão** (com o tensor de deslocamentos e por tipo de átomo), **parâmetros
+  de Steinhardt** (com pesos de Voronoi, médios), **Color by type**;
+- os átomos do núcleo de cada discordância (uma opção de *Dislocation analysis*) e cortes por planos da rede dados por
+  índices de Miller (uma opção de *Slice*).
+
+```sh
+scivelyx-md modify asi.dump -m "create_bonds mode=cutoff cutoff=2.85" -m "find_rings maximum=10" --tables aneis/
+scivelyx-md modify cu.dump -m "ptm" -m "fcc_planar_faults" --tables falhas/
+```
+
+![Anéis de caminho mínimo do silício amorfo, desenhados como polígonos coloridos pelo tamanho]({{AROOT}}assets/md/pro-rings.webp)
+
+![Uma falha de empilhamento intrínseca (vermelho), uma falha de várias camadas (roxo) e os dois contornos de uma lamela de macla (azul) no cobre, sem os átomos CFC]({{AROOT}}assets/md/pro-faults.webp)
+
 ## Como foram conferidas
 
 Em simulações reais do LAMMPS de um sistema cristal–líquido de Lennard-Jones, de um vapor, de um líquido e de um
@@ -110,3 +141,7 @@ bicristal de ferro BCC com defeitos: coordenação, CNA, clusters, faces e volum
 Steinhardt, deslocamentos, Ackland–Jones e o MSD são iguais aos próprios computes do LAMMPS; PTM, a-CNA, diamante,
 Chill+, VoroTop, deformação atômica e elástica, Wigner–Seitz, clusters, Voronoi e a correlação são iguais ao OVITO
 3.17 átomo por átomo. O coeficiente de difusão do líquido de Lennard-Jones fica a 3 % do valor da literatura.
+As análises do OVITO Pro são
+iguais às do próprio OVITO Pro (fator de estrutura, anéis, cargas de Bader, regiões, falhas planares, binning, difusão,
+Steinhardt) ou às do LAMMPS (entropia local, regiões) em rodadas reais do LAMMPS; as ordens de ligação e o fator de
+estrutura de Debye ficam próximos dos do OVITO (o arquivo de cobertura do projeto diz onde diferem).

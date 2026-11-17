@@ -65,4 +65,5 @@ LAMMPS (RDF, MSD, CNA, Voronoi, centrossimetria, Steinhardt, deslocamentos, Ackl
 OVITO 3.17 átomo por átomo (PTM, a-CNA, deformação, Wigner–Seitz, Voronoi, clusters, malha de superfície), o
 MDAnalysis e o MDTraj (RMSD, RMSF, ligações de hidrogênio, DSSP, SASA, PCA, pontes salinas, mapas de contato) e os
 arquivos de teste oficiais de cada formato. A cobertura do OVITO 3 Basic e do VMD está listada item a item no
-projeto; na versão 0.18 ela é de 99,4 % do OVITO Basic e 100 % da lista do VMD.
+projeto, junto com a do OVITO 3 Pro; na versão 0.19 ela é de 99,4 % do OVITO Basic, todos os modificadores do OVITO
+Pro (53,7 % da lista dele, cuja parte de Python e renderização vem em seguida) e 100 % da lista do VMD.
