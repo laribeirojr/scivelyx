@@ -19,7 +19,9 @@ analyses and writes the same SciVelyx Graphs projects, without a window: for bat
 | `dislocations` | dislocation analysis (DXA) of every frame: line lengths by Burgers vector family and density over time, the segments of the last frame |
 | `modify` | apply modifiers and write the frames (LAMMPS dump or data, extended XYZ, PDB), the data tables and the attributes |
 | `modifiers` | list the modifiers and their parameters |
-| `image`, `movie` | draw a frame or a movie in 3D, with any modifiers and representations |
+| `image`, `movie` | draw a frame or a movie in 3D, with any modifiers and representations; `--layout 2x2` for several views, `--add FILE@dx,dy,dz` for another dataset, `--remote user@host` to make it on another computer, `--renderer ospray` |
+| `gltf` | the 3D scene of a frame as glTF (`.glb`) for Blender, web viewers and PowerPoint |
+| `codegen` | a Python script that does what the command describes (file, modifiers, outputs) |
 | `script`, `shell` | run a Python script; an interactive Python with the commands |
 | `versions` | the libraries inside the program and whether ffmpeg was found |
 | `gui FILES` | open the window with these files |

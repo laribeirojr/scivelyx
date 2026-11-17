@@ -45,3 +45,42 @@ a materials analysis. The window runs `~/.scivelyx-md/startup.py` each time it s
 
 Scripts are your own code and run with your permissions. In the installers a script can import the libraries the
 program carries: NumPy, SciPy, pandas, Matplotlib, ASE, MDAnalysis, pyedr, VTK/PyVista and PySide6.
+
+## The OVITO Pro environment
+
+Version 0.20 brings what OVITO reserves for its paid edition, around Python and rendering:
+
+- **Your own modifiers, formats, picture layers and tools.** Put Python files in `~/.scivelyx-md/extensions`;
+  functions marked `@modifier_function("Title", params={…})` become pipeline modifiers (Pipeline ▸ Add modifier ▸
+  Python), `@file_reader(".ext")` and `@file_writer(".ext")` new formats of File ▸ Open and Export frames,
+  `@viewport_layer("Name")` drawings on pictures and movies (Tools ▸ Viewport layers), and `@utility("Title")`
+  entries of Tools ▸ Utilities. The **Python script** modifier keeps a short `modify(frame, ctx)` function inside
+  the pipeline itself.
+- **Python code from the pipeline.** Tools ▸ Generate Python code writes a script with the file, the modifiers, the
+  drawing and the camera, which exports the frames, draws the picture or films the movie; it runs in the window,
+  with `scivelyx-md script` and with plain `python` (also `scivelyx-md codegen`).
+- **Several datasets in one scene** (Tools ▸ Add a dataset to the scene), each with its frame, offset and pipeline,
+  and **pictures of several views** side by side (Tools ▸ Picture of several views).
+- **Files and formats.** glTF scenes for Blender, the web and PowerPoint (Tools ▸ Export the scene as glTF); ASE
+  `.traj` and `.db` files; a Python script with `create(index)` or a LAMMPS input script (run by your LAMMPS)
+  opened as data; files on another computer opened as `ssh://user@host/path` (Tools ▸ Open a remote file), copied
+  by your own `scp`.
+- **Rendering elsewhere.** Tools ▸ Render on a remote computer (or `--remote user@host`) makes the picture or the
+  movie on a workstation with SciVelyx MD installed and brings it back; OSPRay Studio, if you install it, is one more
+  ray tracer (Save 3D image ▸ Renderer).
+
+![A Python script modifier colours the atoms by their height, the first frame of the same run is added beside the last one, and the script generated from the pipeline is open in the Python dock]({{AROOT}}assets/md/pro-python.webp)
+
+![Four views of the iron bicrystal in one picture, coloured by the structure found by PTM]({{AROOT}}assets/md/pro-layout.webp)
+
+```python
+# ~/.scivelyx-md/extensions/my_tools.py  (ILLUSTRATIVE)
+from scivelyx_md.extensions import modifier_function
+from scivelyx_md.modifiers import copy_frame, with_attributes
+
+@modifier_function("Kinetic energy", params={"mass": 1.0})
+def kinetic_energy(frame, ctx, mass=1.0):
+    d = frame.data.copy()
+    d["ke"] = 0.5 * mass * (d.vx ** 2 + d.vy ** 2 + d.vz ** 2)
+    return with_attributes(copy_frame(frame, data=d), ke_total=float(d.ke.sum()))
+```

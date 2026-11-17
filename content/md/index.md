@@ -59,6 +59,7 @@ Every analysis is compared in the tests with the program it imitates, on real fi
 MSD, CNA, Voronoi, centrosymmetry, Steinhardt, displacements, Ackland–Jones, ReaxFF species), OVITO 3.17 atom by
 atom (PTM, a-CNA, strain, Wigner–Seitz, Voronoi, clusters, surface mesh), MDAnalysis and MDTraj (RMSD, RMSF,
 hydrogen bonds, DSSP, SASA, PCA, salt bridges, contact maps) and the official test files of each format. The
-coverage of OVITO 3 Basic, OVITO 3 Pro and VMD is listed item by item in the project; at version 0.19 it is 99.4 %
-of OVITO Basic, every modifier of OVITO Pro (53.7 % of its list, whose Python and rendering part comes next) and
-100 % of the VMD list.
+coverage of OVITO 3 Basic, OVITO 3 Pro and VMD is listed item by item in the project; at version 0.20 it is 99.4 %
+of OVITO Basic, 91.5 % of OVITO Pro (every modifier and its Python environment; open are OSPRay, to confirm with
+OSPRay Studio, NVIDIA's VisRTX and the AI agent, which belongs to the suite's AI assistant) and 100 % of the VMD
+list.

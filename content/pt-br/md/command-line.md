@@ -19,7 +19,9 @@ grava os mesmos projetos do SciVelyx Graphs, sem janela: para trabalhos em lote,
 | `dislocations` | análise de discordâncias (DXA) de cada frame: comprimentos de linha por família de vetor de Burgers e densidade ao longo do tempo, os segmentos do último frame |
 | `modify` | aplica modificadores e grava os frames (dump ou data do LAMMPS, XYZ estendido, PDB), as tabelas de dados e os atributos |
 | `modifiers` | lista os modificadores e seus parâmetros |
-| `image`, `movie` | desenha um frame ou um filme em 3D, com quaisquer modificadores e representações |
+| `image`, `movie` | desenha um frame ou um filme em 3D, com quaisquer modificadores e representações; `--layout 2x2` para várias vistas, `--add ARQUIVO@dx,dy,dz` para outro conjunto de dados, `--remote usuario@host` para fazê-lo em outro computador, `--renderer ospray` |
+| `gltf` | a cena 3D de um frame em glTF (`.glb`) para o Blender, visualizadores na web e o PowerPoint |
+| `codegen` | um script Python que faz o que o comando descreve (arquivo, modificadores, saídas) |
 | `script`, `shell` | roda um script Python; um Python interativo com os comandos |
 | `versions` | as bibliotecas dentro do programa e se o ffmpeg foi encontrado |
 | `gui ARQUIVOS` | abre a janela com esses arquivos |
