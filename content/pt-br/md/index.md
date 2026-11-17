@@ -16,7 +16,8 @@ Ele tem:
   biomoléculas (RMSD, RMSF, ligações de hidrogênio, DSSP, SASA, PCA, pontes salinas, mapas de contato, linhas do
   tempo);
 - espécies, reações, ligações e cargas do ReaxFF;
-- imagens, filmes, sessões, scripts Python e linha de comando.
+- imagens, filmes, sessões, scripts Python e linha de comando;
+- a Mio, uma assistente de IA que roda no seu computador: perguntas sobre os seus arquivos, pipelines a partir de uma frase, scripts.
 
 Nossa missão: oferecer a pesquisadores de todo o mundo ferramentas rápidas, precisas e intuitivas para analisar e
 visualizar dados científicos, para que conjuntos de dados complexos virem conclusões claras e o caminho dos dados à
@@ -46,6 +47,7 @@ programa, estão no [canal SciVelyx no YouTube](https://www.youtube.com/@SciVely
 | acompanhar moléculas e reações numa simulação ReaxFF | [ReaxFF]({{ROOT}}md/docs/reaxff/) |
 | gravar imagens, filmes e sessões | [Imagens, filmes e sessões]({{ROOT}}md/docs/pictures-movies/) |
 | automatizar com Python | [Scripts Python]({{ROOT}}md/docs/scripts/) |
+| perguntar em palavras simples, ou pedir um pipeline pronto | [Mio, a assistente de IA]({{ROOT}}md/docs/mio/) |
 | trabalhar sem a janela | [Linha de comando]({{ROOT}}md/docs/command-line/) |
 | abrir milhões de átomos | [Sistemas grandes]({{ROOT}}md/docs/large-systems/) |
 | achar uma resposta rápida | [Perguntas e respostas]({{ROOT}}md/docs/faq/) |
@@ -65,6 +67,6 @@ LAMMPS (RDF, MSD, CNA, Voronoi, centrossimetria, Steinhardt, deslocamentos, Ackl
 OVITO 3.17 átomo por átomo (PTM, a-CNA, deformação, Wigner–Seitz, Voronoi, clusters, malha de superfície), o
 MDAnalysis e o MDTraj (RMSD, RMSF, ligações de hidrogênio, DSSP, SASA, PCA, pontes salinas, mapas de contato) e os
 arquivos de teste oficiais de cada formato. A cobertura do OVITO 3 Basic e do VMD está listada item a item no
-projeto, junto com a do OVITO 3 Pro; na versão 0.20 ela é de 99,4 % do OVITO Basic, 91,5 % do OVITO Pro (todos os
-modificadores e o ambiente Python dele; ficam abertos o OSPRay, a confirmar com o OSPRay Studio, o VisRTX da NVIDIA e
-o agente de IA, que pertence ao assistente de IA da suíte) e 100 % da lista do VMD.
+projeto, junto com a do OVITO 3 Pro; na versão 0.21 ela é de 99,4 % do OVITO Basic, 97,6 % do OVITO Pro (todos
+os modificadores, o ambiente Python dele, o OSPRay e o agente de IA, que é a Mio; o VisRTX funciona pelo ANARI e
+espera uma verificação numa placa NVIDIA RTX) e 100 % da lista do VMD.

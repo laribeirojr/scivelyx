@@ -37,7 +37,7 @@
               {"@type": "Question", "name": "Quais programas de simulação o SciVelyx MD lê?",
                "acceptedAnswer": {"@type": "Answer", "text": "Trajetórias do LAMMPS (inclusive ReaxFF), GROMACS, CHARMM e NAMD, AMBER e HOOMD-blue, e as estruturas do Quantum ESPRESSO, CASTEP, FHI-aims e VASP."}},
               {"@type": "Question", "name": "Ele substitui o OVITO e o VMD?",
-               "acceptedAnswer": {"@type": "Answer", "text": "Ele cobre 99,4 % da lista do OVITO 3 Basic (modificadores, formatos, visualização), todas as análises do OVITO Pro e 100 % da lista de recursos do VMD adotada pelo projeto, conferido com os dois programas e com o LAMMPS, o MDAnalysis e o MDTraj."}},
+               "acceptedAnswer": {"@type": "Answer", "text": "Ele cobre 99,4 % da lista do OVITO 3 Basic (modificadores, formatos, visualização), 97,6 % da lista do OVITO Pro (com o agente de IA dele, a Mio) e 100 % da lista de recursos do VMD adotada pelo projeto, conferido com os dois programas e com o LAMMPS, o MDAnalysis e o MDTraj."}},
               {"@type": "Question", "name": "Quais sistemas são suportados?",
                "acceptedAnswer": {"@type": "Answer", "text": "Windows 10 e 11 (64 bits), macOS 11 ou mais novo em Apple silicon e Intel, e Linux x86_64."}}
             ]
@@ -298,6 +298,43 @@
         </div>
       </section>
 
+      <section id="mio" class="section" aria-labelledby="mio-title">
+        <div class="container">
+          <div class="feature-split">
+            <div class="feature-copy">
+              <p class="eyebrow">Mio, a assistente de IA</p>
+              <h2 id="mio-title">Pergunte em palavras simples. Nada muda sem o seu sim.</h2>
+              <p class="lead">
+                A Mio responde a perguntas sobre os seus arquivos, monta pipelines a partir de uma frase e escreve
+                scripts, em português, inglês ou espanhol. O modelo de linguagem dela roda no seu computador.
+              </p>
+              <ul class="feature-list">
+                <li><strong>Sobre a sua simulação:</strong> <em>quantos átomos de tipo 2?</em>, <em>temperatura
+                  média</em>, <em>calcule a RDF até 6</em>: respondidas pelas próprias análises do programa.</li>
+                <li><strong>Pipelines a partir de palavras:</strong> <em>replique 2x2x2, depois apague o tipo 2 e rode
+                  a DXA para BCC</em>; cada modificador é conferido e só é aplicado quando você aperta
+                  <em>Apply pipeline</em>.</li>
+                <li><strong>Scripts e o manual:</strong> receitas de scripts testadas, respostas que citam este manual.</li>
+                <li><strong>Conectores e MCP:</strong> referências do Crossref, resultados para o Google ou o Microsoft
+                  365, ligados por você e confirmados chamada a chamada; outros assistentes usam o SciVelyx MD por MCP.</li>
+              </ul>
+              <p><a class="text-link" href="docs/mio/">Como a Mio funciona</a></p>
+            </div>
+            <figure>
+              <div class="shot-frame">
+                <a class="shot" href="{{AROOT}}assets/md/mio.webp" data-full="{{AROOT}}assets/md/mio.webp"
+                   data-caption="A Mio conta os átomos de um tipo, lê a temperatura do log e propõe um pipeline."
+                   data-gallery="mio">
+                  <img src="{{AROOT}}assets/md/mio.webp" width="1600" height="1000" loading="lazy" decoding="async"
+                       alt="O painel da Mio ao lado da vista 3D de uma caixa de água, com perguntas, respostas e um pipeline proposto." />
+                </a>
+              </div>
+              <figcaption>O painel da Mio. <span class="zoom-hint">Clique para ampliar</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
       <section id="graphs" class="section" aria-labelledby="graphs-title">
         <div class="container">
           <div class="feature-split">
@@ -393,7 +430,7 @@
             </details>
             <details>
               <summary>Ele substitui o OVITO e o VMD?</summary>
-              <p>Para análises e figuras, em grande parte: ele cobre 99,4 % da lista do OVITO 3 Basic, as análises do OVITO Pro e 100 % da lista
+              <p>Para análises e figuras, em grande parte: ele cobre 99,4 % da lista do OVITO 3 Basic, 97,6 % da lista do OVITO Pro e 100 % da lista
                 de recursos do VMD adotada pelo projeto, e os testes o comparam com o OVITO, o LAMMPS, o MDAnalysis e o
                 MDTraj. Ele não lê os arquivos de sessão deles.</p>
             </details>

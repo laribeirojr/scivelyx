@@ -13,7 +13,8 @@ with the same kind of modifier pipeline as OVITO and the representations and bio
 - materials analyses (RDF, MSD and diffusion, CNA, PTM, Voronoi, strain, defects, grains, clusters) and
   biomolecule analyses (RMSD, RMSF, hydrogen bonds, DSSP, SASA, PCA, salt bridges, contact maps, timelines);
 - ReaxFF species, reactions, bonds and charges;
-- pictures, movies, sessions, Python scripts and a command line.
+- pictures, movies, sessions, Python scripts and a command line;
+- Mio, an AI assistant that runs on your computer: questions about your files, pipelines from a sentence, scripts.
 
 Our mission: to give researchers everywhere fast, precise and intuitive tools for analysing and visualising
 scientific data, so that complex datasets become clear insights and the path from data to discovery is shorter.
@@ -42,6 +43,7 @@ the program, are on the [SciVelyx channel on YouTube](https://www.youtube.com/@S
 | follow molecules and reactions in a ReaxFF run | [ReaxFF]({{ROOT}}md/docs/reaxff/) |
 | save pictures, movies and sessions | [Pictures, movies and sessions]({{ROOT}}md/docs/pictures-movies/) |
 | automate with Python | [Python scripts]({{ROOT}}md/docs/scripts/) |
+| ask in plain words, or have a pipeline built for you | [Mio, the AI assistant]({{ROOT}}md/docs/mio/) |
 | work without the window | [Command line]({{ROOT}}md/docs/command-line/) |
 | open millions of atoms | [Large systems]({{ROOT}}md/docs/large-systems/) |
 | find a quick answer | [Questions and answers]({{ROOT}}md/docs/faq/) |
@@ -59,7 +61,6 @@ Every analysis is compared in the tests with the program it imitates, on real fi
 MSD, CNA, Voronoi, centrosymmetry, Steinhardt, displacements, Ackland–Jones, ReaxFF species), OVITO 3.17 atom by
 atom (PTM, a-CNA, strain, Wigner–Seitz, Voronoi, clusters, surface mesh), MDAnalysis and MDTraj (RMSD, RMSF,
 hydrogen bonds, DSSP, SASA, PCA, salt bridges, contact maps) and the official test files of each format. The
-coverage of OVITO 3 Basic, OVITO 3 Pro and VMD is listed item by item in the project; at version 0.20 it is 99.4 %
-of OVITO Basic, 91.5 % of OVITO Pro (every modifier and its Python environment; open are OSPRay, to confirm with
-OSPRay Studio, NVIDIA's VisRTX and the AI agent, which belongs to the suite's AI assistant) and 100 % of the VMD
-list.
+coverage of OVITO 3 Basic, OVITO 3 Pro and VMD is listed item by item in the project; at version 0.21 it is 99.4 %
+of OVITO Basic, 97.6 % of OVITO Pro (every modifier, its Python environment, OSPRay and the AI agent, which is Mio;
+VisRTX works through ANARI and waits for a check on an NVIDIA RTX card) and 100 % of the VMD list.

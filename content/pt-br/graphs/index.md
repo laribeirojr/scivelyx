@@ -8,7 +8,8 @@ O SciVelyx Graphs transforma dados medidos ou simulados em figuras de publicaç�
 - 176 tipos de gráfico, em que todo elemento pode ser editado;
 - ajuste de curvas e de picos, e ferramentas de espectroscopia e de difração de raios X;
 - estatística, matrizes e scripts Python;
-- a migração de projetos do Origin, SciDAVis e QtiPlot.
+- a migração de projetos do Origin, SciDAVis e QtiPlot;
+- a Mio, uma assistente de IA que roda no seu computador: perguntas sobre os seus dados, ajustes, gráficos a partir de uma frase, scripts.
 
 Nossa missão: oferecer a pesquisadores de todo o mundo ferramentas rápidas, precisas e intuitivas para analisar e
 visualizar dados científicos, para que conjuntos de dados complexos virem conclusões claras e o caminho dos dados à
@@ -43,6 +44,7 @@ encontre sem precisar adivinhar a tradução.
 | usar os Apps do Origin (Tafel, regressão logística, diagramas de Taylor e de Venn…) | [Apps do Origin](origin-apps/) |
 | trabalhar com grades, imagens e superfícies | [Matrizes e superfícies](matrices/) |
 | automatizar com Python | [Scripts](scripts/) |
+| perguntar em palavras simples, ou pedir um gráfico pronto | [Mio, a assistente de IA](mio/) |
 | trazer seus projetos do Origin, SciDAVis ou QtiPlot | [Vindo do Origin, SciDAVis e QtiPlot](migration/) |
 | entregar a figura a uma revista | [Exportação e publicação](export/) |
 | desenhar figuras sem a janela | [Linha de comando](command-line/) |
