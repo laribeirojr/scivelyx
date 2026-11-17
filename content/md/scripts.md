@@ -15,7 +15,7 @@ SciVelyx MD runs Python in three places, with the same commands:
 | Group | Commands |
 |---|---|
 | Files and frames | `load(path, topology=None)`, `frames(t, "start:stop:step")`, `frame(t, i)`, `select(f, expr)`, `atoms(f, expr)` |
-| Materials | `rdf`, `msd`, `vacf`, `angles`, `profile`, `structure`, `coordination`, `cna`, `centrosymmetry`, `steinhardt`, `voronoi`, `clusters`, `cna_adaptive`, `ptm`, `ackland_jones`, `identify_diamond`, `chill_plus`, `elastic_strain`, `displacements`, `atomic_strain`, `wigner_seitz`, `grains`, `cluster_table`, `voronoi_cells`, `vorotop`, `spatial_correlation`, `dislocations`, `histogram_time` |
+| Materials | `rdf`, `msd`, `vacf`, `angles`, `profile`, `structure`, `coordination`, `cna`, `centrosymmetry`, `steinhardt`, `voronoi`, `clusters`, `cna_adaptive`, `ptm`, `ackland_jones`, `identify_diamond`, `chill_plus`, `elastic_strain`, `displacements`, `atomic_strain`, `wigner_seitz`, `grains`, `cluster_table`, `voronoi_cells`, `vorotop`, `spatial_correlation`, `dislocations`, `dislocation_series`, `histogram_time` |
 | Biomolecules | `rmsd`, `rmsf`, `gyration`, `hbonds`, `dssp`, `sasa`, `pca`, `salt_bridges`, `contact_map`, `timeline` |
 | ReaxFF and energies | `species`, `reactions`, `thermo` |
 | Volumes and surfaces | `density_map`, `volmap`, `read_grid`, `write_grid`, `isosurface`, `surface_mesh`, `molecular_surface`, `polyhedra`, `ambient_occlusion` |

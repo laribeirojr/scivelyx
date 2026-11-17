@@ -65,11 +65,37 @@ The cutoffs start from the mean spacing of the atoms; colour the view by a new c
 | Cluster analysis | clusters by a cutoff with their size, centre of mass and radius of gyration |
 | Voronoi analysis | volume, faces, area, indices (also radical cells), polyhedra in the view |
 | Spatial correlation function | of two per-atom columns, direct or by FFT |
-| Dislocation analysis (DXA) | OVITO's own algorithm, when OVITO's Python module is installed |
+| Dislocation analysis (DXA) | dislocation lines, Burgers vectors, junctions and the defect mesh (see below) |
 
 ![PTM and grain segmentation of an iron bicrystal]({{AROOT}}assets/md/ptm-grains.webp)
 
 ![Atomic shear strain of the bicrystal under tension, with the Wigner–Seitz count of vacancies and interstitials]({{AROOT}}assets/md/strain.webp)
+
+## Dislocations
+
+**Dislocation analysis (DXA)** (Analysis ▸ Materials, or Pipeline ▸ Add modifier) finds the dislocation lines of
+FCC, HCP, BCC, cubic and hexagonal diamond crystals with the dislocation extraction algorithm (Stukowski, Bulatov
+and Arsenlis): it maps the crystal onto the ideal lattice and walks Burgers circuits around the defects. It gives:
+
+- every segment with its Burgers vector in the lattice (for example 1/6[1-21]) and in the simulation frame, its
+  family (1/2<110>, 1/6<112> Shockley, 1/6<110> stair-rod, 1/3<111> Frank …; 1/3<11-20>, <0001> … in HCP) and its
+  length, as the table *dislocations*;
+- the lines in the 3D view, coloured by family, and the junctions where they meet;
+- the column `structure` (other, FCC, HCP, BCC, cubic or hexagonal diamond: stacking faults show as HCP layers) and
+  the *defect mesh* around the other defects (surfaces, grain boundaries);
+- the line length of every family and the dislocation density as attributes.
+
+To look at the lines alone, add *Expression selection* with `structure == 1` (the perfect FCC atoms) and *Delete
+selected* after it. **Analysis ▸ Materials ▸ Dislocation lengths over time** runs it on every frame and draws the
+lengths and the density against time in SciVelyx Graphs:
+
+```sh
+scivelyx-md dislocations dump.lammpstrj --lattice FCC --segments segments.csv
+```
+
+![Dislocation analysis of a vacancy disc relaxed in copper: Shockley partials (green), stair-rods (pink) and Frank partials (cyan) around stacking faults (red atoms)]({{AROOT}}assets/md/dislocations.webp)
+
+![Dislocation lengths by Burgers vector family over time]({{AROOT}}assets/md/dislocation-lengths.webp)
 
 The tables these modifiers make (histograms, clusters, grains, Voronoi indices, dislocations) open with
 **Pipeline ▸ Data tables of the current frame** and go to SciVelyx Graphs like any result; their single values

@@ -64,6 +64,6 @@ O SciVelyx MD funciona sozinho. Algumas coisas usam programas que você mesmo in
 | ffmpeg | filmes MP4, MOV, MKV, AVI e WebM (GIF e séries de PNG funcionam sem ele) |
 | Tachyon ou POV-Ray | imagens em ray tracing, com sombras e luz ambiente |
 | VMD, UCSF ChimeraX, PyMOL | abrir os frames escolhidos em outro visualizador |
-| módulo Python do OVITO (`pip install ovito`) | a análise de discordâncias (DXA) |
+| módulo Python do OVITO (`pip install ovito`) | a análise de discordâncias do próprio OVITO, como opção (o SciVelyx MD tem a sua) |
 
 O programa não se conecta à internet, não envia nada a lugar nenhum e não precisa de conta.

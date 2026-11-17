@@ -66,11 +66,38 @@ Os raios de corte partem do espaçamento médio dos átomos; colore a vista por 
 | Cluster analysis | clusters por raio de corte, com tamanho, centro de massa e raio de giro |
 | Voronoi analysis | volume, faces, área, índices (também células radicais), poliedros na vista |
 | Spatial correlation function | de duas colunas por átomo, direta ou por FFT |
-| Dislocation analysis (DXA) | o algoritmo do próprio OVITO, quando o módulo Python do OVITO está instalado |
+| Dislocation analysis (DXA) | linhas de discordância, vetores de Burgers, junções e a malha de defeitos (veja abaixo) |
 
 ![PTM e segmentação de grãos de um bicristal de ferro]({{AROOT}}assets/md/ptm-grains.webp)
 
 ![Deformação de cisalhamento atômica do bicristal sob tração, com a contagem de Wigner–Seitz de vacâncias e intersticiais]({{AROOT}}assets/md/strain.webp)
+
+## Discordâncias
+
+**Dislocation analysis (DXA)** (Analysis ▸ Materials, ou Pipeline ▸ Add modifier) encontra as linhas de discordância
+de cristais FCC, HCP, BCC, diamante cúbico e hexagonal com o algoritmo de extração de discordâncias (Stukowski,
+Bulatov e Arsenlis): ele mapeia o cristal na rede ideal e percorre circuitos de Burgers em volta dos defeitos. Ele
+dá:
+
+- cada segmento com o seu vetor de Burgers na rede (por exemplo 1/6[1-21]) e no referencial da simulação, a sua
+  família (1/2<110>, 1/6<112> Shockley, 1/6<110> stair-rod, 1/3<111> Frank …; 1/3<11-20>, <0001> … no HCP) e o seu
+  comprimento, na tabela *dislocations*;
+- as linhas na vista 3D, coloridas pela família, e as junções onde elas se encontram;
+- a coluna `structure` (other, FCC, HCP, BCC, diamante cúbico ou hexagonal: as falhas de empilhamento aparecem como
+  camadas HCP) e a *malha de defeitos* em volta dos outros defeitos (superfícies, contornos de grão);
+- o comprimento de linha de cada família e a densidade de discordâncias como atributos.
+
+Para ver só as linhas, acrescente *Expression selection* com `structure == 1` (os átomos FCC perfeitos) e *Delete
+selected* depois dele. **Analysis ▸ Materials ▸ Dislocation lengths over time** roda a análise em cada frame e
+desenha os comprimentos e a densidade contra o tempo no SciVelyx Graphs:
+
+```sh
+scivelyx-md dislocations dump.lammpstrj --lattice FCC --segments segmentos.csv
+```
+
+![Análise de discordâncias de um disco de vacâncias relaxado no cobre: parciais de Shockley (verde), stair-rods (rosa) e parciais de Frank (ciano) em volta das falhas de empilhamento (átomos vermelhos)]({{AROOT}}assets/md/dislocations.webp)
+
+![Comprimentos de discordância por família de vetor de Burgers ao longo do tempo]({{AROOT}}assets/md/dislocation-lengths.webp)
 
 As tabelas desses modificadores (histogramas, clusters, grãos, índices de Voronoi, discordâncias) abrem com
 **Pipeline ▸ Data tables of the current frame** e vão para o SciVelyx Graphs como qualquer resultado; seus valores

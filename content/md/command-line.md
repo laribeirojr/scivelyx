@@ -16,6 +16,7 @@ analyses and writes the same SciVelyx Graphs projects, without a window: for bat
 | `rmsd`, `rmsf`, `gyration`, `hbonds`, `dssp`, `sasa`, `pca` | biomolecules |
 | `saltbridges`, `contacts`, `timeline` | salt bridges, residue contact maps, per-residue timelines |
 | `volmap` | 3D density map: OpenDX or cube file and a project with 2D maps |
+| `dislocations` | dislocation analysis (DXA) of every frame: line lengths by Burgers vector family and density over time, the segments of the last frame |
 | `modify` | apply modifiers and write the frames (LAMMPS dump or data, extended XYZ, PDB), the data tables and the attributes |
 | `modifiers` | list the modifiers and their parameters |
 | `image`, `movie` | draw a frame or a movie in 3D, with any modifiers and representations |

@@ -30,8 +30,9 @@ tracer for shadows. Graphs of the results go through SciVelyx Graphs, which expo
 size of the journal column.
 
 **Is there a dislocation analysis?**
-Yes, through OVITO's own algorithm: install OVITO's Python module (`pip install ovito`) in a Python of your
-computer, and SciVelyx MD runs it there.
+Yes, its own (since 0.18): Analysis ▸ Materials ▸ Dislocation analysis (DXA), for FCC, HCP, BCC and diamond
+crystals, with the same segments and Burgers vectors as OVITO's DXA on the test runs. OVITO's own algorithm can still
+be chosen in the modifier when OVITO's Python module is installed.
 
 **Which language is the interface in?**
 English. This manual and the website are in English and Portuguese.

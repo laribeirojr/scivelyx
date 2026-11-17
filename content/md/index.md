@@ -59,5 +59,5 @@ Every analysis is compared in the tests with the program it imitates, on real fi
 MSD, CNA, Voronoi, centrosymmetry, Steinhardt, displacements, Ackland–Jones, ReaxFF species), OVITO 3.17 atom by
 atom (PTM, a-CNA, strain, Wigner–Seitz, Voronoi, clusters, surface mesh), MDAnalysis and MDTraj (RMSD, RMSF,
 hydrogen bonds, DSSP, SASA, PCA, salt bridges, contact maps) and the official test files of each format. The
-coverage of OVITO 3 Basic and of VMD is listed item by item in the project; at version 0.17 it is 98.7 % of OVITO
+coverage of OVITO 3 Basic and of VMD is listed item by item in the project; at version 0.18 it is 99.4 % of OVITO
 Basic and 100 % of the VMD list.

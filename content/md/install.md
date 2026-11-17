@@ -64,6 +64,6 @@ SciVelyx MD works alone. A few things use programs you install yourself; set the
 | ffmpeg | MP4, MOV, MKV, AVI and WebM movies (GIF and PNG series work without it) |
 | Tachyon or POV-Ray | ray-traced pictures with shadows and ambient light |
 | VMD, UCSF ChimeraX, PyMOL | opening the chosen frames in another viewer |
-| OVITO's Python module (`pip install ovito`) | the dislocation analysis (DXA) |
+| OVITO's Python module (`pip install ovito`) | OVITO's own dislocation analysis, as an option (SciVelyx MD has its own) |
 
 The program does not connect to the internet, sends nothing anywhere and needs no account.

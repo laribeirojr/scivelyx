@@ -16,6 +16,7 @@ grava os mesmos projetos do SciVelyx Graphs, sem janela: para trabalhos em lote,
 | `rmsd`, `rmsf`, `gyration`, `hbonds`, `dssp`, `sasa`, `pca` | biomoléculas |
 | `saltbridges`, `contacts`, `timeline` | pontes salinas, mapas de contato entre resíduos, linhas do tempo por resíduo |
 | `volmap` | mapa de densidade 3D: arquivo OpenDX ou cube e um projeto com mapas 2D |
+| `dislocations` | análise de discordâncias (DXA) de cada frame: comprimentos de linha por família de vetor de Burgers e densidade ao longo do tempo, os segmentos do último frame |
 | `modify` | aplica modificadores e grava os frames (dump ou data do LAMMPS, XYZ estendido, PDB), as tabelas de dados e os atributos |
 | `modifiers` | lista os modificadores e seus parâmetros |
 | `image`, `movie` | desenha um frame ou um filme em 3D, com quaisquer modificadores e representações |

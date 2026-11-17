@@ -31,8 +31,9 @@ tracer para as sombras. Os gráficos dos resultados passam pelo SciVelyx Graphs,
 tamanho exato da coluna da revista.
 
 **Tem análise de discordâncias?**
-Tem, pelo algoritmo do próprio OVITO: instale o módulo Python do OVITO (`pip install ovito`) num Python do seu
-computador, e o SciVelyx MD o roda lá.
+Tem, própria (desde a 0.18): Analysis ▸ Materials ▸ Dislocation analysis (DXA), para cristais FCC, HCP, BCC e de
+diamante, com os mesmos segmentos e vetores de Burgers da DXA do OVITO nas corridas de teste. O algoritmo do próprio
+OVITO ainda pode ser escolhido no modificador quando o módulo Python do OVITO está instalado.
 
 **Em que idioma está a interface?**
 Inglês. Este manual e o site estão em inglês e português.
